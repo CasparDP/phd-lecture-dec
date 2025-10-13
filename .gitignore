@@ -1,0 +1,8 @@
+# Ignore all files
+*
+
+# Except these files
+!.gitignore
+!download_ict.bash
+!poetry.lock
+!README.md
