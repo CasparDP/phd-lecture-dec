@@ -6,3 +6,8 @@
 !download_ict.bash
 !poetry.lock
 !README.md
+!poetry.toml
+!download_usitc_annual_reports.bash
+!DATABASE_README.md
+!pyproject.toml
+!setup.R
