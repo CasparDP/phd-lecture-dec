@@ -40,6 +40,13 @@ con <- dbConnect(duckdb::duckdb(), dbdir = db_path)
 # List all tables in the database
 tables <- dbListTables(con)
 print(tables)
+
+investigations %>%
+    group_by(investigation_type) %>%
+    summarise(count = n()) %>%
+    arrange(desc(count)) %>%
+    print(n = Inf)
+
 # Example query: Get all import injury investigations
 investigations <- tbl(con, "ict_investigations_flat") %>%
     filter(investigation_type == "Import Injury") %>%
