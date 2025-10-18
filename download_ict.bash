@@ -65,7 +65,8 @@ WITH raw_data AS (
 SELECT investigation.* FROM raw_data;
 
 -- ============================================================================
--- Step 4: Create flat table for analysis (R/Python/Stata compatible)
+-- Step 4: Create flat table for analysis with full complex field values
+-- (R/Python/Stata compatible - arrays can be unnested in R)
 -- ============================================================================
 DROP TABLE IF EXISTS ict_investigations_flat;
 
@@ -106,17 +107,44 @@ SELECT
     "Is Split Final?" as is_split_final,
     "Has Internal Remand?" as has_internal_remand,
     
-    -- Array counts (complex fields converted to simple counts)
+    -- IMPROVED: Complex fields WITH VALUES (not just counts)
+    -- These can be unnested in R with tidyr::unnest() or used as-is for analysis
+    "Countries" as countries,
     COALESCE(array_length("Countries"), 0) as countries_count,
-    COALESCE(array_length("Participants"), 0) as participants_count,
-    COALESCE(array_length("Staff"), 0) as staff_count,
+    
+    -- Investigation Categories - preserve as array
+    "Investigation Categories" as investigation_categories,
     COALESCE(array_length("Investigation Categories"), 0) as investigation_categories_count,
-    COALESCE(array_length("Commerce Orders"), 0) as commerce_orders_count,
-    COALESCE(array_length("Hearing Witnesses"), 0) as hearing_witnesses_count,
+    
+    -- Participants array - contains full participant information
+    "Participants" as participants,
+    COALESCE(array_length("Participants"), 0) as participants_count,
+    
+    -- Staff array
+    "Staff" as staff,
+    COALESCE(array_length("Staff"), 0) as staff_count,
+    
+    -- HTS Numbers array
+    "HTS Number" as hts_numbers,
     COALESCE(array_length("HTS Number"), 0) as hts_numbers_count,
+    
+    -- Additional arrays
+    "Hearing Witnesses" as hearing_witnesses,
+    COALESCE(array_length("Hearing Witnesses"), 0) as hearing_witnesses_count,
+    
+    "Commerce Orders" as commerce_orders,
+    COALESCE(array_length("Commerce Orders"), 0) as commerce_orders_count,
+    
+    "Investigation Documents" as investigation_documents,
     COALESCE(array_length("Investigation Documents"), 0) as documents_count,
+    
+    "Intellectual Property" as intellectual_property,
     COALESCE(array_length("Intellectual Property"), 0) as intellectual_property_count,
+    
+    "Sub-investigation" as sub_investigations,
     COALESCE(array_length("Sub-investigation"), 0) as sub_investigations_count,
+    
+    "Mini Schedule" as mini_schedule,
     COALESCE(array_length("Mini Schedule"), 0) as mini_schedule_count,
     
     -- Additional fields
@@ -136,12 +164,99 @@ SELECT
 FROM ict_investigations;
 
 -- ============================================================================
+-- Step 5: Create denormalized tables for easy unnesting in R
+-- These tables repeat investigation records to match complex field values
+-- ============================================================================
+
+-- Countries expanded table (one row per investigation-country combination)
+DROP TABLE IF EXISTS ict_investigations_by_country;
+CREATE TABLE ict_investigations_by_country AS
+SELECT
+    investigation_id,
+    investigation_number,
+    full_title,
+    topic,
+    investigation_type,
+    start_date,
+    country,
+    current_timestamp as imported_at
+FROM (
+    SELECT
+        f.investigation_id,
+        f.investigation_number,
+        f.full_title,
+        f.topic,
+        f.investigation_type,
+        f.start_date,
+        country
+    FROM ict_investigations_flat f
+    LEFT JOIN LATERAL UNNEST(f.countries) AS t(country) ON TRUE
+)
+WHERE country IS NOT NULL;
+
+-- Investigation Categories expanded table
+DROP TABLE IF EXISTS ict_investigations_by_category;
+CREATE TABLE ict_investigations_by_category AS
+SELECT
+    investigation_id,
+    investigation_number,
+    full_title,
+    investigation_type,
+    start_date,
+    category,
+    current_timestamp as imported_at
+FROM (
+    SELECT
+        f.investigation_id,
+        f.investigation_number,
+        f.full_title,
+        f.investigation_type,
+        f.start_date,
+        category
+    FROM ict_investigations_flat f
+    LEFT JOIN LATERAL UNNEST(f.investigation_categories) AS t(category) ON TRUE
+)
+WHERE category IS NOT NULL;
+
+-- HTS Numbers expanded table
+DROP TABLE IF EXISTS ict_investigations_by_hts;
+CREATE TABLE ict_investigations_by_hts AS
+SELECT
+    investigation_id,
+    investigation_number,
+    full_title,
+    start_date,
+    hts_number,
+    current_timestamp as imported_at
+FROM (
+    SELECT
+        f.investigation_id,
+        f.investigation_number,
+        f.full_title,
+        f.start_date,
+        hts_number
+    FROM ict_investigations_flat f
+    LEFT JOIN LATERAL UNNEST(f.hts_numbers) AS t(hts_number) ON TRUE
+)
+WHERE hts_number IS NOT NULL;
+
+-- ============================================================================
 -- Create indexes for better query performance
+-- (Note: Cannot index array/struct fields directly in DuckDB)
 -- ============================================================================
 CREATE INDEX idx_investigation_id ON ict_investigations_flat(investigation_id);
 CREATE INDEX idx_investigation_number ON ict_investigations_flat(investigation_number);
 CREATE INDEX idx_start_date ON ict_investigations_flat(start_date);
 CREATE INDEX idx_investigation_type ON ict_investigations_flat(investigation_type);
+
+CREATE INDEX idx_country_investigation ON ict_investigations_by_country(investigation_id);
+CREATE INDEX idx_country_name ON ict_investigations_by_country(country);
+
+CREATE INDEX idx_category_investigation ON ict_investigations_by_category(investigation_id);
+CREATE INDEX idx_category_name ON ict_investigations_by_category(category);
+
+CREATE INDEX idx_hts_investigation ON ict_investigations_by_hts(investigation_id);
+CREATE INDEX idx_hts_number ON ict_investigations_by_hts(hts_number);
 
 -- ============================================================================
 -- Summary Statistics
