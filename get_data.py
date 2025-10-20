@@ -77,7 +77,9 @@ STOPWORDS = {
     "certain", "other", "related", "various", "and", "the", "a", "or",
     "not", "from", "for", "with", "as", "such", "including", "whether",
     "apparatus", "equipment", "machinery", "device", "system", "tool",
-    "supplement"
+    "supplement", "manufacturing", "production", "use", "used", "based",
+    "made", "manufactured", "component", "components", "part", "parts",
+    "of", "in", "on", "by", "at", "to"
 }
 
 # -----------------------------
