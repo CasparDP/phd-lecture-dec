@@ -21,7 +21,7 @@ library(tidyverse)
 # Make the path portable to your system
 # Change the path below to your own path where you want to store the database
 # For example: db_path <- '/path/to/your/Dropbox/Github Data/phd-lecture-dec/DB/ict_data.duckdb'
-db_path <- "/Users/casparm4/Dropbox/Github Data/phd-lecture-dec/DB/ict_data.duckdb"
+db_path <- "~/Dropbox/Github Data/phd-lecture-dec/DB/ict_data.duckdb"
 
 
 if (file.exists(db_path)) {
@@ -45,10 +45,18 @@ investigations <- tbl(con, "ict_investigations_by_category") %>%
     collect() %>%
     unnest(category)
 view(investigations)
+
 # Example query: Get all import injury investigations
 investigations <- tbl(con, "ict_investigations_flat") %>%
+    filter(investigation_status == "Completed") %>%
     # filter(investigation_type == "Import Injury") %>%
     collect()
+investigations <-
+    investigations %>%
+    mutate(across(c("investigation_id", "case_id", "docket_number"), as.numeric)) %>% # Convert first 4 columns to numeric if needed
+    mutate(across(contains("date"), lubridate::ymd)) %>% # Convert date columns to Date type
+    filter(investigation_type == "Import Injury")
+
 view(investigations)
 
 # Check investigation status data
