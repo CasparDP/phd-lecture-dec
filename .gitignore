@@ -1,15 +1,77 @@
-# Ignore all files
-*
+# Build and generated files
+_site/
+_quarto/
+.quarto/
+*.quarto_ipynb
+site_libs/
 
-# Except these files
-!.gitignore
-!download_ict.bash
-!poetry.lock
-!README.md
-!poetry.toml
-!download_usitc_annual_reports.bash
-!DATABASE_README.md
-!pyproject.toml
-!setup.R
-!get_data.py
-!jones.R
+# Environment and dependencies
+.env
+.env.local
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# R
+.Rhistory
+.RData
+.Rapp.history
+.Rproj.user/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data files (adjust as needed for your project)
+*.csv
+secrets.csv
+raw_html_cache/
+
+# Logs
+*.log
+output.log
+
+# Cache directories
+.cache/
+cache/
+
+/.quarto/
+**/*.quarto_ipynb
+
+# For development purposes keep the following files local for now
+utility/
+data-prep/
+_site/utility/
+.github/
+lecture-materials/

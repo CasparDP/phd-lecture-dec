@@ -1,0 +1,375 @@
+/*-- scss:defaults --*/
+
+// Define custom colors (you can adjust these)
+$primary-color: #0066cc;
+$secondary-color: #004d99;
+$accent-color: #ff6b35;
+$accent2: #00796b; // New accent color for alerts
+$jet: #333333; // Dark gray for text
+$text-color: #333333;
+$background-color: #ffffff;
+$light-gray: #f8f9fa;
+
+// Headline colors - professional with increased contrast
+$h1-color: #1a365d; // Deep navy blue
+$h2-color: #2b6cb0; // Royal blue
+$h3-color: #3182ce; // Bright blue
+$h4-color: #00796b; // Teal green
+$h5-color: #607d8b; // Lighter gray
+$h6-color: #78909c; // Subtle gray
+
+// Typography
+$presentation-font-size-root: 32px;
+$presentation-font-smaller: 0.8;
+$presentation-h1-font-size: 2.5em;
+$presentation-h2-font-size: 1.8em;
+$presentation-h3-font-size: 1.4em;
+
+/*-- scss:rules --*/
+
+// Main slide styling
+.reveal {
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: $text-color;
+}
+
+// Title slide customization
+.reveal .title-slide {
+  text-align: center;
+
+  .title {
+    color: $primary-color;
+    font-weight: bold;
+    font-size: 2.2em;
+    margin-bottom: 0.5em;
+  }
+
+  .subtitle {
+    color: $secondary-color;
+    font-size: 1.3em;
+    margin-bottom: 1em;
+  }
+
+  .author,
+  .institute {
+    color: $text-color;
+    font-size: 1.1em;
+  }
+}
+
+// Section headers with updated colors
+.reveal h1 {
+  color: $h1-color;
+  font-weight: bold;
+  text-transform: none;
+}
+
+.reveal h2 {
+  color: $h2-color;
+  font-weight: bold;
+  text-transform: none;
+}
+
+.reveal h3 {
+  color: $h3-color;
+  font-weight: 600;
+  text-transform: none;
+}
+
+.reveal h4 {
+  color: $h4-color;
+  font-weight: 600;
+  text-transform: none;
+}
+
+.reveal h5 {
+  color: $h5-color;
+  font-weight: 500;
+  text-transform: none;
+}
+
+.reveal h6 {
+  color: $h6-color;
+  font-weight: 500;
+  text-transform: none;
+}
+
+// Emphasis and highlighting
+.reveal .progress {
+  height: 6px;
+  background-color: $primary-color;
+}
+
+.reveal .controls {
+  color: $primary-color;
+}
+
+// Custom classes for content
+.smaller {
+  font-size: 0.85em !important;
+}
+
+.larger {
+  font-size: 1.2em !important;
+}
+
+.center {
+  text-align: center;
+}
+
+.highlight {
+  background-color: rgba(255, 107, 53, 0.1);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+// Two-column layout improvements
+.reveal .columns {
+  gap: 2em;
+}
+
+// Incremental list styling
+.reveal .incremental > * {
+  opacity: 0.5;
+}
+
+.reveal .incremental > *.current-fragment {
+  opacity: 1;
+  font-weight: 600;
+}
+
+// Code blocks
+.reveal pre {
+  background-color: $light-gray;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  margin: 1em 0;
+}
+
+.reveal code {
+  background-color: $light-gray;
+  color: $secondary-color;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+// Tables
+.reveal table {
+  border-collapse: collapse;
+  margin: 1em auto;
+}
+
+.reveal table th {
+  background-color: $primary-color;
+  color: white;
+  font-weight: bold;
+  padding: 0.6em;
+}
+
+.reveal table td {
+  padding: 0.5em;
+  border-bottom: 1px solid #ddd;
+}
+
+.reveal table tr:nth-child(even) {
+  background-color: $light-gray;
+}
+
+// Footer customization
+.reveal .footer {
+  font-size: 0.6em;
+  color: #666;
+}
+
+// Slide numbers
+.reveal .slide-number {
+  background-color: $primary-color;
+  color: white;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+
+// Navigation arrows
+.reveal .navigate-left,
+.reveal .navigate-right,
+.reveal .navigate-up,
+.reveal .navigate-down {
+  color: $primary-color;
+}
+
+// Special slide types
+.title-slide-final {
+  background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+  color: white;
+
+  h2 {
+    color: white;
+  }
+}
+
+// Images and figures
+.reveal img {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+// Quotes and callouts
+.reveal blockquote {
+  background-color: $light-gray;
+  border-left: 4px solid $primary-color;
+  padding: 1em;
+  margin: 1em 0;
+  font-style: italic;
+}
+
+// Utility classes for alerts and styling
+.alert {
+  color: $accent2;
+}
+
+.fg {
+  color: var(--col, $jet);
+}
+
+.bg {
+  background-color: var(--col, #fff);
+  padding: 0.1em;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+// Button styling from caspar_slide.scss
+.button {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: $primary-color;
+  border: 1px solid $primary-color;
+  color: #fff !important;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  background-color: darken($primary-color, 5%);
+  border-color: darken($primary-color, 5%);
+}
+
+.button::before {
+  content: "▶";
+  margin-right: 5px;
+}
+
+// Special catch for etable environment to ensure these table images
+// don't overflow the slide.
+// See: https://lrberge.github.io/fixest/articles/etable_new_features.html
+
+.etable {
+  width: 90%;
+  max-width: 90%; /* Limit width for better readability */
+  height: calc(100% - 5em);
+  display: flex;
+  align-items: top;
+  justify-content: top;
+  margin: 0 auto; /* Center the table */
+  padding: 0.5rem;
+}
+
+.etable img {
+  max-width: 90%;
+  max-height: 90%; /* Leave some breathing room */
+  width: auto;
+  height: calc(100% - 5em);
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background-color: white;
+  padding: 8px;
+}
+
+/* Single-column regression table scaling */
+.etable.single-column {
+  max-width: 80%;
+}
+
+.etable.single-column img {
+  transform: scale(1.1); /* Slightly larger for single column */
+  transform-origin: top;
+}
+
+/* Multi-column regression table scaling */
+.etable.multi-column {
+  max-width: 70%;
+}
+
+.etable.multi-column img {
+  transform: scale(0.7); /* Slightly smaller for multi-column */
+  transform-origin: top;
+}
+
+/* Responsive breakpoints for different viewport sizes */
+@media (max-width: 1200px) {
+  .etable {
+    max-width: 85%;
+    height: calc(100% - 2.5em);
+  }
+
+  .etable.single-column {
+    max-width: 75%;
+  }
+
+  .etable.single-column img {
+    transform: scale(1.05);
+  }
+
+  .etable.multi-column img {
+    transform: scale(0.85);
+  }
+}
+
+@media (max-width: 768px) {
+  .etable {
+    max-width: 95%;
+    height: calc(100% - 2em);
+  }
+
+  .etable.single-column {
+    max-width: 90%;
+  }
+
+  .etable img {
+    max-height: 80%;
+  }
+
+  .etable.single-column img,
+  .etable.multi-column img {
+    transform: scale(0.8);
+  }
+}
+
+/* Small screens - mobile/tablet portrait */
+@media (max-width: 480px) {
+  .etable {
+    max-width: 100%;
+    padding: 0.2rem;
+  }
+
+  .etable img {
+    max-height: 75%;
+    padding: 4px;
+  }
+
+  .etable.single-column img,
+  .etable.multi-column img {
+    transform: scale(0.7);
+  }
+}

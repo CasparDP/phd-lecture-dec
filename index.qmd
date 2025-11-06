@@ -1,0 +1,71 @@
+---
+title: "Firm Websites as a Data Source for Accounting Research"
+subtitle: "Methodology, Applications, and Research Opportunities"
+---
+
+
+**WORK IN PROGESS - LAST UPDATED: 2025-11-06**
+
+## About This Lecture
+
+This lecture explores how **firm websites** can be leveraged as a rich data source for accounting and business research. We will cover:
+
+- **Novel Methodology**: Web scraping and archival website data collection techniques
+- **Real Applications**: How researchers are using website data to measure corporate disclosures, information asymmetry, and governance
+- **Research Opportunities**: How this methodology can be applied to answer new questions in accounting, finance, and management
+
+### Key Topics
+
+:::{.columns}
+::: {.column width="50%"}
+**Data & Methods**
+- Web scraping frameworks and tools
+- Wayback Machine and historical website archives
+- Building longitudinal disclosure datasets
+:::
+
+::: {.column width="50%"}
+**Research Applications**
+- Corporate disclosure analysis
+- Private equity deal characteristics
+- Regulatory compliance monitoring
+:::
+:::
+
+---
+
+## Lecture Materials
+
+### 📊 [View Slides](lecture-materials/slides/lecture_slides.html)
+
+Click above to view the complete presentation with examples from recent research papers.
+
+---
+
+## Learning Goals
+
+By the end of this lecture, you should be able to:
+
+✅ Understand how to systematically scrape and archive organizational websites  
+✅ Evaluate website-based disclosure measures critically  
+✅ Design research projects using novel web-based data sources  
+✅ Apply these methods to classic accounting research questions  
+
+---
+
+## References
+
+The lecture draws on recent research including:
+
+- **Haans & Mertens (2024)**: "The Internet Never Forgets" - A framework for longitudinal website analysis
+- **Boulland et al. (2025)**: Applications of website disclosure measures to corporate finance questions
+- **Jones (1991)**: Classic earnings management framework that can be revisited with new data
+
+---
+
+## Contact
+
+**Instructor**: Caspar David Peter  
+**Email**: peter@rsm.nl  
+**Institution**: Rotterdam School of Management  
+**ORCID**: [0000-0003-0020-1673](https://orcid.org/0000-0003-0020-1673)

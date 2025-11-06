@@ -1,0 +1,565 @@
+/* Caspar's Website CSS - Matched with custom.scss */
+
+/* Import Source Sans Pro font */
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
+
+/* Color Variables - Modern Palette */
+:root {
+  --primary-color: #3b82f6; /* A more modern, vibrant blue */
+  --secondary-color: #1d4ed8; /* A darker shade for hover */
+  --accent-color: #fb923c; /* A slightly softer, modern orange */
+  --accent2: #14b8a6; /* A vibrant teal */
+  --jet: #1f2937; /* A softer, near-black for text */
+  --text-color: #374151; /* A slightly lighter gray for body text */
+  --background-color: #f9fafb; /* A very light gray for the background */
+  --light-gray: #f3f4f6;
+
+  /* Heading colors */
+  --h1-color: var(--jet);
+  --h2-color: var(--jet);
+  --h3-color: var(--text-color);
+  --h4-color: var(--text-color);
+  --h5-color: var(--text-color);
+  --h6-color: var(--text-color);
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.7;
+  color: var(--text-color);
+  margin: 0;
+  padding: 40px;
+  background-color: var(--background-color);
+  font-size: 18px; /* Reduced base font size */
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  text-transform: none;
+}
+
+h1 {
+  color: var(--h1-color);
+  font-size: 2.8em;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  color: var(--h2-color);
+  font-size: 2em;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.3em;
+}
+
+h3 {
+  color: var(--h3-color);
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+h4 {
+  color: var(--h4-color);
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+h5 {
+  color: var(--h5-color);
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+h6 {
+  color: var(--h6-color);
+  font-size: 1em;
+  font-weight: 600;
+}
+
+/* Paragraphs */
+p {
+  font-weight: 400;
+  margin-top: 1em;
+  margin-bottom: 1rem;
+}
+
+/* Links */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+
+a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+/* Lists */
+ul {
+  font-weight: 400;
+  padding-left: 20px;
+}
+
+ul li::marker {
+  color: var(--primary-color);
+}
+
+ul ul {
+  list-style: circle;
+  margin-top: 0.5em;
+}
+
+ol {
+  font-weight: 400;
+  padding-left: 20px;
+}
+
+ol li::marker {
+  color: var(--primary-color);
+}
+
+/* Code */
+pre {
+  background-color: #1f2937; /* Dark background for code */
+  border: 1px solid #374151;
+  color: #d1d5db; /* Light text on dark background */
+  font-family: "Fira Code", monospace;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 1.25rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+code {
+  color: #c026d3; /* A vibrant color for inline code */
+  background-color: rgba(192, 38, 211, 0.08);
+  font-family: "Fira Code", monospace;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+pre code {
+  font-size: 0.9em;
+  line-height: 1.5;
+  padding: 0;
+  background-color: transparent;
+  color: inherit;
+}
+
+/* Tables */
+table {
+  color: var(--text-color);
+  font-family: "Inter", sans-serif;
+  font-size: 0.95em;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-radius: 8px;
+  margin: 1.5em 0;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+}
+
+table th {
+  background-color: var(--light-gray);
+  color: var(--jet);
+  font-weight: 600;
+  padding: 0.8em 1em;
+  text-align: left;
+  position: relative;
+  border-bottom: 2px solid #d1d5db;
+}
+
+table th:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 25%;
+  height: 50%;
+  width: 1px;
+  background-color: #d1d5db;
+}
+
+table td {
+  padding: 0.8em 1em;
+  border-top: 1px solid #e5e7eb;
+  transition: background-color 0.2s ease;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: transparent;
+}
+
+table tbody tr:hover {
+  background-color: rgba(59, 130, 246, 0.05);
+}
+
+/* Table of Contents */
+.toc {
+  background-color: var(--background-color);
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.5em;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.toc ul {
+  list-style-type: none;
+  padding-left: 1rem;
+  margin: 0;
+}
+
+.toc > ul {
+  padding-left: 0;
+}
+
+.toc li {
+  margin-bottom: 0.5rem;
+}
+
+.toc a {
+  color: var(--text-color);
+  font-weight: 500;
+  border-bottom: none;
+  transition: color 0.2s ease;
+}
+
+.toc a:hover {
+  color: var(--primary-color);
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid var(--primary-color);
+  color: var(--text-color);
+  background-color: #f3f4f6;
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+  font-style: normal;
+  border-radius: 0 8px 8px 0;
+  position: relative;
+}
+
+blockquote::before {
+  content: "";
+}
+
+blockquote p {
+  margin-bottom: 0.5em;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+blockquote cite {
+  display: block;
+  font-size: 0.8em;
+  font-style: normal;
+  margin-top: 0.8em;
+  text-align: right;
+  color: #6b7280;
+}
+
+/* Cards and callouts */
+.card,
+.callout {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin: 1.5em 0;
+  padding: 1.5em;
+  position: relative;
+  overflow: hidden;
+}
+
+.callout-note,
+.callout-tip {
+  border-left: 4px solid var(--primary-color);
+}
+
+.callout-important,
+.callout-warning {
+  border-left: 4px solid var(--accent-color);
+}
+
+.callout-caution {
+  border-left: 4px solid var(--accent2);
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  border: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin: 1em auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.figure img,
+p > img,
+div > img {
+  background-color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 0;
+}
+
+/* Figure captions */
+figcaption {
+  font-size: 0.9em;
+  color: #6b7280;
+  font-style: normal;
+  margin-top: 0.8em;
+  text-align: center;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(59, 130, 246, 0.3);
+}
+
+/* Title area styling */
+.title {
+  color: var(--jet);
+  font-size: 3em;
+  font-weight: 800;
+  line-height: 1.1;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.5rem;
+  text-shadow: none;
+}
+
+.subtitle {
+  color: var(--text-color);
+  font-size: 1.6em;
+  margin-top: 1rem;
+  font-weight: 400;
+}
+
+.author,
+.quarto-title-author-name {
+  color: var(--text-color);
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.quarto-title-affiliation,
+.institute,
+.date,
+.quarto-title-author-email {
+  font-style: normal;
+  color: #6b7280;
+  opacity: 1;
+  font-size: 1em;
+}
+
+/* ORCID icon styling */
+.quarto-title-author-orcid {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.3em;
+  text-decoration: none;
+}
+
+.quarto-title-author-orcid img {
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.quarto-title-author-orcid:hover {
+  opacity: 0.8;
+  transform: none;
+}
+
+/* --- etable: responsive tables with horizontal scroll when needed --- */
+/* Adapted for website pages to allow small tables to fit without scrolling. */
+.etable {
+  width: 100%;
+  position: static;
+  overflow-x: auto; /* enable horizontal scroll when content is wider */
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin: 1rem 0; /* space from surrounding text */
+}
+/* Remove global constraints inside .etable so content can extend and scroll */
+.etable img,
+.etable table {
+  max-width: none; /* override global img/table width constraints */
+}
+
+/* Images inside etable: fit within container when possible */
+.etable img {
+  max-width: none;
+  max-height: 60vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0; /* avoid extra spacing inside the scroller */
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  background: #fff;
+  padding: 8px;
+}
+
+/* Subtle custom scrollbar for WebKit browsers */
+.etable::-webkit-scrollbar {
+  display: none; /* hide scrollbar but keep scrolling */
+}
+.etable {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  body {
+    padding: 1.5rem;
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.7rem;
+  }
+
+  .toc {
+    padding: 1rem;
+  }
+
+  .card,
+  .callout {
+    padding: 1.25rem;
+  }
+}
+
+/* Utility classes */
+.smaller {
+  font-size: 0.85em !important;
+}
+
+.larger {
+  font-size: 1.2em !important;
+}
+
+.center {
+  text-align: center;
+}
+
+.highlight {
+  background-color: rgba(251, 146, 60, 0.15);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
+
+.alert {
+  color: var(--accent2);
+}
+
+.fg {
+  color: var(--jet);
+}
+
+.bg {
+  background-color: var(--background-color);
+  padding: 0.2em 0.4em;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+/* Button styling */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-bottom: 0;
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  color: #fff !important;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.button:hover {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.button::before {
+  content: "";
+  margin-right: 0;
+}
+
+/* Print styles */
+@media print {
+  body {
+    color: #000;
+    background: #fff;
+  }
+
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  .toc {
+    background: #fff;
+    border: 1px solid #000;
+  }
+}

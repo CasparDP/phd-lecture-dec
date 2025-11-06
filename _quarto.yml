@@ -1,0 +1,91 @@
+project:
+  type: website
+  output-dir: "_site"
+  preview:
+    port: 4200
+    browser: true
+
+website:
+  site-url: https://CasparDP.github.io/phd-lecture-dec/
+  title: "Firm Websites as a Data Source for Accounting Research"
+  description: "Methodology, Applications, and Research Opportunities"
+
+  navbar:
+    title: "Firm Websites as a Data Source for Accounting Research"
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Slides"
+        href: lecture-materials/slides/lecture_slides.qmd
+      # - text: "References"
+      #   href: references.qmd
+
+  # sidebar:
+  #   - title: "Project Navigation"
+  #     contents:
+  #       - section: "Presentations"
+  #         contents: "slides/*.qmd"
+  #       - section: "Institutional Background"
+  #         contents: "analysis/institutional_background.qmd"
+  #       - section: "Analysis"
+  #         contents: "analysis/*.qmd"
+
+  page-footer:
+    center: "© 2025 - Rotterdam School of Management"
+
+format:
+  html:
+    #theme: cosmo
+    css: assets/website_caspar.css
+    toc: true
+    toc-location: left
+    code-fold: true
+    code-tools: true
+    # Ensure all resources are embedded for sharing
+    embed-resources: true
+    # Copy dependencies to output
+    self-contained-math: true
+
+  revealjs:
+    theme: assets/custom.scss
+    # Make slides completely self-contained for easy sharing
+    embed-resources: true
+    standalone: true
+    # Navigation and controls
+    slide-number: true
+    multiplex: false
+    touch: true
+    controls: true
+    # Presentation behavior
+    transition: slide
+    transition-speed: default
+    background-transition: fade
+    # Content and layout
+    center: false
+    margin: 0.1
+    width: 1600
+    height: 900
+    # Code highlighting
+    highlight-style: github
+    code-fold: false
+    code-overflow: wrap
+    # Footer and logo
+    logo: ""
+    footer: "Firm Websites as a Data Source for Accounting Research"
+    # Make completely portable
+    self-contained: true
+
+execute:
+  # Freeze computational output for reproducibility
+  freeze: auto
+  # Cache location
+  cache: false
+  warning: false
+  message: false
+  echo: false
+
+# Ensure R environment is consistent
+engine: knitr
+
+bibliography: assets/references.bib
+csl: assets/jae.csl
