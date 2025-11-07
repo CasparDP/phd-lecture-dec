@@ -187,6 +187,7 @@ table {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
   border: 1px solid #e5e7eb;
+  display: table;
 }
 
 table th {
@@ -422,26 +423,34 @@ figcaption {
   border-radius: 8px;
   padding: 0.5rem;
   margin: 1rem 0; /* space from surrounding text */
-}
-/* Remove global constraints inside .etable so content can extend and scroll */
-.etable img,
-.etable table {
-  max-width: none; /* override global img/table width constraints */
+  display: block;
 }
 
-/* Images inside etable: fit within container when possible */
+/* Ensure tables display properly inside etable divs */
+.etable table {
+  width: 100%;
+  margin: 0;
+  display: table;
+}
+
+/* Scale down etable images to fit better within content width */
 .etable img {
-  max-width: none;
-  max-height: 60vh;
-  width: auto;
+  max-width: 100%;
+  width: 100%;
   height: auto;
-  object-fit: contain;
+  object-fit: scale-down;
   display: block;
-  margin: 0; /* avoid extra spacing inside the scroller */
+  margin: 0 auto;
   border-radius: 4px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
   background: #fff;
   padding: 8px;
+}
+
+/* Remove global constraints inside .etable so content can extend and scroll */
+.etable img,
+.etable table {
+  max-width: 100%;
 }
 
 /* Subtle custom scrollbar for WebKit browsers */

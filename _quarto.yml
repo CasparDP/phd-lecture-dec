@@ -1,9 +1,9 @@
 project:
   type: website
   output-dir: "_site"
-  preview:
-    port: 4200
-    browser: true
+  # preview:
+  #   port: 4200
+  #   browser: true
 
 website:
   site-url: https://CasparDP.github.io/phd-lecture-dec/
@@ -17,18 +17,20 @@ website:
         href: index.qmd
       - text: "Slides"
         href: lecture-materials/slides/lecture_slides.qmd
-      # - text: "References"
-      #   href: references.qmd
+      - text: "Playground"
+        href: lecture-materials/playground/revisting-jones.qmd
+      - text: "Additional Resources"
+        href: lecture-materials/handouts/institutional_background.qmd
 
-  # sidebar:
-  #   - title: "Project Navigation"
-  #     contents:
-  #       - section: "Presentations"
-  #         contents: "slides/*.qmd"
-  #       - section: "Institutional Background"
-  #         contents: "analysis/institutional_background.qmd"
-  #       - section: "Analysis"
-  #         contents: "analysis/*.qmd"
+  sidebar:
+    - title: "Project Navigation"
+      contents:
+        - section: "Slides"
+          contents: "slides/*.qmd"
+        - section: "Institutional Background"
+          contents: "lecture-materials/handouts/institutional_background.qmd"
+        - section: "Playground"
+          contents: "lecture-materials/playground/*.qmd"
 
   page-footer:
     center: "© 2025 - Rotterdam School of Management"
@@ -45,6 +47,7 @@ format:
     embed-resources: true
     # Copy dependencies to output
     self-contained-math: true
+    mathjax: true
 
   revealjs:
     theme: assets/custom.scss

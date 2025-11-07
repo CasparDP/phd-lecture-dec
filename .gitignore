@@ -54,7 +54,7 @@ share/python-wheels/
 Thumbs.db
 
 # Data files (adjust as needed for your project)
-*.csv
+#*.csv
 secrets.csv
 raw_html_cache/
 

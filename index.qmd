@@ -1,6 +1,7 @@
 ---
 title: "Firm Websites as a Data Source for Accounting Research"
 subtitle: "Methodology, Applications, and Research Opportunities"
+format: html
 ---
 
 
