@@ -15,7 +15,7 @@ $h1-color: #1a365d; // Deep navy blue
 $h2-color: #2b6cb0; // Royal blue
 $h3-color: #3182ce; // Bright blue
 $h4-color: #00796b; // Teal green
-$h5-color: #607d8b; // Lighter gray
+$h5-color: #ff6b35; // Lighter orange
 $h6-color: #78909c; // Subtle gray
 
 // Typography
@@ -84,7 +84,7 @@ $presentation-h3-font-size: 1.4em;
 
 .reveal h5 {
   color: $h5-color;
-  font-weight: 500;
+  font-weight: bold;
   text-transform: none;
 }
 

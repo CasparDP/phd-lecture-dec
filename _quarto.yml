@@ -7,20 +7,20 @@ project:
 
 website:
   site-url: https://CasparDP.github.io/phd-lecture-dec/
-  title: "Firm Websites as a Data Source for Accounting Research"
+  title: "Earnings Management Then and Now: Revisiting Jones (1991)"
   description: "Methodology, Applications, and Research Opportunities"
 
   navbar:
-    title: "Firm Websites as a Data Source for Accounting Research"
+    title: "Earnings Management Then and Now: Revisiting Jones (1991)"
     left:
       - text: "Home"
         href: index.qmd
       - text: "Slides"
-        href: lecture-materials/slides/lecture_slides.qmd
+        href: lecture-materials/slides/lecture-slides.qmd
       - text: "Playground"
-        href: lecture-materials/playground/revisting-jones.qmd
+        href: lecture-materials/playground/revisiting-jones.qmd
       - text: "Additional Resources"
-        href: lecture-materials/handouts/institutional_background.qmd
+        href: lecture-materials/handouts/institutional-background.qmd
 
   sidebar:
     - title: "Project Navigation"
@@ -45,9 +45,9 @@ format:
     code-tools: true
     # Ensure all resources are embedded for sharing
     embed-resources: true
-    # Copy dependencies to output
-    self-contained-math: true
-    mathjax: true
+    # MathJax via CDN for reliable font loading
+    mathjax:
+      url: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
   revealjs:
     theme: assets/custom.scss
@@ -57,8 +57,8 @@ format:
     # Navigation and controls
     slide-number: true
     multiplex: false
-    touch: true
-    controls: true
+    # touch: true
+    # controls: true
     # Presentation behavior
     transition: slide
     transition-speed: default
@@ -74,7 +74,7 @@ format:
     code-overflow: wrap
     # Footer and logo
     logo: ""
-    footer: "Firm Websites as a Data Source for Accounting Research"
+    footer: "Earnings Management Then and Now: Revisiting Jones (1991)"
     # Make completely portable
     self-contained: true
 

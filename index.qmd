@@ -1,37 +1,32 @@
 ---
-title: "Firm Websites as a Data Source for Accounting Research"
-subtitle: "Methodology, Applications, and Research Opportunities"
+title: "Earnings Management Then and Now: Revisiting Jones (1991)"
+subtitle: "Website Data, Replication, and Research Design"
 format: html
 ---
 
 
-**WORK IN PROGESS - LAST UPDATED: 2025-11-06**
+##### WORK IN PROGESS - LAST UPDATED: 2025-11-12
+
+![Lecture Overview](assets/phd-lecture-excalidraw.png)
+
 
 ## About This Lecture
 
-This lecture explores how **firm websites** can be leveraged as a rich data source for accounting and business research. We will cover:
+This lecture explores how modern data sources can breathe new life into classic accounting research. We'll examine Jennifer Jones's influential 1991 study on earnings management during import relief investigations, then see how contemporary website data could extend and validate her findings.
 
-- **Novel Methodology**: Web scraping and archival website data collection techniques
-- **Real Applications**: How researchers are using website data to measure corporate disclosures, information asymmetry, and governance
-- **Research Opportunities**: How this methodology can be applied to answer new questions in accounting, finance, and management
+The lecture is structured in two parts:
 
-### Key Topics
+**Part 1: Three Papers** introduces the methodological toolkit and theoretical foundation:
+- Modern web scraping techniques for longitudinal data collection
+- Website-based disclosure measures and their validation
+- The classic Jones (1991) earnings management study
 
-:::{.columns}
-::: {.column width="50%"}
-**Data & Methods**
-- Web scraping frameworks and tools
-- Wayback Machine and historical website archives
-- Building longitudinal disclosure datasets
-:::
+**Part 2: Research in Action** demonstrates the research process:
+- A full replication of Jones (1991) with modern methods
+- Preliminary exploration of website disclosure patterns during investigations
+- Structured critique and discussion of research design choices
 
-::: {.column width="50%"}
-**Research Applications**
-- Corporate disclosure analysis
-- Private equity deal characteristics
-- Regulatory compliance monitoring
-:::
-:::
+Beyond understanding specific methods and findings, this lecture aims to **stimulate your own research creativity**. By engaging with the materials—seeing how papers can be combined, observing the decision-making process, and practicing structured critique—you'll develop pattern recognition for spotting research opportunities. The GitHub repository provides working code and data that you can adapt for your own questions, and the lecture format encourages you to think: "What would I do differently?" or "Where else could this approach work?"
 
 ---
 
@@ -45,12 +40,13 @@ Click above to view the complete presentation with examples from recent research
 
 ## Learning Goals
 
-By the end of this lecture, you should be able to:
+This lecture is designed to **spark your own research ideas**:
 
-✅ Understand how to systematically scrape and archive organizational websites  
-✅ Evaluate website-based disclosure measures critically  
-✅ Design research projects using novel web-based data sources  
-✅ Apply these methods to classic accounting research questions  
+- **During Part 1:** Ask yourself: "What other classic studies could benefit from website data?"
+- **During Part 2:** Think: "What would I do differently? What am I curious about?"
+- **After class:** The GitHub materials are yours to adapt, extend, or apply to entirely different questions
+
+The best outcome isn't just understanding *this* project—it's developing your ability to spot opportunities where new data sources can unlock fresh insights into established phenomena. Use the lecture materials as a launching pad for your own creativity.
 
 ---
 
@@ -66,7 +62,8 @@ The lecture draws on recent research including:
 
 ## Contact
 
-**Instructor**: Caspar David Peter  
-**Email**: peter@rsm.nl  
-**Institution**: Rotterdam School of Management  
-**ORCID**: [0000-0003-0020-1673](https://orcid.org/0000-0003-0020-1673)
+<div>
+  <div><span>👨‍🏫</span>&emsp;Caspar David Peter</div>
+  <div><span>✉️</span>&emsp;<a href="mailto:peter@rsm.nl">peter@rsm.nl</a></div>
+  <div><span>🏫</span>&emsp;Rotterdam School of Management</div>
+</div>
