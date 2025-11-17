@@ -36,14 +36,22 @@
 body {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif;
-  line-height: 1.7;
+  line-height: 1.65;
   color: var(--text-color);
   margin: 0;
-  padding: 2rem;
+  padding: clamp(1rem, 4vw, 2.5rem);
   background-color: var(--background-color);
   font-size: 16px; /* Slightly smaller for better readability */
   max-width: 100%;
   width: 100%;
+}
+
+.page-columns .content,
+main.content {
+  max-width: clamp(960px, 90vw, 1400px);
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 clamp(1rem, 3vw, 3rem);
 }
 
 /* Typography */
@@ -464,6 +472,13 @@ figcaption {
   scrollbar-width: none; /* Firefox */
 }
 
+@media (min-width: 1200px) {
+  body {
+    font-size: 17px;
+    line-height: 1.6;
+  }
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   body {
@@ -557,6 +572,19 @@ figcaption {
 .button::before {
   content: "";
   margin-right: 0;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--accent2);
+  outline-offset: 2px;
+}
+
+img,
+.toc,
+.card,
+.callout,
+table {
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
 }
 
 /* Print styles */

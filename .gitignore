@@ -85,3 +85,4 @@ data-prep/DB/*duckdb
 data-prep/*.csv
 Rplots.pdf
 _freeze/
+assets/website_caspar_old.css

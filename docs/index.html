@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Earnings Management Then and Now: Revisiting Jones (1991)</title>
+<title>Earnings Management Then and Now: Revisiting Jones (1991) – Earnings Management Then and Now: Revisiting Jones (1991)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -3969,14 +3969,21 @@ text-rendering: optimizeLegibility;
 body {
 font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
 Roboto, "Helvetica Neue", Arial, sans-serif;
-line-height: 1.7;
+line-height: 1.65;
 color: var(--text-color);
 margin: 0;
-padding: 2rem;
+padding: clamp(1rem, 4vw, 2.5rem);
 background-color: var(--background-color);
 font-size: 16px; 
 max-width: 100%;
 width: 100%;
+}
+.page-columns .content,
+main.content {
+max-width: clamp(960px, 90vw, 1400px);
+margin: 0 auto;
+width: 100%;
+padding: 0 clamp(1rem, 3vw, 3rem);
 }
 
 h1,
@@ -4342,6 +4349,12 @@ display: none;
 -ms-overflow-style: none; 
 scrollbar-width: none; 
 }
+@media (min-width: 1200px) {
+body {
+font-size: 17px;
+line-height: 1.6;
+}
+}
 
 @media (max-width: 768px) {
 body {
@@ -4422,6 +4435,17 @@ box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
 content: "";
 margin-right: 0;
 }
+.button:focus-visible {
+outline: 2px solid var(--accent2);
+outline-offset: 2px;
+}
+img,
+.toc,
+.card,
+.callout,
+table {
+box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+}
 
 @media print {
 body {
@@ -4494,12 +4518,12 @@ border: 1px solid #000;
   <li><a href="#lecture-materials" id="toc-lecture-materials" class="nav-link" data-scroll-target="#lecture-materials">Lecture Materials</a>
   <ul class="collapse">
   <li><a href="#view-slides" id="toc-view-slides" class="nav-link" data-scroll-target="#view-slides">📊 View Slides</a></li>
-  <li><a href="#github-repository" id="toc-github-repository" class="nav-link" data-scroll-target="#github-repository">📁 [GitHub Repository](</a></li>
+  <li><a href="#github-repository" id="toc-github-repository" class="nav-link" data-scroll-target="#github-repository">📁 GitHub Repository</a></li>
   <li><a href="#paper-summaries" id="toc-paper-summaries" class="nav-link" data-scroll-target="#paper-summaries">🤖 Paper Summaries</a></li>
   </ul></li>
   <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning Goals</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   <li><a href="#contact" id="toc-contact" class="nav-link" data-scroll-target="#contact">Contact</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
 </nav>
@@ -4512,7 +4536,7 @@ border: 1px solid #000;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Earnings Management Then and Now: Revisiting Jones (1991)</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Earnings Management Then and Now: Revisiting <span class="citation" data-cites="jones1991earnings">Jones (<a href="#ref-jones1991earnings" role="doc-biblioref">1991</a>)</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 <p class="subtitle lead">Website Data, Replication, and Research Design</p>
 </div>
 
@@ -4545,13 +4569,13 @@ border: 1px solid #000;
 <p>The lecture is structured in two parts:</p>
 <p><strong>Part 1: Three Papers</strong> introduces the methodological toolkit and theoretical foundation:</p>
 <ul>
-<li>Modern web scraping techniques for longitudinal data collection</li>
-<li>Website-based disclosure measures and their validation</li>
-<li>The classic Jones (1991) earnings management study</li>
+<li>Overview: Modern web scraping techniques for longitudinal data collection based on <span class="citation" data-cites="haans2024internet">Haans and Mertens (<a href="#ref-haans2024internet" role="doc-biblioref">2024</a>)</span></li>
+<li>Website-based disclosure measures and their validation based on <span class="citation" data-cites="boulland2025web">(<a href="#ref-boulland2025web" role="doc-biblioref"><strong>boulland2025web?</strong></a>)</span></li>
+<li>The classic <span class="citation" data-cites="jones1991earnings">Jones (<a href="#ref-jones1991earnings" role="doc-biblioref">1991</a>)</span> earnings management study</li>
 </ul>
 <p><strong>Part 2: Research in Action</strong> demonstrates the research process:</p>
 <ul>
-<li>A full replication of Jones (1991) with modern methods</li>
+<li>My interpretation of <span class="citation" data-cites="jones1991earnings">Jones (<a href="#ref-jones1991earnings" role="doc-biblioref">1991</a>)</span> with <em>modern</em> methods</li>
 <li>Preliminary exploration of website disclosure patterns during investigations</li>
 <li>Structured critique and discussion of research design choices</li>
 </ul>
@@ -4561,21 +4585,22 @@ border: 1px solid #000;
 <section id="lecture-materials" class="level2">
 <h2 class="anchored" data-anchor-id="lecture-materials">Lecture Materials</h2>
 <section id="view-slides" class="level3">
-<h3 class="anchored" data-anchor-id="view-slides">📊 <a href="lecture-materials/slides/lecture_slides.html">View Slides</a></h3>
+<h3 class="anchored" data-anchor-id="view-slides">📊 <a href="https://caspardp.github.io/phd-lecture-dec/lecture-materials/slides/lecture-slides.html">View Slides</a></h3>
 <p>Click above to view the complete presentation with examples from recent research papers.</p>
 </section>
 <section id="github-repository" class="level3">
-<h3 class="anchored" data-anchor-id="github-repository">📁 [GitHub Repository](</h3>
+<h3 class="anchored" data-anchor-id="github-repository">📁 <a href="https://github.com/CasparDP/phd-lecture-dec">GitHub Repository</a></h3>
 <p>Check out the repository for all code and data used in this lecture.</p>
 </section>
 <section id="paper-summaries" class="level3">
-<h3 class="anchored">🤖 Paper Summaries</h3>
+<h3 class="anchored" data-anchor-id="paper-summaries">🤖 Paper Summaries</h3>
 <p>Summaries of key papers generated using a local LLMs</p>
 <ul>
-<li>Is this better than any of the free LLMs out there? Probably not.</li>
-<li>BUT: It’s YOURS to adapt, extend, and improve as you see fit.</li>
-<li><h2 id="for-another-way-to-utilize-llms-in-research-see-peterweinrich2025aaer." class="anchored" data-anchor-id="paper-summaries">For another way to utilize LLMs in research, see <span class="citation" data-cites="peterweinrich2025aaer">Peter and Weinrich (<a href="#ref-peterweinrich2025aaer" role="doc-biblioref">2025</a>)</span>.</h2></li>
+<li><p>Is this better than any of the free LLMs out there? Probably not</p></li>
+<li><p>BUT: It’s YOURS to adapt, extend, and improve as you see fit</p></li>
+<li><p>For another way to utilize LLMs in research, see <span class="citation" data-cites="peterweinrich2025aaer">Peter and Weinrich (<a href="#ref-peterweinrich2025aaer" role="doc-biblioref">2025</a>)</span></p></li>
 </ul>
+<hr>
 </section>
 </section>
 <section id="learning-goals" class="level2">
@@ -4587,16 +4612,6 @@ border: 1px solid #000;
 <li><strong>After class:</strong> The GitHub materials are yours to adapt, extend, or apply to entirely different questions</li>
 </ul>
 <p>The best outcome isn’t just understanding <em>this</em> project—it’s developing your ability to spot opportunities where new data sources can unlock fresh insights into established phenomena. Use the lecture materials as a launching pad for your own creativity.</p>
-<hr>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p>The lecture draws on recent research including:</p>
-<ul>
-<li><strong>Haans &amp; Mertens (2024)</strong>: “The Internet Never Forgets” - A framework for longitudinal website analysis</li>
-<li><strong>Boulland et al. (2025)</strong>: Applications of website disclosure measures to corporate finance questions</li>
-<li><strong>Jones (1991)</strong>: Classic earnings management framework that can be revisited with new data</li>
-</ul>
 <hr>
 </section>
 <section id="contact" class="level2">
@@ -4612,18 +4627,27 @@ border: 1px solid #000;
 <span>🏫</span> Rotterdam School of Management
 </div>
 </div>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-haans2024internet" class="csl-entry" role="listitem">
+Haans, R.F., Mertens, M.J., 2024. The internet never forgets: A four-step scraping tutorial, codebase, and database for longitudinal organizational website data. Organizational Research Methods 10944281241284941.
+</div>
+<div id="ref-jones1991earnings" class="csl-entry" role="listitem">
+Jones, J.J., 1991. Earnings management during import relief investigations. Journal of accounting research 29, 193–228.
+</div>
+<div id="ref-peterweinrich2025aaer" class="csl-entry" role="listitem">
+Peter, D., Caspar, Weinrich, A., 2025. <span class="nocase">Distinguishing Error from Intent in Accounting Enforcement Using LLMs</span>. Working Paper.
+</div>
+</div>
 
 
 <!-- -->
 
-
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-peterweinrich2025aaer" class="csl-entry" role="listitem">
-Peter, D., Caspar, Weinrich, A., 2025. <span class="nocase">Distinguishing Error from Intent in Accounting Enforcement Using LLMs</span>. Working Paper.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -5076,7 +5100,7 @@ Peter, D., Caspar, Weinrich, A., 2025. <span class="nocase">Distinguishing Error
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Earnings Management Then and Now: Revisiting Jones (1991)&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Earnings Management Then and Now: Revisiting @jones1991earnings&quot;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> &quot;Website Data, Replication, and Research Design&quot;</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
@@ -5095,13 +5119,13 @@ Peter, D., Caspar, Weinrich, A., 2025. <span class="nocase">Distinguishing Error
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>**Part 1: Three Papers** introduces the methodological toolkit and theoretical foundation:</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Modern web scraping techniques for longitudinal data collection</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Website-based disclosure measures and their validation</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The classic Jones (1991) earnings management study</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Overview: Modern web scraping techniques for longitudinal data collection based on @haans2024internet</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Website-based disclosure measures and their validation based on @boulland2025web</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The classic @jones1991earnings earnings management study</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>**Part 2: Research in Action** demonstrates the research process:</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A full replication of Jones (1991) with modern methods</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>My interpretation of @jones1991earnings with *modern* methods</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Preliminary exploration of website disclosure patterns during investigations</span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Structured critique and discussion of research design choices</span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
@@ -5111,11 +5135,11 @@ Peter, D., Caspar, Weinrich, A., 2025. <span class="nocase">Distinguishing Error
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Lecture Materials</span></span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📊 [View Slides](lecture-materials/slides/lecture_slides.html)</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📊 [View Slides](https://caspardp.github.io/phd-lecture-dec/lecture-materials/slides/lecture-slides.html)</span></span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>Click above to view the complete presentation with examples from recent research papers.</span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📁 [GitHub Repository](</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📁 [GitHub Repository](https://github.com/CasparDP/phd-lecture-dec)</span></span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>Check out the repository for all code and data used in this lecture.</span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
@@ -5123,40 +5147,38 @@ Peter, D., Caspar, Weinrich, A., 2025. <span class="nocase">Distinguishing Error
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>Summaries of key papers generated using a local LLMs</span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Is this better than any of the free LLMs out there? Probably not.</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>BUT: It&#39;s YOURS to adapt, extend, and improve as you see fit.</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>For another way to utilize LLMs in research, see @peterweinrich2025aaer.</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning Goals</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>This lecture is designed to **spark your own research ideas**:</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**During Part 1:** Ask yourself: &quot;What other classic studies could benefit from website data?&quot;</span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**During Part 2:** Think: &quot;What would I do differently? What am I curious about?&quot;</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**After class:** The GitHub materials are yours to adapt, extend, or apply to entirely different questions</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>The best outcome isn&#39;t just understanding *this* project—it&#39;s developing your ability to spot opportunities where new data sources can unlock fresh insights into established phenomena. Use the lecture materials as a launching pad for your own creativity.</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>The lecture draws on recent research including:</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Haans &amp; Mertens (2024)**: &quot;The Internet Never Forgets&quot; - A framework for longitudinal website analysis</span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Boulland et al. (2025)**: Applications of website disclosure measures to corporate finance questions</span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Jones (1991)**: Classic earnings management framework that can be revisited with new data</span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="fu">## Contact</span></span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="dt">&gt;</span>👨‍🏫<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span><span class="dv">&amp;emsp;</span>Caspar David Peter<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="dt">&gt;</span>✉️<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span><span class="dv">&amp;emsp;</span><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;mailto:peter@rsm.nl&quot;</span><span class="dt">&gt;</span>peter@rsm.nl<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="dt">&gt;</span>🏫<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span><span class="dv">&amp;emsp;</span>Rotterdam School of Management<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></div>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Is this better than any of the free LLMs out there? Probably not</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>BUT: It&#39;s YOURS to adapt, extend, and improve as you see fit</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>For another way to utilize LLMs in research, see @peterweinrich2025aaer</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning Goals</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>This lecture is designed to **spark your own research ideas**:</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**During Part 1:** Ask yourself: &quot;What other classic studies could benefit from website data?&quot;</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**During Part 2:** Think: &quot;What would I do differently? What am I curious about?&quot;</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**After class:** The GitHub materials are yours to adapt, extend, or apply to entirely different questions</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>The best outcome isn&#39;t just understanding *this* project—it&#39;s developing your ability to spot opportunities where new data sources can unlock fresh insights into established phenomena. Use the lecture materials as a launching pad for your own creativity.</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## Contact</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="dt">&gt;</span>👨‍🏫<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span><span class="dv">&amp;emsp;</span>Caspar David Peter<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="dt">&gt;</span>✉️<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span><span class="dv">&amp;emsp;</span><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;mailto:peter@rsm.nl&quot;</span><span class="dt">&gt;</span>peter@rsm.nl<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="dt">&gt;</span>🏫<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span><span class="dv">&amp;emsp;</span>Rotterdam School of Management<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>:::{#refs}</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

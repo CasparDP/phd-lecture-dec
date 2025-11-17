@@ -74,4 +74,7 @@ The best outcome isn't just understanding *this* project—it's developing your 
   <div><span>🏫</span>&emsp;Rotterdam School of Management</div>
 </div>
 
-# References
+## References
+
+:::{#refs}
+:::
