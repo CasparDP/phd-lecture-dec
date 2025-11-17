@@ -1,5 +1,5 @@
 ---
-title: "Earnings Management Then and Now: Revisiting Jones (1991)"
+title: "Earnings Management Then and Now: Revisiting @jones1991earnings"
 subtitle: "Website Data, Replication, and Research Design"
 format: html
 ---
@@ -18,13 +18,13 @@ The lecture is structured in two parts:
 
 **Part 1: Three Papers** introduces the methodological toolkit and theoretical foundation:
 
-- Modern web scraping techniques for longitudinal data collection
-- Website-based disclosure measures and their validation
-- The classic Jones (1991) earnings management study
+- Overview: Modern web scraping techniques for longitudinal data collection based on @haans2024internet
+- Website-based disclosure measures and their validation based on @boulland2025web
+- The classic @jones1991earnings earnings management study
 
 **Part 2: Research in Action** demonstrates the research process:
 
-- A full replication of Jones (1991) with modern methods
+- My interpretation of @jones1991earnings with *modern* methods
 - Preliminary exploration of website disclosure patterns during investigations
 - Structured critique and discussion of research design choices
 
@@ -34,11 +34,11 @@ Beyond understanding specific methods and findings, this lecture aims to **stimu
 
 ## Lecture Materials
 
-### 📊 [View Slides](lecture-materials/slides/lecture_slides.html)
+### 📊 [View Slides](https://caspardp.github.io/phd-lecture-dec/lecture-materials/slides/lecture-slides.html)
 
 Click above to view the complete presentation with examples from recent research papers.
 
-### 📁 [GitHub Repository](
+### 📁 [GitHub Repository](https://github.com/CasparDP/phd-lecture-dec)
 
 Check out the repository for all code and data used in this lecture.
 
@@ -46,9 +46,12 @@ Check out the repository for all code and data used in this lecture.
 
 Summaries of key papers generated using a local LLMs
 
-- Is this better than any of the free LLMs out there? Probably not.
-- BUT: It's YOURS to adapt, extend, and improve as you see fit.
-- For another way to utilize LLMs in research, see @peterweinrich2025aaer.
+- Is this better than any of the free LLMs out there? Probably not
+
+- BUT: It's YOURS to adapt, extend, and improve as you see fit
+
+- For another way to utilize LLMs in research, see @peterweinrich2025aaer
+
 ---
 
 ## Learning Goals
@@ -63,16 +66,6 @@ The best outcome isn't just understanding *this* project—it's developing your 
 
 ---
 
-## References
-
-The lecture draws on recent research including:
-
-- **Haans & Mertens (2024)**: "The Internet Never Forgets" - A framework for longitudinal website analysis
-- **Boulland et al. (2025)**: Applications of website disclosure measures to corporate finance questions
-- **Jones (1991)**: Classic earnings management framework that can be revisited with new data
-
----
-
 ## Contact
 
 <div>
@@ -80,3 +73,5 @@ The lecture draws on recent research including:
   <div><span>✉️</span>&emsp;<a href="mailto:peter@rsm.nl">peter@rsm.nl</a></div>
   <div><span>🏫</span>&emsp;Rotterdam School of Management</div>
 </div>
+
+# References

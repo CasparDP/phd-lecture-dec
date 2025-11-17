@@ -4,6 +4,7 @@ _quarto/
 .quarto/
 *.quarto_ipynb
 site_libs/
+_freeze/
 
 # Environment and dependencies
 .env
@@ -83,3 +84,4 @@ data-prep/Archive.zip
 data-prep/DB/*duckdb
 data-prep/*.csv
 Rplots.pdf
+_freeze/
