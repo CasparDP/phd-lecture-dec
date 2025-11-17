@@ -1,0 +1,297 @@
+---
+title: "Website Data"
+subtitle: "Jenny's relief investigations and firm website content"
+format: html
+---
+```{r}
+# Load libraries
+source(here::here("data-prep", "Scripts", "load_libraries.R"))
+source(here::here("data-prep", "Scripts", "etable-setup.R"))
+
+# Connect to DuckDB with Jones data
+duckdb_conn <- dbConnect(duckdb::duckdb(),
+  dbdir = here::here("data-prep", "DB", "jones_duckdb"),
+  read_only = FALSE
+)
+if (DBI::dbIsValid(duckdb_conn)) {
+  message("Successfully connected to DuckDB database.")
+} else {
+  stop("Failed to connect to DuckDB database.")
+}
+```
+
+
+:::{.callout-important}
+# Time for some action!
+
+So now it's time to put our money where our mouth is. Below I show how to import the relief investigation data from the Jones-esque analysis earlier and cleaned firm website text data from @haans2024internet, and to do a *quick-and-dirty* analysis to see if there is any action in the data.
+:::
+
+
+### Quick check if there is some action in the data
+
+This can be a make-or-break moment for an empirical project. If there is no action in the data, i.e., no change in outcomes around the event of interest, there is no point in continuing the project. Still, this is a quick-and-dirty check, and more careful analysis is needed to draw any conclusions. Below I focus on treated firms only and plot average word counts of injury-related words over event time. If nothing is happening here, it is unlikely—**but not impossible**—that a more careful analysis will find anything, either.
+
+
+#### How to link treated firms to their website data
+```{r echo = TRUE, message = FALSE, warning = FALSE}
+# Build dataset of gvkey and year from folder with cleaned website data files - I stored these in Dropbox for convenience
+website_data <- list.files(path = "~/Dropbox/Github Data/phd-lecture-dec/TXT_combined/", pattern = "*.txt", full.names = TRUE) %>%
+  tibble(
+    year = str_extract(basename(.), "\\d{4}"),
+    gvkey = substr(basename(.), 6, 11),
+    file_path = .
+  )
+
+# Limit to treated firms and years in main analysis sample
+
+em_cohorts_gvkeys <- tbl(duckdb_conn, "em_cohorts") %>%
+  # read_csv(here::here("data-prep", "em_cohorts.csv")) %>%
+  filter(treated == 1, fyear > 1995) %>%
+  select(gvkey) %>%
+  distinct() %>%
+  collect()
+
+# List of treated firms with website data
+treated_website_data <- website_data %>%
+  inner_join(em_cohorts_gvkeys, by = "gvkey")
+
+message("Number of treated firms with website data: ", n_distinct(treated_website_data$gvkey))
+message("Number of all treated firm-years: ", n_distinct(em_cohorts_gvkeys$gvkey))
+# Build file with all txt data from treated firms for analysis
+treated_text_data <- treated_website_data %>%
+  mutate(text = map(file_path, ~ read_lines(.x))) %>%
+  unnest(cols = c(text)) %>%
+  filter(nchar(text) > 0) %>%
+  mutate(word_count = str_count(text, "\\S+"))
+
+```
+
+
+#### Simple Bag-of-Words Analysis
+
+There are far more sophisticated text analysis methods out there, but for a quick-and-dirty check, a simple bag-of-words approach should do. Below I count the occurrence of a set of (opinionated and AI-assisted) injury-related words in the website text of treated firms over time.
+
+```{r echo = TRUE, message = FALSE, warning = FALSE}
+# Bag of words
+
+injury_words <- c("competition", "foreign", "imports", "challenge", "pressure", "difficult", "hurt", "injury", "loss", "unfair", "dumping", "subsidy", "threat")
+
+treated_text_data_firm <- treated_text_data %>%
+  mutate(injury_words_count = map(text, ~ str_to_lower(str_extract(.x, paste0(injury_words, collapse = "|"))))) %>%
+  unnest(cols = c(injury_words_count)) %>%
+  mutate(injury_words_count = ifelse(is.na(injury_words_count), 0, 1)) %>%
+  group_by(gvkey, year) %>%
+  summarize(
+    total_injury_words = n(),
+    total_words = sum(word_count)
+  ) %>%
+  mutate(
+    injury_word_ratio = total_injury_words / total_words,
+    year = as.integer(year)
+  ) %>%
+  ungroup()
+
+# view(treated_text_data_firm)
+# treated_text_data  %>% .[11123, ]  %>% pull(text)  %>% str_extract(., paste0(injury_words, collapse = "|"))
+website_cohorts <- tbl(duckdb_conn, "em_cohorts") %>%
+  collect() %>%
+  # read_csv(here::here("data-prep", "em_cohorts.csv")) %>%
+  # No adjustment of time/fiscal year here - calendar year and website data year should line up
+  mutate(year = lubridate::year(datadate)) %>%
+  right_join(treated_text_data_firm, by = c("gvkey", "year")) %>%
+  filter(!is.na(time))
+```
+
+::: {.callout-warning}
+# Warning
+
+#1: The analysis only covers the following event-years: `r unique(website_cohorts$event_year)`
+
+#2: This is a quick-and-dirty analysis. Results should be interpreted with caution and not taken as definitive evidence of any trends or patterns.
+:::
+
+#### Moment of Truth: Is there any action in the data—for treated firms?
+
+```{r echo = TRUE, message = FALSE, warning = FALSE}
+# Plot word counts over event time
+
+website_cohorts %>%
+  group_by(time) %>%
+  summarize(
+    avg_injury_word_ratio = mean(injury_word_ratio, na.rm = TRUE),
+    sd_injury_word_ratio = sd(injury_word_ratio, na.rm = TRUE),
+    n = n(),
+    se_injury_word_ratio = sd_injury_word_ratio / sqrt(n),
+    ci_lower = avg_injury_word_ratio - qt(0.975, n - 1) * se_injury_word_ratio,
+    ci_upper = avg_injury_word_ratio + qt(0.975, n - 1) * se_injury_word_ratio
+  ) %>%
+  ggplot(aes(x = time, y = avg_injury_word_ratio)) +
+  geom_line() +
+  geom_point() +
+  geom_ribbon(aes(ymin = ci_lower, ymax = ci_upper), alpha = 0.2) +
+  scale_y_continuous(limits = c(-0.025, 0.025)) +
+  scale_x_continuous(breaks = seq(-3, 3, by = 1)) +
+  labs(
+    title = "Average Injury-Related Word Ratio Over Event Time",
+    x = "Event Time (Years Since Investigation)",
+    y = "Average Injury-Related Word Ratio"
+  ) +
+  ggthemes::theme_hc()
+```
+
+
+## What about treated vs. control firms?
+
+To take the analysis a step further, we can compare treated firms to control firms using a difference-in-differences (DiD) approach. Below I present summary statistics for key variables, followed by DiD estimates and visualizations of the results.
+
+
+```{r}
+# Keep all
+
+em_cohorts_gvkeys <- tbl(duckdb_conn, "em_cohorts") %>%
+  filter(fyear > 1995) %>%
+  select(gvkey) %>%
+  distinct() %>%
+  collect()
+
+# List of treated firms with website data
+treated_website_data <- website_data %>%
+  inner_join(em_cohorts_gvkeys, by = "gvkey")
+
+# Build file with all txt data from treated firms for analysis
+treated_text_data <- treated_website_data %>%
+  mutate(text = map(file_path, ~ read_lines(.x))) %>%
+  unnest(cols = c(text)) %>%
+  filter(nchar(text) > 0) %>%
+  mutate(word_count = str_count(text, "\\S+"))
+
+
+injury_words <- c("competition", "foreign", "imports", "challenge", "pressure", "difficult", "hurt", "injury", "loss", "unfair", "dumping", "subsidy", "threat")
+
+treated_text_data_firm <- treated_text_data %>%
+  mutate(injury_words_count = map(text, ~ str_to_lower(str_extract(.x, paste0(injury_words, collapse = "|"))))) %>%
+  unnest(cols = c(injury_words_count)) %>%
+  mutate(injury_words_count = ifelse(is.na(injury_words_count), 0, 1)) %>%
+  group_by(gvkey, year) %>%
+  summarize(
+    total_injury_words = n(),
+    total_words = sum(word_count)
+  ) %>%
+  mutate(
+    injury_word_ratio = total_injury_words / total_words,
+    year = as.integer(year)
+  ) %>%
+  ungroup()
+
+# view(treated_text_data_firm)
+# treated_text_data  %>% .[11123, ]  %>% pull(text)  %>% str_extract(., paste0(injury_words, collapse = "|"))
+website_cohorts <-
+  tbl(duckdb_conn, "em_cohorts") %>%
+  collect() %>%
+  # No adjustment of time/fiscal year here - calendar year and website data year should line up
+  mutate(year = lubridate::year(datadate)) %>%
+  right_join(treated_text_data_firm, by = c("gvkey", "year")) %>%
+  filter(!is.na(time))
+
+```
+
+
+#### Moment of Truth II: Is there any action in the data—for treated AND control firms?
+
+```{r echo = TRUE, message = FALSE, warning = FALSE}
+# Plot word counts over event time
+
+website_cohorts %>%
+  group_by(treated, time) %>%
+  mutate(treated = ifelse(treated == 1, "Treated", "Control")) %>%
+  summarize(avg_injury_word_ratio = mean(injury_word_ratio, na.rm = TRUE)) %>%
+  # sd_injury_word_ratio = sd(injury_word_ratio, na.rm = TRUE),
+  # n = n(),
+  # se_injury_word_ratio = sd_injury_word_ratio / sqrt(n),
+  # ci_lower = avg_injury_word_ratio - qt(0.975, n - 1) * se_injury_word_ratio,
+  # ci_upper = avg_injury_word_ratio + qt(0.975, n - 1) * se_injury_word_ratio)  %>%
+  ggplot(aes(x = time, y = avg_injury_word_ratio, color = treated)) +
+  geom_line() +
+  geom_point() +
+  # geom_ribbon(aes(ymin = ci_lower, ymax = ci_upper), alpha = 0.2) +
+  scale_y_continuous(limits = c(-0.025, 0.025)) +
+  scale_x_continuous(breaks = seq(-3, 3, by = 1)) +
+  labs(
+    title = "Average Injury-Related Word Ratio Over Event Time",
+    x = "Event Time (Years Since Investigation)",
+    y = "Average Injury-Related Word Ratio"
+  ) +
+  ggthemes::theme_hc()
+```
+
+#### DiD Estimation of Jones Residuals Around Import Relief Investigations
+
+
+```{r results = 'asis'}
+## Calculate first difference for injury-related word ratio around event year
+website_did <- website_cohorts %>%
+  group_by(gvkey, cohort) %>%
+  mutate(injury_word_ratio_diff = injury_word_ratio - lag(injury_word_ratio, order_by = time)) %>%
+  ungroup()
+
+# Estimate first-difference DiD model for each time period, i.e. -2, -1, 0, 1
+
+map(-2:1, ~ feols(injury_word_ratio_diff ~ treated | fyear + cohort,
+  data = website_did %>% filter(time == .x)
+) %>%
+  summary(cluster = ~ cohort^gvkey) %>%
+  # Extract coefficient and confidence intervals
+  broom::tidy() %>%
+  filter(term == "treated") %>%
+  mutate(time = .x)) %>%
+  bind_rows() %>%
+  select(time, estimate, std.error) %>%
+  mutate(time = factor(time, levels = -2:1)) %>%
+  ggplot(aes(x = time, y = estimate)) +
+  geom_point(color = "darkgreen", size = 3) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "lightblue", size = 1.5) +
+  # Add grey rectangle for event year
+  annotate("rect",
+    xmin = 2.5, xmax = 3.5, ymin = -Inf, ymax = Inf,
+    alpha = 0.2, fill = "lightgray"
+  ) +
+  scale_x_discrete(breaks = -2:1, labels = c(
+    expression(Delta[t - 2]), # Represents delta subscript 1
+    expression(Delta[t - 1]), # Represents delta subscript 2
+    expression(Delta[t_0]), # Represents delta subscript 3
+    expression(Delta[t + 1]) # Represents delta subscript 4
+  )) +
+  # Use standard errors to create error bars
+  geom_errorbar(aes(ymin = estimate + std.error * -1.96, ymax = estimate + std.error * 1.96), width = 0.2, color = "darkgreen") +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "lightblue") +
+  ylim(-0.015, 0.015) +
+  labs(
+    title = "Difference-in-Differences Estimates of Change in Injury-Related Word Ratio Around Import Relief Investigations",
+    x = "",
+    y = "DiD Estimate of Change in Injury-Related Word Ratio (95% CI)"
+  ) +
+  ggthemes::theme_hc()
+```
+
+
+```{r results='asis'}
+
+results_first_diff <-
+  map(-2:1, ~ feols(injury_word_ratio_diff ~ treated | fyear + cohort, data = website_did %>% filter(time == .x), cluster = ~ cohort^gvkey))
+
+fixest::etable(results_first_diff,
+  digits = 3,
+  digits.stats = 3,
+  fitstat = ~ ar2 + n,
+  replace = TRUE,
+  view = TRUE,
+  style.tex = style.tex("aer")
+)
+```
+
+
+```{r}
+# Disconnect from DuckDB
+dbDisconnect(duckdb_conn, shutdown = TRUE)
+```

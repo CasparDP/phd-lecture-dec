@@ -57,6 +57,7 @@ Thumbs.db
 #*.csv
 secrets.csv
 raw_html_cache/
+.docling_cache/
 
 # Logs
 *.log
@@ -71,7 +72,14 @@ cache/
 
 # For development purposes keep the following files local for now
 utility/
-data-prep/
-_site/utility/
 .github/
-lecture-materials/
+/paper_summaries/
+paper_summaries/Jones-EarningsManagementImport-1991/
+paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.qmd
+papers/
+docs/paper_summaries/
+data-prep/raw_html_cache_old
+data-prep/Archive.zip
+data-prep/DB/*duckdb
+data-prep/*.csv
+Rplots.pdf

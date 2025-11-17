@@ -1,0 +1,716 @@
+[
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#introduction-1",
+    "href": "lecture-materials/slides/lecture-slides.html#introduction-1",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Introduction",
+    "text": "Introduction\nWho am I?\n\n\n\n\n \n\n\n\nCaspar David Peter\n\n\n🏢     Rotterdam School of Management\n\n\n👷     Associate Professor\n\n\n🏫     Doctorate (WHU)\n\n\n🏫     Dipl.-Ök. (RUB)\n\n\n👶     Bochum, Germany\n\n\n🏠     Rotterdam, Netherlands\n\n\n🍞🧈 Economic consequences of transparency",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#introduction-2",
+    "href": "lecture-materials/slides/lecture-slides.html#introduction-2",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Introduction",
+    "text": "Introduction\nRoadmap & Learning Goals\n\n\nWhat are we up to today?\nPart 1: Three papers\n\nMethod: Haans and Mertens (2024),\nApplication: Boulland et al. (2025),\nOpportunity: Jones (1991)\n\nPart 2: Research in Action: Replication & Brainstorming\n\nGoal: Learn methodology, think critically, brainstorm novel research\n\n\nLearning Goals\n\nUnderstand & Learn about the usefulness of archival website data\nEvaluate new disclosure measures critically\nPractice research design thinking\nSee how new data can revisit classic questions",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#haans2024internet",
+    "href": "lecture-materials/slides/lecture-slides.html#haans2024internet",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Haans and Mertens (2024)",
+    "text": "Haans and Mertens (2024)\nThe Internet Never Forgets\n\n\nIntroducing the Wayback Machine\n\n\n\nWayback Machine screenshot\n\n\n\nArchive of billions of web pages since 1996\nAccessible via archive.org or waybackpy\nExample use cases in accounting research\n\nCorporate disclosures\nInvestor relations\nCSR reporting\nExecutive communications\n\n\n\nKey takeaways\n\nFramework to systematically scrape organizational websites\nScraping websites over time to construct longitudinal data (tutorial)\nOpen-source code and database: CompuCrawl",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#haans2024internet-1",
+    "href": "lecture-materials/slides/lecture-slides.html#haans2024internet-1",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Haans and Mertens (2024)",
+    "text": "Haans and Mertens (2024)\nThe Internet Never Forgets\n\n\nSample Selection & Coverage over Time\n\nSampling steps Sampling Steps\nCoverage Coverage\nCoverage over Time Coverage Over Time\n\n\nCritical Findings\n\n~20% of websites are not archived in any given year\nSurvivorship bias (Compustat backfills successful firms)\nWebsite address changes are not tracked historically\nCoverage improves over time (poor in 1990s, better 2010+)\n\n\n\n\n\n\n\n\nTakeaway #1\n\n\nWebsite data offers unprecedented longitudinal access, BUT requires careful attention to coverage gaps and data quality",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#boulland2025company",
+    "href": "lecture-materials/slides/lecture-slides.html#boulland2025company",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Boulland et al. (2025)",
+    "text": "Boulland et al. (2025)\nCompany Websites: A New Measure of Disclosure\n\n\nResearch Question & Motivation\n\nCan company websites serve as a novel measure of corporate disclosure?\nWhy websites?\n\nIncreasingly important communication channel\nReflects voluntary disclosure choices\nAccessible via Wayback Machine for historical analysis\n\n\n\nKey Contributions\n\nProposes using company websites as a novel data source\nHighlights the importance of online presence for corporate transparency\nValidation of new measure against traditional disclosure metrics\nExtends the scope to U.S. and E.U. private firms",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#boulland2025company-1",
+    "href": "lecture-materials/slides/lecture-slides.html#boulland2025company-1",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Boulland et al. (2025)",
+    "text": "Boulland et al. (2025)\nCompany Websites: A New Measure of Disclosure\n\n\nMeasurement\n\nPrimary measure: Website SIZE (bytes, page counts)\nContent categories: Products, Investor Relations, Geography, HR\nData: U.S. public firms + U.S. private firms + French firms\nMethod: Wayback Machine + text analysis\n\n\nValidation & Applications\nValidation of Website Disclosure Measure: Validation\n\nApplications: Private Equity Nonfinancial Disclosures in France\nDevil’s Advocate\n\n\n\n\n\n\n\nTakeaway #2\n\n\nWebsite-based measures complement traditional disclosure metrics BUT validity questions remain - interpret with caution",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#takeaways-so-far-1",
+    "href": "lecture-materials/slides/lecture-slides.html#takeaways-so-far-1",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Takeaways so far",
+    "text": "Takeaways so far\nSummary\n\nWebsites are a novel and valuable data source for accounting research\nWayback Machine allows for longitudinal website data collection\nWebsite-based disclosure measures can be validated against traditional metrics\nApplications span public and private firms across different countries\nOpen source tools and databases facilitate replication and extension\nNext: Revisiting a classic question in accounting research",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#jones1991earnings",
+    "href": "lecture-materials/slides/lecture-slides.html#jones1991earnings",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Jones (1991)",
+    "text": "Jones (1991)\nResearch Question & Main Finding & Contributions\n\n\nResearch Question\nDo firms that would benefit from import relief attempt to decrease earnings through earnings management during ITC investigations?\nMain Finding\nManagers of domestic producers significantly decrease reported earnings during import relief investigations\n\nDiscretionary accruals are income-decreasing in investigation year (year 0)\nNo significant effect in surrounding years (-1, +1)\n\n\nContributions\nMethodological Innovation\n\nDevelops firm-specific time-series models to estimate “normal” accruals\nFoundation for the famous “Jones Model”\n\nTheoretical Contributions\n\nUnique incentive structure: First study examining income-decreasing earnings management\nDemonstrates accounting numbers have economic consequences in regulatory settings (wealth transfers)",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#jones1991earnings-1",
+    "href": "lecture-materials/slides/lecture-slides.html#jones1991earnings-1",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Jones (1991)",
+    "text": "Jones (1991)\nInstitutional Setting: Why This Is A Clean Setup\nThe ITC Import Relief Process\n\nU.S. International Trade Commission investigates injury to domestic producers\nProfitability is an explicit factor in injury determination\nTariff increases/quota reductions are granted if the industry is deemed injured\n\nPerfect Alignment of Incentives\n\nManagers want to appear injured ➡️ decrease earnings\nDebtholders tolerate lower earnings (expect relief benefits)\nNo sophisticated monitoring by regulator\n\n\n\n\n\n\n\nCritical Feature\n\n\nThe ITC does not verify any information in the audited financial statements or 10-Ks, nor do they make any adjustments to these data… The ITC does not attempt to adjust the financial data for accounting procedures used or for accrual decisions made by the firms’ managers",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#jones1991earnings-2",
+    "href": "lecture-materials/slides/lecture-slides.html#jones1991earnings-2",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Jones (1991)",
+    "text": "Jones (1991)\nInstitutional Setting: Sample Industries\nFive Industries, Six Investigations (1980-1985)\n\nSample Characteristics\n\nFirm names from ITC reports\n23 firms with complete data on Compustat\nBroad product lines (material to consolidated financials)",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#jones1991earnings-3",
+    "href": "lecture-materials/slides/lecture-slides.html#jones1991earnings-3",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Jones (1991)",
+    "text": "Jones (1991)\nHypothesis Development\nMain Hypothesis\nManagers of domestic producers make accounting choices that reduce reported earnings during ITC investigation periods compared to non-investigation periods\nAddressing Potential Concerns\nConflicting incentives?\n\nUsually managers increase earnings (debt covenants, compensation)\nBut import relief benefit outweighs these concerns\nDebtholders are willing to waive covenants; future earnings are expected to improve\n\nFree-rider problem?\n\nAll industry firms benefit, but only some may manage earnings\nSolution: Supplemental test using only petitioner firms (that bear investigation costs)",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#jones1991earnings-4",
+    "href": "lecture-materials/slides/lecture-slides.html#jones1991earnings-4",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Jones (1991)",
+    "text": "Jones (1991)\nEmpirical Results\nThe Jones Model\n\\[ Total accruals_{it} = \\frac{1}{AT_{i,t-1}} + \\beta_1 \\frac{\\Delta REV_{it}}{AT_{i,t-1}} + \\beta_2 \\frac{PPE_{it}}{AT_{i,t-1}} + \\epsilon_{it}\\]\nMain Results\n\n\nDiscretionary Accruals by Year\n\nYear -1: Not significantly different from zero\nYear 0 (investigation): Significantly income-decreasing\nYear +1: Not significantly different from zero\n\n\nRobustness\n\nPortfolio tests control for cross-sectional correlation \nFour-industry t-statistics range: -3.635 to -5.035\nPetitioner subsample shows consistent results\n\n\n\n\n\n\n\n\nKey Implication\n\n\nManagers systematically manipulate accruals downward specifically during investigation periods, providing strong support for the earnings management hypothesis",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#jones1991earnings-5",
+    "href": "lecture-materials/slides/lecture-slides.html#jones1991earnings-5",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Jones (1991)",
+    "text": "Jones (1991)\nWhy This Design Is Pretty Darn Good\n\n\nClear Incentive Alignment\n✅ Regulatory rule explicitly uses accounting profitability\n✅ All contracting parties benefit from appearing injured\n✅ Regulator doesn’t adjust for earnings management\n\nPowerful Research Design\n✅ Time-series control for firm-specific “normal” accruals\n✅ Clear prediction: decrease in investigation year only\n✅ Multiple industries, multiple years\n✅ Addresses free-rider problem with petitioner subsample\n\n\n\n\n\n\n\nKey Implication\n\n\nThis setting provides a specific motive for earnings management that is not typically present in other contracting situations where all parties have incentives to monitor and adjust for manipulation",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#part-2-research-in-action-1",
+    "href": "lecture-materials/slides/lecture-slides.html#part-2-research-in-action-1",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "PART 2: RESEARCH IN ACTION",
+    "text": "PART 2: RESEARCH IN ACTION\nFrom Papers to Practice\n\n\nWhat Well Do Today\n\nMove from theory to execution\nSee my Jones (1991) replication\nExplore rough website analysis\nAll code/data on GitHub (live demos)\nYour job: Critique, spot problems, suggest improvements\n\n\nMaterials Available\n\nGitHub repo: LINK\nJones replication page\nWebsite analysis page\nR & Python scripts for data and analysis\n\n\nYou’ve had access—we’ll walk through key decisions",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#phase-1-the-replication-journey-1",
+    "href": "lecture-materials/slides/lecture-slides.html#phase-1-the-replication-journey-1",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "PHASE 1: THE REPLICATION JOURNEY",
+    "text": "PHASE 1: THE REPLICATION JOURNEY\nWhat I Set Out to Replicate\n\n\nJones (1991) Main Finding\n\nIncome-decreasing DA in Year 0\nClear institutional setting\nTime-series firm-specific estimation\n\n\nMy Approach\n\nCross-sectional industry-specific (pooled)\nModern sample (1980-2020)\nKey decision: Why cross-sectional?\n\n\nHere is a comparison of key dimensions between the original Jones (1991) study and my replication approach:\n\n\n\n\n\n\n\n\nDimension\nJones Original\nMy Replication\n\n\n\n\nEstimation approach\nTime-series (firm-specific)\nCross-sectional (industry)\n\n\nData requirements\nLong firm history\nIndustry observations\n\n\nWhat it controls for\nFirm-specific effects\nIndustry dynamics\n\n\nStatistical power\nLower (fewer obs/firm)\nHigher (pooled data)\n\n\nParameter interpretation\nFirm-specific “normal”\nIndustry-specific “normal”",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#phase-1-the-replication-journey-2",
+    "href": "lecture-materials/slides/lecture-slides.html#phase-1-the-replication-journey-2",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "PHASE 1: THE REPLICATION JOURNEY",
+    "text": "PHASE 1: THE REPLICATION JOURNEY\nThe Timing Problem I Had to Solve\n\n\nThe Problem\n\nFiscal years ≠ calendar years ≠ investigation dates\nJones found effects in “Year 0”\nFirst-try: I found effects in Years -2 to -1… Why?\n\nExample Timeline\nInvestigation announced: June 1985 (calendar)\nFirm fiscal year ends: Dec 1984\nFirm fiscal year ends: Dec 1985\nWhich \"year\" is Year 0?\n\nMy Solution\n# See phd-lecture-analyses.R script ...\ntime = case_when(\n    # Fiscal year ends before investigation decision - no adjustment needed\n    fyear == event_year & month(datadate) &lt; year_zero_month ~ time,\n    # Fiscal year ends after investigation decision - shift time by +1\n    TRUE ~ time + 1\n  )\nWhy This Matters\n\nFirms may start managing earnings before formal announcement\nAnticipation of the investigation\nFiscal year overlap creates measurement issues\n\n\n\n\n\n\n\n\nKey Insight\n\n\nThe timing “discrepancy” isn’t a bug—it’s a feature revealing that firms may manage earnings in anticipation of investigations",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#phase-1-the-replication-journey-3",
+    "href": "lecture-materials/slides/lecture-slides.html#phase-1-the-replication-journey-3",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "PHASE 1: THE REPLICATION JOURNEY",
+    "text": "PHASE 1: THE REPLICATION JOURNEY\nFinding and Linking the Investigations\n\n\nThe Problem\n\nSeveral types/subjects of investigations - which to choose?\nJones uses domestic producers of broad product lines\n\nInvestigations\n\n\n\n\n\n\nMy Solution\n\nI focused on “Safeguard” investigations Why?\nJones picks only “Escape Clause” cases - subset of Safeguards\n“[…] only investigations pertaining to a broad product line […]”\n\nWhy This Matters\n\nInvestigation type affects incentives & sample\nIf the industry is small (part of consolidated sales)\n\nless incentive to manage\n\n\n\n\n\n\n\n\n\nKey Insight\n\n\nInstitutional knowledge is key here - not yet fully utilized! Knowledge of investigation types is crucial for sample selection and interpretation of results. There is very much room for improvement here.",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#phase-1-the-replication-journey-4",
+    "href": "lecture-materials/slides/lecture-slides.html#phase-1-the-replication-journey-4",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "PHASE 1: THE REPLICATION JOURNEY",
+    "text": "PHASE 1: THE REPLICATION JOURNEY\nLive Demo: Replication Results\n\n\n\nWhat we’ll look at:\n\nSample construction & coverage\nKey results table (compare to Jones Table 5)\nDiscretionary accruals\n\nFirst-difference approach\nEvent-study (DiD-style plot)\n\nWhat we could add to align with contemporary EM literature",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#phase-1-the-replication-journey-5",
+    "href": "lecture-materials/slides/lecture-slides.html#phase-1-the-replication-journey-5",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "PHASE 1: THE REPLICATION JOURNEY",
+    "text": "PHASE 1: THE REPLICATION JOURNEY\nReplication Takeaways\n\n\nWhat Worked\n\nJones findings are robust to modern methods ✅\nCross-sectional approach provides adequate power ✅\nTiming issue resolved with fiscal year alignment ✅\nEffects are economically and statistically significant ✅\n\n\nOpen Questions\n⚠️ Would time-series give identical results?\n\nEnough observations per firm to test ✅\nNeed to identify firms from reports ⏳ (outsource to 🤖?)\n\n⚠️ The Earnings Management Literature has advanced\n\nAlternative models, see e.g. Dechow et al. (2010) or Breuer and Schütt (2023)\nIssues with two-step estimations, see e.g. Chen et al. (2018) or Chen et al. (2023)\n\n🤔 Why do effects appear in Year -1 to Year 0?\n\nAccrual reversal in Year +1? Can we test that?\n\n\n\n\n\n\n\n\nThe Bigger Question\n\n\nReplication is validating, but not publishable. What NEW insight can we add 35 years later?",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#phase-2-website-data-exploration-1",
+    "href": "lecture-materials/slides/lecture-slides.html#phase-2-website-data-exploration-1",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "PHASE 2: WEBSITE DATA EXPLORATION",
+    "text": "PHASE 2: WEBSITE DATA EXPLORATION\nAdding Website Data: The Hypothesis\n\n\nIn 1991…\n\nOne financial statement for all audiences\nLimited tools for strategic communication\nNo firm websites existed\nITC reviews audited financials only\n\n\nToday…\n\nMulti-channel disclosure strategy\nRich web presence during investigations\nDifferent audiences (investors, regulators, employees, customers)\nOpportunity for coordinated manipulation\n\n\n\n\n\nResearch Question\n\n\nDo firms strategically manage website disclosures during import relief investigations?\n\n\n\nPossible Mechanisms\n\nEmphasize “injury” narrative (layoffs, plant closings, foreign competition)\nDe-emphasize expansion/investment language\nAdjust messaging by section (IR vs Products vs Careers)\nCoordinate with accruals management strategy",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#phase-2-website-data-exploration-2",
+    "href": "lecture-materials/slides/lecture-slides.html#phase-2-website-data-exploration-2",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "PHASE 2: WEBSITE DATA EXPLORATION",
+    "text": "PHASE 2: WEBSITE DATA EXPLORATION\nWhat I Actually Did (Quick & Dirty Version)\n\n\nData & Method\nData source: Cleaned website text from Haans and Mertens (2024)\n\nMethod: Keyword frequency analysis\n\nAnalysis: Event study around investigation dates\n\n\nSpoiler: There’s something there, but it’s messy\n\nRed Flags 🚩\n⚠️ Wayback coverage varies wildly\n⚠️ Keywords might be too crude/noisy\n⚠️ Don’t know who controls website content\n⚠️ Website timing issues remain\n\n\n\n\n\n\n\nImportant Context\n\n\nThis is NOT a finished analysis. This is a “should I keep going?” check.",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#phase-2-website-data-exploration-3",
+    "href": "lecture-materials/slides/lecture-slides.html#phase-2-website-data-exploration-3",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "PHASE 2: WEBSITE DATA EXPLORATION",
+    "text": "PHASE 2: WEBSITE DATA EXPLORATION\nLive Demo: Website Analysis\n\nWhat we’ll look at:\n\nData collection approach - already done by Haans and Mertens (2024)\nKeyword frequency trends around investigations\nApply same design as for revisiting Jones (1991)\nPreliminary correlation with discretionary accruals",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#phase-2-website-data-exploration-4",
+    "href": "lecture-materials/slides/lecture-slides.html#phase-2-website-data-exploration-4",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "PHASE 2: WEBSITE DATA EXPLORATION",
+    "text": "PHASE 2: WEBSITE DATA EXPLORATION\nWebsite Analysis Takeaways\n\n\nWhat I Found\n📊 There IS variation in website language around investigations\n📈 “Injury” keywords increase in Years -1 to 0\n\n\nBut Is It Real?\n🤷 Not clear if it’s strategic or mechanical\n\nAre firms crafting a narrative?\nOr just reporting investigation news?\n\n🎯 Attribution problem\n\nCan’t distinguish CFO strategy from marketing communications\n\n⏰ Timing ambiguity\n\nDon’t know when updates happen\nSnapshots may miss key moments\n\n\n\n\n\n\n\n\nCritical Assessment\n\n\nThere’s a signal. Maybe. But I have five serious concerns that could kill this project.",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#phase-2-website-data-exploration-5",
+    "href": "lecture-materials/slides/lecture-slides.html#phase-2-website-data-exploration-5",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "PHASE 2: WEBSITE DATA EXPLORATION",
+    "text": "PHASE 2: WEBSITE DATA EXPLORATION\nWhat Keeps Me Up at Night\nConcern #1: Measurement Validity\nAre keywords capturing “strategic injury narrative” or just “we’re in an investigation”?\n\nConcern #2: Wayback Coverage\nOnly later firm-years & events have snapshots available\n\nConcern #3: Attribution Problem\nWebsites controlled by whom? CFO? Marketing? Compliance?\n\nConcern #4: Timing (Again)\nWhen do websites get updated? Quarterly? Ad hoc? \nConcern #5: Spurious Correlation\nIs any website-(accruals-)investigation correlation real or just noise?\nConcern #6: Using different EM measures & addressing 2-stage critique?\nWhich other EM measures exist and fit the purpose? \n\n\n\n\n\n\n\nReality Check\n\n\nAny ONE of these could sink the project. Are they fixable, or fatal?",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#phase-3-your-turn-1",
+    "href": "lecture-materials/slides/lecture-slides.html#phase-3-your-turn-1",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "PHASE 3: YOUR TURN",
+    "text": "PHASE 3: YOUR TURN\nStructured Critique\n\n\nPROMPT A: The Concerns Triage\nPick two of my five concerns. For each:\n\nHow serious is this? (Scale 1-10, where 10 = “paper-killer”)\nIs it fixable? If so, how? If not, why not?\nWhat would addressing it require?\n\nMore/better data?\nDifferent methods?\nNew theory?\nSomething unfeasible?\n\n\n\nPROMPT B: Design Improvements\nYou have 3 more months and access to better NLP tools.\nWhat ONE thing would you change/add to make this stronger?\nConsider:\n\nDifferent text analysis approach?\nAdditional data sources?\nAlternative research design?\nNew validation strategy?\n\nBe specific: Not “better analysis” but “sentiment analysis using FinBERT on earnings call transcripts to validate website tone”",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#phase-3-your-turn-2",
+    "href": "lecture-materials/slides/lecture-slides.html#phase-3-your-turn-2",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "PHASE 3: YOUR TURN",
+    "text": "PHASE 3: YOUR TURN\nStructured Critique (continued)\n\n\nPROMPT C: Alternative Outcomes\nInstead of keyword frequency, what ELSE could you measure on websites?\nPossibilities:\n\nSentiment by section: Different tone in IR vs Products vs Careers?\nChanges in emphasis: Which topics get more prominent placement?\nVisual content: Images, infographics, charts—do they change?\nNetwork structure: Which pages link where? Information architecture changes?\nMetadata: Page titles, descriptions, SEO keywords?\nTemporal patterns: Update frequency changes during investigation?\n\nPick one and explain:\n\nWhy it might be better than keyword counts\nWhat it would reveal that keywords miss\nWhat new problems it would create\n\n\nPROMPT D: The Pivot\nAssume one of the concerns kills the website idea.\nWhat OTHER data source could you use to test “multi-channel disclosure strategy during investigations”?\nConsider:\n\nPress releases: More structured, official, time-stamped\nConference calls: Q&A reveals management framing\nSocial media: Twitter, LinkedIn—who’s the audience?\nLocal news coverage: How do firms shape media narrative?\nEmployee reviews (Glassdoor): Does employee-facing messaging change?\nSomething else?\n\nEvaluate: Would your alternative be better or worse than websites? Why?",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#phase-3-your-turn-3",
+    "href": "lecture-materials/slides/lecture-slides.html#phase-3-your-turn-3",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "PHASE 3: YOUR TURN",
+    "text": "PHASE 3: YOUR TURN\nDiscussion\n[10 minutes: Groups share their critiques]",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#wrapping-up-1",
+    "href": "lecture-materials/slides/lecture-slides.html#wrapping-up-1",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "WRAPPING UP",
+    "text": "WRAPPING UP\nKey Lessons from Today\n\n\nWhat You Saw\n\nReplication is valuable\n\nValidates methods\nBuilds intuition\nCreates foundation for extensions\n\n“Quick checks” before major investments\n\nTest signal existence first\nIdentify deal-breaker problems early\nIterate, don’t perfect\n\nAll research has serious concerns\n\nIt’s about managing them, not eliminating them\nTransparency &gt; false confidence\n\n\n\nWhat I Hope You Practice\n\nCombining classic papers/theories with new data\n\nWhat has changed since publication?\nDoes new data add construct validity?\nAre incentives/institutions still aligned?\n\nThinking in stages\n\nCheck ➡️ Refine ➡️ Invest\nEach stage has decision points\nKnowing when to stop is a skill\n\nMaking thinking visible\n\nTo yourself (document decisions)\nTo others (transparent process)\nTo reviewers (justify choices)",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#wrapping-up-2",
+    "href": "lecture-materials/slides/lecture-slides.html#wrapping-up-2",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "WRAPPING UP",
+    "text": "WRAPPING UP\nAccess Everything\n\n\nGitHub Repository\nMain repo: LINK\nReplication page: LINK\nWebsite analysis: LINK\nScripts: data-prep/Scripts\n\nWhat You’ll Find\n\nComplete replication code\nSample construction details\nDiagnostic plots and tables\nWebsite scraping scripts\nPreliminary text analysis\n\n\nEverything is documented—you can reproduce or extend this work\n\n\n\n\n\n\nFor Your Own Research\n\n\nThink of this repo structure as a template. Clear organization, documented decisions, reproducible code—these habits will save you (and your coauthors) countless hours.",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#references",
+    "href": "lecture-materials/slides/lecture-slides.html#references",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "References",
+    "text": "References\n\n\nBoulland, R., Bourveau, T., Breuer, M., 2025. Company websites: A new measure of disclosure. Journal of Accounting Research.\n\n\nBreuer, M., Schütt, H.H., 2023. Accounting for uncertainty: An application of bayesian methods to accruals models. Review of Accounting Studies 28, 726–768.\n\n\nChen, B., Chen, W., Hribar, P., Melessa, S., 2023. Measuring dual effects in accounting research: Limitations of absolute residuals and the role of quantile regression. https://doi.org/10.2139/ssrn.4572590\n\n\nChen, W., Hribar, P., Melessa, S., 2018. Incorrect inferences when using residuals as dependent variables. Journal of Accounting Research 56, 751–796.\n\n\nDechow, P., Ge, W., Schrand, C., 2010. Understanding earnings quality: A review of the proxies, their determinants and their consequences. Journal of accounting and economics 50, 344–401.\n\n\nHaans, R.F., Mertens, M.J., 2024. The internet never forgets: A four-step scraping tutorial, codebase, and database for longitudinal organizational website data. Organizational Research Methods 10944281241284941.\n\n\nJones, J.J., 1991. Earnings management during import relief investigations. Journal of accounting research 29, 193–228.",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#haans2024internet-2",
+    "href": "lecture-materials/slides/lecture-slides.html#haans2024internet-2",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Haans and Mertens (2024)",
+    "text": "Haans and Mertens (2024)\nWeb Scraping Steps\n Back",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#haans2024internet-3",
+    "href": "lecture-materials/slides/lecture-slides.html#haans2024internet-3",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Haans and Mertens (2024)",
+    "text": "Haans and Mertens (2024)\nCoverage\n Back",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#haans2024internet-4",
+    "href": "lecture-materials/slides/lecture-slides.html#haans2024internet-4",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Haans and Mertens (2024)",
+    "text": "Haans and Mertens (2024)\nCoverage Over Time\n Back",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#boulland2025company-2",
+    "href": "lecture-materials/slides/lecture-slides.html#boulland2025company-2",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Boulland et al. (2025)",
+    "text": "Boulland et al. (2025)\nValidation of Website Disclosure Measure\n Back",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#boulland2025company-3",
+    "href": "lecture-materials/slides/lecture-slides.html#boulland2025company-3",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Boulland et al. (2025)",
+    "text": "Boulland et al. (2025)\nInformation Asymmetry and Website Disclosure\n Back",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#boulland2025company-4",
+    "href": "lecture-materials/slides/lecture-slides.html#boulland2025company-4",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Boulland et al. (2025)",
+    "text": "Boulland et al. (2025)\nApplication: Private Equity Deals\n Back",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#boulland2025company-5",
+    "href": "lecture-materials/slides/lecture-slides.html#boulland2025company-5",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Boulland et al. (2025)",
+    "text": "Boulland et al. (2025)\nApplication: Nonfinancial Disclosures in France\n Back",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/slides/lecture-slides.html#boulland2025company-6",
+    "href": "lecture-materials/slides/lecture-slides.html#boulland2025company-6",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Boulland et al. (2025)",
+    "text": "Boulland et al. (2025)\nAre these correlations validating or concerning?\nAre these correlations validating or concerning?\n\n\nInterpretation A (Optimistic):\n✅ Low correlations = websites capture different information\n✅ Multi-stakeholder (not just investors)\n✅ Real-time vs. quarterly\n✅ Voluntary vs. mandated\n\nInterpretation B (Pessimistic):\n😕 Low correlations = measurement noise or invalidity\n😕 Size ≠ quality (could be marketing fluff)\n😕 Unaudited, unstandardized\n😕 Designer decisions, not CFO strategy\n\nWhich is it? Back",
+    "crumbs": [
+      "Slides",
+      "Lecture Materials",
+      "Slides",
+      "Earnings Management Then and Now: Revisiting Jones (1991)"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/playground/revisiting-jones.html",
+    "href": "lecture-materials/playground/revisiting-jones.html",
+    "title": "The Jones (1991) Model Setting Revisited",
+    "section": "",
+    "text": "WarningDisclaimer\n\n\n\nI am not Jennifer J. Jones and (unfortunately) have never talked to her either. The following analysis is my own interpretation and adaptation of her seminal 1991 paper on earnings management using discretionary accruals. Any errors or misinterpretations are solely my responsibility. The sole purpose of this exercise is to illustrate how one might revisit and extend classic empirical accounting research using modern econometric techniques and data availability. Also, it is meant to be a fun exercise in applied econometrics. Last but not least, this is my way of learning and generating ideas for my own research. Please do not cite or circulate this work without my permission.",
+    "crumbs": [
+      "Slides",
+      "Playground",
+      "The Jones (1991) Model Setting Revisited"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/playground/revisiting-jones.html#empirical-strategy",
+    "href": "lecture-materials/playground/revisiting-jones.html#empirical-strategy",
+    "title": "The Jones (1991) Model Setting Revisited",
+    "section": "Empirical Strategy",
+    "text": "Empirical Strategy",
+    "crumbs": [
+      "Slides",
+      "Playground",
+      "The Jones (1991) Model Setting Revisited"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/playground/revisiting-jones.html#sample-selection",
+    "href": "lecture-materials/playground/revisiting-jones.html#sample-selection",
+    "title": "The Jones (1991) Model Setting Revisited",
+    "section": "Sample Selection",
+    "text": "Sample Selection\n\nMatching Import Relief Investigations to Industries and Compustat Firms\nI identify import relief investigations from the U.S. International Trade Commission (USITC) by scraping their Commission Publications Library. My scraping process employs robust retry logic and Cloudflare bypass mechanisms, with raw HTML cached for reproducibility and efficiency. I match investigation titles to standardized industry classifications using a SIC-NAICS crosswalk (1987/1997 versions) enhanced by semantic matching via a local language model. This procedure links (almost) each USITC investigation ID to corresponding SIC and NAICS codes, enabling systematic identification of treatment industries (those under investigation) and control industries (structurally similar but not investigated). For implementation details, see the companion Python scripts. The table below summarizes the matched import relief investigations and their corresponding industries.\n\n\n\n\nMatched Import Relief Investigations and Corresponding Industries\n\n\nInvestigation Title\nSIC Title\nSIC Code\nLLM Reasoning\n\n\n\n\nCrystalline Silicon Photovoltaic Cells\nNonclassifiable Establishments\n9999\nNone of the listed industries correspond to photovoltaic cell manufacturing; thus the case is best classified as nonclassifiable.\n\n\nLarge Residential Washers\nBolts, Nuts, Screws, Rivets, and Washers\n3452\nThe keyword \"washers\" matches the SIC 3452 industry for bolt, nut, screw, rivet, and washer manufacturing, and its NAICS counterpart 332722.\n\n\nLeather Wearing Apparel\nLeather Goods, NEC\n3199\nThe title refers to apparel made of leather, aligning best with leather goods manufacturing (SIC 3199.0 / NAICS 316999.0).\n\n\nFish\nFish and Seafoods\n5146\nThe title directly references fish, matching the Fish and Seafoods wholesale industry.\n\n\nFresh Cut Roses\nFresh Fruits and Vegetables\n5148\nFresh cut roses are a type of fresh produce best matched with the Fresh Fruits and Vegetables Wholesalers industry.\n\n\nMotor Vehicles and Chassis and Bodies Thereof\nTruck and Bus Bodies\n3713\nThe case title focuses on motor vehicles, chassis, and bodies, matching the Motor Vehicle Body Manufacturing industry.\n\n\nFishing Rods and Parts Thereof\nMetal Shower Rods\n3432\nFishing rods are a type of metal (or fabricated) rod product, best fitting the Metal Shower Rods manufacturing industry and its associated NAICS category of miscellaneous fabricated metal products.\n\n\nTubeless Tire Valves\nIndustrial Valves\n3491\nTubeless tire valves are a type of industrial valve component, best fitting the Industrial Valve Manufacturing category.\n\n\nHeavyweight Motorcycles\nMotorcycles, Bicycles, and Parts\n3751\nDirect match to motorcycle manufacturing.\n\n\nStainless Steel and Alloy Tool Steel\nSteel Foundries, NEC\n3325\nStainless and alloy tool steels are typically produced in steel foundries, matching the SIC 3325 and NAICS 331513 categories.\n\n\nNonrubber Footwear\nFootwear, Except Rubber, NEC\n3149\nDirect match to nonrubber footwear manufacturing.\n\n\nCarbon and Certain Alloy Tool Steel Products\nSteel Foundries, NEC\n3325\nThe case involves manufacturing of specialized tool steel, which is typically produced in steel foundries, matching SIC 3325 and NAICS 331513.\n\n\nUnwrought Copper\nPrimary Smelting and Refining of Copper\n3331\nUnwrought copper refers to the raw refined copper produced in primary smelting and refining operations.\n\n\nCanned Tuna Fish\nCanned and Cured Fish and Seafood\n2091\nDirect match to canned and cured fish and seafood industry.\n\n\nPotassium Permanganate\nNonclassifiable Establishments\n9999\nPotassium Permanganate is a chemical product not covered by the listed manufacturing industries, so it falls under the Nonclassifiable/Unclassified category.\n\n\nNonrubber Footwear\nFootwear, Except Rubber, NEC\n3149\nDirectly matches the industry for footwear manufacturing excluding rubber products.\n\n\nWood Shingles and Shakes\nShingle Mills, Shakes\n2429\nThe case title refers to shingle manufacturing, directly matching the Shingle Mills (Shakes) industry and its NAICS classification as sawmills.\n\n\nElectric Shavers and Parts Thereof\nElectronic Parts and Equipment, NEC\n5065\nElectric shavers are small electronic appliances, fitting best with the generic electronic parts and equipment industry.\n\n\nMetal Castings\nNonferrous Die-Castings, Except Aluminum\n3364\nThe title refers to metal casting, which aligns best with nonferrous die-casting foundries (excluding aluminum).\n\n\nApple Juice\nApple Orchards and Farms\n175\nApple Juice is produced from apples, making the apple orchard industry the most directly relevant among the provided options.\n\n\nSteel Fork Arms\nSteel Foundries, NEC\n3325\nSteel fork arms are steel components manufactured by a foundry, matching the Steel Foundries, NEC industry.\n\n\nKnives\nLawnmower Repair Shops, Sharpening and Repairing Knives, Saws and Tools\n7699\nThe industry description for SIC 7699.0 lists 'Sharpening and Repairing Knives, Saws and Tools', directly matching the case title.\n\n\nCertain Cameras\nNonclassifiable Establishments\n9999\nNo candidate industry matches the keyword 'cameras'; therefore the nonclassifiable category is chosen.\n\n\nExtruded Rubber Thread\nMolded, Extruded, and Lathe-Cut Mechanical Rubber Goods\n3061\nThe product is an extruded rubber thread, matching the description of Molded, Extruded, and Lathe-Cut Mechanical Rubber Goods and its NAICS counterpart for rubber products manufactured for mechanical use.\n\n\nFresh Winter Tomatoes\nFresh Fruits and Vegetables\n5148\nThe title refers to fresh tomatoes, directly matching the Fresh Fruits and Vegetables industry and its wholesale distribution.\n\n\nBroom Corn Brooms\nBrooms and Brushes\n3991\nThe title refers to manufacturing brooms, matching the Brooms and Brushes industry.\n\n\nFresh Tomatoes and Bell Peppers\nFresh Fruits and Vegetables\n5148\nThe case title references fresh produce (tomatoes and bell peppers), matching the Fresh Fruits and Vegetables wholesaler industry.\n\n\nWheat Gluten\nWheat\n111\nWheat gluten is a product derived directly from wheat, so the most appropriate industry is wheat farming.\n\n\nLamb Meat\nMeat Markets\n5421\nThe title refers to retail sale of lamb meat, matching Meat Markets.\n\n\nSteel Wire Rod\nSteel Wire Drawing\n3315\nDirect match to steel wire drawing, which produces wire rods.\n\n\nCertain Circular Welded Carbon Quality Line Pipe\nSteel Pipe and Tubes\n3317\nThe product is a welded carbon-quality line pipe, which is a steel pipe manufactured from purchased steel.\n\n\nCrabmeat from Swimming Crabs\nNonclassifiable Establishments\n9999\nNo provided industry relates to seafood or crab processing, so the case falls into the nonclassifiable/unclassified category.\n\n\nExtruded Rubber Thread\nMolded, Extruded, and Lathe-Cut Mechanical Rubber Goods\n3061\nThe title indicates extruded rubber threads, which are mechanical rubber goods produced by extrusion, matching SIC 3061 and NAICS 326291.\n\n\nSteel: Determinations and Views of Commissioners\nSteel Foundries, NEC\n3325\nThe case concerns the steel industry in general, best aligning with steel foundry manufacturing.\n\n\nCrystalline Silicon Photovoltaic Cells\nNonclassifiable Establishments\n9999\nNo industry in the list matches photovoltaic cell manufacturing; select the nonclassifiable/unclassified category.\n\n\nLarge Residential Washers\nBolts, Nuts, Screws, Rivets, and Washers\n3452\nThe only industry listed that explicitly mentions washers is Bolt, Nut, Screw, Rivet, and Washer Manufacturing, making it the closest match.\n\n\nFresh\nFresh Fruits and Vegetables\n5148\nThe title 'Fresh' directly matches the description of Fresh Fruits and Vegetables and Fresh Fruit and Vegetable Wholesalers.\n\n\nFine Denier Polyester Staple Fiber\nBroadwoven Fabric Mills, Manmade Fiber and Silk\n2221\nPolyester staple fiber is a manmade fiber used in broadwoven fabric manufacturing, matching the Broadwoven Fabric Mills industry.\n\n\n\n\n\n\n\n\n\n\n\n\nImportantSome important caveats about the matching process:\n\n\n\n\nI only use safeguard investigations (not other types of import relief)\nSome investigations could not be matched to a specific SIC code (9999)\nThe matching relies on LLM reasoning which may introduce errors\n\n\n\n\n\nAccounting Data\nI obtain financial statement data from Compustat North America for U.S. incorporated firms beginning in 1975. I exclude financial institutions (SIC codes 6000-6999) and require non-missing total assets for all firm-years. To ensure robust industry-specific estimation of the Jones model, I retain only industry-years (three-digit SIC level) with at least 10 observations. I exclude observations with missing values for total accruals, revenue changes, property-plant-equipment, or lagged total assets. All continuous variables are winsorized at the 1st and 99th percentiles to reduce the influence of extreme outliers. For additional implementation details, see the companion R script.\n\n\nTreatment Sample Selection and Event Window Definition\nTo construct my treatment sample, I apply several critical filters to the matched investigations. First, I identify the investigation date and extract both the calendar year and month. To ensure that year_zero captures the last complete fiscal year before the investigation announcement, I adjust for each firm’s fiscal year-end month. Specifically, for firms with fiscal year-end months before the investigation month, their fiscal year statement would have already been reported before the investigation, making that fiscal year “year 0.” For firms with fiscal year-end months after the investigation month, their reported year 0 encompasses the investigation announcement, and I adjust their timing accordingly. Second, I address the issue of multiple investigations in the same industry. Some SIC-3 industries (314, 332, 514) experience multiple import relief investigations within short time windows. To avoid contamination and confounded treatment effects, I retain only the first investigation per SIC-3 industry, excluding subsequent treatments within the same year or immediately following year (diff_year_zero &gt; 1). This design choice prioritizes clean identification of the initial shock at the cost of sample size—a conservative approach that trades statistical power for causal credibility.\n\n\n\n\n\n\n\n\n\n\n\nThe OG… Jones Model\n\nJones (1991): Time-Series Firm-Specific Approach\n\\[ Total accruals_{it} = \\frac{1}{AT_{i,t-1}} + \\beta_1 \\frac{\\Delta REV_{it}}{AT_{i,t-1}} + \\beta_2 \\frac{PPE_{it}}{AT_{i,t-1}} + \\epsilon_{it}\\]\nWhere:\n\n\\(Total accruals_{it}\\) = total accruals for firm i at time t\n\\(AT_{i,t-1}\\) = total assets for firm i at time t-1\n\\(\\Delta REV_{it}\\) = change in revenues for firm i at time t\n\\(PPE_{it}\\) = property, plant, and equipment for firm i at time t\n\nJones (1991) estimates a separate regression for each firm using several years of historical data. The estimation period stops in year t-2. Firm-specific coefficients capture each firm’s unique accrual patterns. Compares actual accruals to the firm’s own historical norm.\n\n\n\n\n\n\nImportantTime-Series Firm-Specific Jones Model\n\n\n\nDiscretionary accruals: \\(DA_{it}\\) = residual from firm i’s time-series regression\n\n\n\n\nMy Approach: Cross-Sectional Industry-Specific Approach\nEstimates yearly regressions by SIC-3 industry using all firms in that industry. Industry-year-specific coefficients capture industry norms in each period. Compares firm accruals to industry peers in the same year.\n\n\n\n\n\n\nImportantCross-Sectional Industry-Specific Jones Model\n\n\n\n\\(DA_{it}\\) = residual from industry-year cross-sectional regression\nImplication: I measure abnormal accruals relative to contemporaneous industry peers, not firm’s historical pattern\n\n\n\n\n\n\n\n\nNoteDeep Dive: Earnings Management Measurement\n\n\n\nDechow et al. (2010) reviews the literature surrounding “earnings quality,” including earnings management. They discuss trade-offs between time-series and cross-sectional approaches to measuring abnormal accruals. See Gow and Ding (2024) for an in-depth overview of implementing accrual-based earnings management measures—or for practical guidance on many aspects of empirical research in accounting.\n\n\n\n\n\nStacked Difference-in-Differences with First-Differenced Specification\nI implement a stacked difference-in-differences (DiD) design to estimate the impact of import relief investigations on discretionary accruals. The treatment group consists of firms in industries subject to import relief investigations, while the control group includes firms in industries without such investigations (different SIC-1 codes). I define event time relative to the investigation year, with t=0 as the investigation year. For each event window (t-2 to t+2), I create a separate dataset stacking observations from treated and control industries; see, e.g., Baker et al. (2022); Baker et al. (2025) for more details on stacked DiD designs.\n\nFirst-Difference DiD Model\n\\[\\Delta DA_{it} = \\beta_1Treated_i + \\alpha_{fyear}+ \\gamma_{cohort}+ \\epsilon_{it}\\]\nWhere:\n\n\\(\\Delta(DA_{it}) = DA_{it} - DA_{i,t-1}\\) is the change in discretionary accruals for firm i at time t\n\\(Treated_i\\) is a binary indicator for whether firm i is in the treatment group\n\\(\\alpha_{fyear}\\) are fixed effects for the fiscal year\n\\(\\gamma_{cohort}\\) are fixed effects for the cohort\n\\(\\epsilon_{it}\\) is the error term\n\n\n\nWhy?\nThe idea is to present results in a way that is more directly comparable to Jones (1991). She also compares changes in discretionary accruals around the investigation period, specifically in years t-1 to t+1. I want to make my results more directly comparable to hers.\n\n\n\n\n\n\nNoteOkay, so where’s the DiD?\n\n\n\nDifference #1: Change in discretionary accruals within firms over time. First differencing removes firm fixed effects.\nDifference #2: Difference in changes between treated and control industries over time. The coefficient on \\(Treated_i\\) captures the average difference in changes in discretionary accruals between treated and control industries.",
+    "crumbs": [
+      "Slides",
+      "Playground",
+      "The Jones (1991) Model Setting Revisited"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/playground/revisiting-jones.html#results",
+    "href": "lecture-materials/playground/revisiting-jones.html#results",
+    "title": "The Jones (1991) Model Setting Revisited",
+    "section": "Results",
+    "text": "Results\n\nSummary Statistics\n\n\nSummary Statistics for Key Variables\n\n\nVariable\nN\nMean\nSD\nMin\n25th Pct\nMedian\n75th Pct\nMax\n\n\n\n\nTotal Accruals\n621059\n-0.05\n0.26\n-2.53\n-0.10\n-0.04\n0.01\n1.19\n\n\nDiscretionary Accruals\n621059\n0.00\n0.22\n-2.98\n-0.05\n0.00\n0.06\n3.79\n\n\nTotal Assets\n621059\n1380.73\n8306.77\n0.00\n13.39\n71.04\n452.39\n624894.00\n\n\nInverse Lagged Total Assets\n621059\n0.17\n0.68\n0.00\n0.00\n0.02\n0.09\n8.00\n\n\nChange in Revenues\n621059\n0.16\n0.47\n-1.17\n-0.01\n0.08\n0.26\n2.99\n\n\nProperty, Plant, and Equipment\n621059\n0.71\n0.51\n0.00\n0.32\n0.59\n1.04\n3.14\n\n\nTreated Indicator\n621059\n0.00\n0.06\n0.00\n0.00\n0.00\n0.00\n1.00\n\n\nTime Relative to Investigation\n621059\n0.08\n1.94\n-3.00\n-2.00\n0.00\n2.00\n3.00\n\n\nFiscal Year\n621059\n1990.14\n10.95\n1976.00\n1982.00\n1986.00\n1997.00\n2025.00\n\n\n\n\n\n\n\nFirst-Difference DiD Estimates\nThe table and figure below present the results of the first-difference DiD estimation. The table shows the estimated treatment effects for each time window around the import relief investigations, while the figure plots the coefficients for each estimation window to visualize the dynamics of changes in discretionary accruals between treated and control industries for each time window.\n\nFirst-Difference DiD Estimates of Changes in Jones Residuals Around Import Relief Investigations\n\n\n\n\n\n\n\n\n\n\nEvent-study: Difference-in-Differences Estimates of Jones Residuals Around Import Relief Investigations",
+    "crumbs": [
+      "Slides",
+      "Playground",
+      "The Jones (1991) Model Setting Revisited"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/playground/revisiting-jones.html#limitations",
+    "href": "lecture-materials/playground/revisiting-jones.html#limitations",
+    "title": "The Jones (1991) Model Setting Revisited",
+    "section": "Limitations",
+    "text": "Limitations\n\nWhat about other (real) earnings management measures?\nTypically, one would like to see results using multiple measures of earnings management; see, e.g., Dechow et al. (2010) for an overview - Typically, one would like to see results using multiple measures of earnings management, see e.g. Dechow et al. (2010) fot an overview - Breuer and Schütt (2023) provides a Bayesian framework to combine multiple earnings management measures into a single latent construct - To go even further, one could consider real earnings management measures as in Roychowdhury (2006) (better leave that up to Reviewer 2 to decide for you…) - While you are at it, also check and apply Srivastava (2019) for improved measurement of real earnings management (I see you, Reviewer 2…)\n\n\nResiduals as Dependent Variable\n\nDiscretionary accruals are estimated residuals from the Jones model (two-step approach)\nChen et al. (2018) and B. Chen et al. (2023) highlight potential bias and inefficiency in two-step approaches\n\nSolution: Use control function or joint estimation methods\n\nI am not giving this a separate headline, but make sure your standard errors game is on par with the latest literature (e.g., W. Chen et al. (2023) or Abadie et al. (2023)), in case Reviewer 2 asks you about it…\n\n\n\nStatistical Power\n\nEffect is statistically significant (p &lt; 0.05) in one period—where we would expect it (\\(t=0\\)) to be strongest\nNot statistically significant in other periods\nStandard errors are clustered at the cohort-gvkey level—may be conservative but necessary to account for within-firm and within-cohort correlation (I see you, Reviewer 2…)\n\n\n\nEconomic Magnitude\n\nEffect size (2.0 pp) is approximately 1/3 of Jones’s finding\nCould reflect: (1) fiscal year dilution, (2) industry aggregation, (3) control group contamination, (4) measurement error in cross-sectional DA models\n\n\n\nControl Group Validity\n\nControl industries (different SIC-1) may still face import competition\nCould attenuate treatment effect if controls also manipulate\nParallel trends are validated in the pre-period, but the assumption may not hold throughout",
+    "crumbs": [
+      "Slides",
+      "Playground",
+      "The Jones (1991) Model Setting Revisited"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/playground/revisiting-jones.html#conclusion",
+    "href": "lecture-materials/playground/revisiting-jones.html#conclusion",
+    "title": "The Jones (1991) Model Setting Revisited",
+    "section": "Conclusion",
+    "text": "Conclusion\nThe findings provide evidence consistent with Jones (1991) using a complementary identification strategy. The stacked DiD with cross-sectional discretionary accruals and contemporaneous industry controls offers:\n\nStronger causal identification through parallel trends validation\nRobustness to systematic time-period effects\nIndustry-level confirmation of firm-level manipulation documented by Jones",
+    "crumbs": [
+      "Slides",
+      "Playground",
+      "The Jones (1991) Model Setting Revisited"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/playground/revisiting-jones.html#references",
+    "href": "lecture-materials/playground/revisiting-jones.html#references",
+    "title": "The Jones (1991) Model Setting Revisited",
+    "section": "References",
+    "text": "References\n\n\nAbadie, A., Athey, S., Imbens, G.W., Wooldridge, J.M., 2023. When should you adjust standard errors for clustering? The Quarterly Journal of Economics 138, 1–35.\n\n\nBaker, A., Callaway, B., Cunningham, S., Goodman-Bacon, A., Sant’Anna, P.H., 2025. Difference-in-differences designs: A practitioner’s guide. arXiv preprint arXiv:2503.13323.\n\n\nBaker, A.C., Larcker, D.F., Wang, C.C., 2022. How much should we trust staggered difference-in-differences estimates? Journal of Financial Economics 144, 370–395.\n\n\nBreuer, M., Schütt, H.H., 2023. Accounting for uncertainty: An application of bayesian methods to accruals models. Review of Accounting Studies 28, 726–768.\n\n\nChen, B., Chen, W., Hribar, P., Melessa, S., 2023. Measuring dual effects in accounting research: Limitations of absolute residuals and the role of quantile regression. https://doi.org/10.2139/ssrn.4572590\n\n\nChen, W., Hribar, P., Melessa, S., 2023. Standard error biases when using generated regressors in accounting research. Journal of accounting research 61, 531–569.\n\n\nChen, W., Hribar, P., Melessa, S., 2018. Incorrect inferences when using residuals as dependent variables. Journal of Accounting Research 56, 751–796.\n\n\nDechow, P., Ge, W., Schrand, C., 2010. Understanding earnings quality: A review of the proxies, their determinants and their consequences. Journal of accounting and economics 50, 344–401.\n\n\nGow, I.D., Ding, T., 2024. Empirical research in accounting: Tools and methods. Chapman; Hall/CRC.\n\n\nJones, J.J., 1991. Earnings management during import relief investigations. Journal of accounting research 29, 193–228.\n\n\nRoychowdhury, S., 2006. Earnings management through real activities manipulation. Journal of accounting and economics 42, 335–370.\n\n\nSrivastava, A., 2019. Improving the measures of real earnings management. Review of Accounting Studies 24, 1277–1316.",
+    "crumbs": [
+      "Slides",
+      "Playground",
+      "The Jones (1991) Model Setting Revisited"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "",
+    "text": "Lecture Overview"
+  },
+  {
+    "objectID": "index.html#about-this-lecture",
+    "href": "index.html#about-this-lecture",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "About This Lecture",
+    "text": "About This Lecture\nThis lecture explores how modern data sources can breathe new life into classic accounting research. We’ll examine Jennifer Jones’s influential 1991 study on earnings management during import relief investigations, then see how contemporary website data could extend and validate her findings.\nThe lecture is structured in two parts:\nPart 1: Three Papers introduces the methodological toolkit and theoretical foundation:\n\nModern web scraping techniques for longitudinal data collection\nWebsite-based disclosure measures and their validation\nThe classic Jones (1991) earnings management study\n\nPart 2: Research in Action demonstrates the research process:\n\nA full replication of Jones (1991) with modern methods\nPreliminary exploration of website disclosure patterns during investigations\nStructured critique and discussion of research design choices\n\nBeyond understanding specific methods and findings, this lecture aims to stimulate your own research creativity. By engaging with the materials—seeing how papers can be combined, observing the decision-making process, and practicing structured critique—you’ll develop pattern recognition for spotting research opportunities. The GitHub repository provides working code and data that you can adapt for your own questions, and the lecture format encourages you to think: “What would I do differently?” or “Where else could this approach work?”"
+  },
+  {
+    "objectID": "index.html#lecture-materials",
+    "href": "index.html#lecture-materials",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Lecture Materials",
+    "text": "Lecture Materials\n\n📊 View Slides\nClick above to view the complete presentation with examples from recent research papers.\n\n\n📁 [GitHub Repository](\nCheck out the repository for all code and data used in this lecture.\n\n\n🤖 Paper Summaries\nSummaries of key papers generated using a local LLMs\n\nIs this better than any of the free LLMs out there? Probably not.\nBUT: It’s YOURS to adapt, extend, and improve as you see fit.\nFor another way to utilize LLMs in research, see Peter and Weinrich (2025)."
+  },
+  {
+    "objectID": "index.html#learning-goals",
+    "href": "index.html#learning-goals",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Learning Goals",
+    "text": "Learning Goals\nThis lecture is designed to spark your own research ideas:\n\nDuring Part 1: Ask yourself: “What other classic studies could benefit from website data?”\nDuring Part 2: Think: “What would I do differently? What am I curious about?”\nAfter class: The GitHub materials are yours to adapt, extend, or apply to entirely different questions\n\nThe best outcome isn’t just understanding this project—it’s developing your ability to spot opportunities where new data sources can unlock fresh insights into established phenomena. Use the lecture materials as a launching pad for your own creativity."
+  },
+  {
+    "objectID": "index.html#references",
+    "href": "index.html#references",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "References",
+    "text": "References\nThe lecture draws on recent research including:\n\nHaans & Mertens (2024): “The Internet Never Forgets” - A framework for longitudinal website analysis\nBoulland et al. (2025): Applications of website disclosure measures to corporate finance questions\nJones (1991): Classic earnings management framework that can be revisited with new data"
+  },
+  {
+    "objectID": "index.html#contact",
+    "href": "index.html#contact",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "Contact",
+    "text": "Contact\n\n\n👨‍🏫 Caspar David Peter\n\n\n✉️ peter@rsm.nl\n\n\n🏫 Rotterdam School of Management"
+  },
+  {
+    "objectID": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html",
+    "href": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html",
+    "title": "Jones-Earningsmanagementimport-1991 - Research Summary",
+    "section": "",
+    "text": "The U.S. International Trade Commission (ITC) investigates antidumping, countervailing duty and trade remedy cases under Section 337 of the Tariff Act of 1922 and other laws. This study examines whether firms’ reported earnings during these investigations reflect managers’ income-decreasing accruals to influence injury determinations.\n\n\n\nImport relief investigations are initiated by U.S. industries when they seek protection from unfair foreign trade practices, such as dumping or subsidies. The U.S. Congress passed the Trade Act of 1974 and the Trade Agreements Act of 1979 to provide a legal basis for these investigations. Importantly, the ITC’s Final Regulations define “injury” narrowly, requiring proof that foreign imports have caused injury.\nThe earnings management hypothesis suggests that managers may use accounting accruals to manage earnings during import relief investigations. This study uses empirical tests based on total accruals and expectations models to provide evidence for this hypothesis. The literature includes studies by Jones (1986), DeAngelo et al., Healy, Dobson, KAPLAN, etc.\n\n\n\nThe earnings management hypothesis states that managers may use discretionary accounting accruals to manage earnings during import relief investigations. This can be done through income-decreasing or income-increasing methods. The study focuses on the impact of foreign trade regulation and investigation periods on accounting decisions, particularly regarding the selection of accounting principles.\n\n\n\nThe empirical tests are based on data collected from ITC producer questionnaires for final investigations. These include information on capacity, production, inventories, purchases (including imports), shipments, employment, income-and-loss, asset valuation, prices, and competition from imports. The study uses a sample of firms involved in import relief investigations during the period 1978-1985.\n\n\n\nThe empirical tests use total accruals to measure discretionary accruals. These are estimated using firm-specific expectations models that account for changes due to economic conditions and other factors, such as capacity utilization or tax rates. The study employs time-series models (Jones, Jones) and cross-sectional methods.\n\n\n\nThe empirical tests indicate that discretionary total accruals are income-decreasing in year 0 compared to years -1 and +1. This provides support for the earnings management hypothesis. Tests show that discretionary accruals are not significantly different from zero in years -1 and +1, but they are more negative than expected during year 0.\n\n\n\nThe results suggest that managers may be engaging in earnings management by reducing reported earnings through income-decreasing accruals during import relief investigations. This could influence the ITC’s injury determination process, though other factors like labor union contracts or competition effects might mitigate reliance on earnings numbers alone.\n\n\n\nDEANGELo, L. E., “Accounting Numbers as Market Valuation Substitutes: A Study of Management Buyouts,” The Accounting Review 61 (July 1986): 400-20; and “Managerial Competition… in Proxy Contests,” Journal of Accounting and Economics 10 (January 1988): 3-36.\nDOBSON, J. M., Two Centuries of Tariffs: The Background and Emergence of the U.S. International Trade Commission, Government Printing Office, 1976.\nHEALY, P., “The Impact of Bonus Schemes on Accounting Principles,” Journal of Accounting and Economics 7 (April 1985): 85-107; and “Comments on Jones: The Effect of Foreign Trade Regulation,” Ph.D. dissertation, University of Chicago, 1984.\nKAPLAN, R. S., “Developing a Financial Planning Model for an Analytical Review,” Symposium on Auditing Research III (pp. 3-34), University of Illinois, 1979; and “Comments on Paul Healy: Evidence on the Effect,” Journal of Accounting Research 26 (Supplement 1988): 1-31.\nKMENTA, J., Elements of Econometrics, Macmillan, 1986.\nLIBERTY, S. E., AND J. L. ZIMMERMAN, “Labor Union Contract Negotiations and Accounting Choices,” The Accounting Review 61 (October 1986): 692-712.\nJONES, J., “The Effect of Foreign Trade Regulation on Accounting and Investment Decisions,” Ph.D. dissertation, University of Chicago, 1984.\nMANDELKER, G., “Risk and Return: The Case of Merging Firms,” Journal of Financial Economics 1 (1974): 303-35.\nMcNicHoLs AND WILSON, “Evidence of Earnings Management from the Provision for Bad Debts.”\nPATELL, J. M., “Corporate Forecasts of Earnings per Share and Stock Price Behavior,” Journal of Accounting Research 14 (Autumn 1976): 246-76.\nTHE UNITED STATES INTERNATIONAL TRADE COMMISSION’S Final Investigations include Investigation Number TA-201-32 (August 1978), TA-201-44 (December 1980), TA-201-55 (August 1985) and Annual Report no. 1847 (December 1985)."
+  },
+  {
+    "objectID": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#introduction",
+    "href": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#introduction",
+    "title": "Jones-Earningsmanagementimport-1991 - Research Summary",
+    "section": "",
+    "text": "The U.S. International Trade Commission (ITC) investigates antidumping, countervailing duty and trade remedy cases under Section 337 of the Tariff Act of 1922 and other laws. This study examines whether firms’ reported earnings during these investigations reflect managers’ income-decreasing accruals to influence injury determinations."
+  },
+  {
+    "objectID": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#literature-review",
+    "href": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#literature-review",
+    "title": "Jones-Earningsmanagementimport-1991 - Research Summary",
+    "section": "",
+    "text": "Import relief investigations are initiated by U.S. industries when they seek protection from unfair foreign trade practices, such as dumping or subsidies. The U.S. Congress passed the Trade Act of 1974 and the Trade Agreements Act of 1979 to provide a legal basis for these investigations. Importantly, the ITC’s Final Regulations define “injury” narrowly, requiring proof that foreign imports have caused injury.\nThe earnings management hypothesis suggests that managers may use accounting accruals to manage earnings during import relief investigations. This study uses empirical tests based on total accruals and expectations models to provide evidence for this hypothesis. The literature includes studies by Jones (1986), DeAngelo et al., Healy, Dobson, KAPLAN, etc."
+  },
+  {
+    "objectID": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#earnings-management-hypothesis",
+    "href": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#earnings-management-hypothesis",
+    "title": "Jones-Earningsmanagementimport-1991 - Research Summary",
+    "section": "",
+    "text": "The earnings management hypothesis states that managers may use discretionary accounting accruals to manage earnings during import relief investigations. This can be done through income-decreasing or income-increasing methods. The study focuses on the impact of foreign trade regulation and investigation periods on accounting decisions, particularly regarding the selection of accounting principles."
+  },
+  {
+    "objectID": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#data",
+    "href": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#data",
+    "title": "Jones-Earningsmanagementimport-1991 - Research Summary",
+    "section": "",
+    "text": "The empirical tests are based on data collected from ITC producer questionnaires for final investigations. These include information on capacity, production, inventories, purchases (including imports), shipments, employment, income-and-loss, asset valuation, prices, and competition from imports. The study uses a sample of firms involved in import relief investigations during the period 1978-1985."
+  },
+  {
+    "objectID": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#methodology",
+    "href": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#methodology",
+    "title": "Jones-Earningsmanagementimport-1991 - Research Summary",
+    "section": "",
+    "text": "The empirical tests use total accruals to measure discretionary accruals. These are estimated using firm-specific expectations models that account for changes due to economic conditions and other factors, such as capacity utilization or tax rates. The study employs time-series models (Jones, Jones) and cross-sectional methods."
+  },
+  {
+    "objectID": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#empirical-results",
+    "href": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#empirical-results",
+    "title": "Jones-Earningsmanagementimport-1991 - Research Summary",
+    "section": "",
+    "text": "The empirical tests indicate that discretionary total accruals are income-decreasing in year 0 compared to years -1 and +1. This provides support for the earnings management hypothesis. Tests show that discretionary accruals are not significantly different from zero in years -1 and +1, but they are more negative than expected during year 0."
+  },
+  {
+    "objectID": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#discussion",
+    "href": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#discussion",
+    "title": "Jones-Earningsmanagementimport-1991 - Research Summary",
+    "section": "",
+    "text": "The results suggest that managers may be engaging in earnings management by reducing reported earnings through income-decreasing accruals during import relief investigations. This could influence the ITC’s injury determination process, though other factors like labor union contracts or competition effects might mitigate reliance on earnings numbers alone."
+  },
+  {
+    "objectID": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#references",
+    "href": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#references",
+    "title": "Jones-Earningsmanagementimport-1991 - Research Summary",
+    "section": "",
+    "text": "DEANGELo, L. E., “Accounting Numbers as Market Valuation Substitutes: A Study of Management Buyouts,” The Accounting Review 61 (July 1986): 400-20; and “Managerial Competition… in Proxy Contests,” Journal of Accounting and Economics 10 (January 1988): 3-36.\nDOBSON, J. M., Two Centuries of Tariffs: The Background and Emergence of the U.S. International Trade Commission, Government Printing Office, 1976.\nHEALY, P., “The Impact of Bonus Schemes on Accounting Principles,” Journal of Accounting and Economics 7 (April 1985): 85-107; and “Comments on Jones: The Effect of Foreign Trade Regulation,” Ph.D. dissertation, University of Chicago, 1984.\nKAPLAN, R. S., “Developing a Financial Planning Model for an Analytical Review,” Symposium on Auditing Research III (pp. 3-34), University of Illinois, 1979; and “Comments on Paul Healy: Evidence on the Effect,” Journal of Accounting Research 26 (Supplement 1988): 1-31.\nKMENTA, J., Elements of Econometrics, Macmillan, 1986.\nLIBERTY, S. E., AND J. L. ZIMMERMAN, “Labor Union Contract Negotiations and Accounting Choices,” The Accounting Review 61 (October 1986): 692-712.\nJONES, J., “The Effect of Foreign Trade Regulation on Accounting and Investment Decisions,” Ph.D. dissertation, University of Chicago, 1984.\nMANDELKER, G., “Risk and Return: The Case of Merging Firms,” Journal of Financial Economics 1 (1974): 303-35.\nMcNicHoLs AND WILSON, “Evidence of Earnings Management from the Provision for Bad Debts.”\nPATELL, J. M., “Corporate Forecasts of Earnings per Share and Stock Price Behavior,” Journal of Accounting Research 14 (Autumn 1976): 246-76.\nTHE UNITED STATES INTERNATIONAL TRADE COMMISSION’S Final Investigations include Investigation Number TA-201-32 (August 1978), TA-201-44 (December 1980), TA-201-55 (August 1985) and Annual Report no. 1847 (December 1985)."
+  },
+  {
+    "objectID": "lecture-materials/playground/website-data.html",
+    "href": "lecture-materials/playground/website-data.html",
+    "title": "Website Data",
+    "section": "",
+    "text": "ImportantTime for some action!\n\n\n\nSo now it’s time to put our money where our mouth is. Below I show how to import the relief investigation data from the Jones-esque analysis earlier and cleaned firm website text data from Haans and Mertens (2024), and to do a quick-and-dirty analysis to see if there is any action in the data.",
+    "crumbs": [
+      "Slides",
+      "Playground",
+      "Website Data"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/playground/website-data.html#what-about-treated-vs.-control-firms",
+    "href": "lecture-materials/playground/website-data.html#what-about-treated-vs.-control-firms",
+    "title": "Website Data",
+    "section": "What about treated vs. control firms?",
+    "text": "What about treated vs. control firms?\nTo take the analysis a step further, we can compare treated firms to control firms using a difference-in-differences (DiD) approach. Below I present summary statistics for key variables, followed by DiD estimates and visualizations of the results.\n\nMoment of Truth II: Is there any action in the data—for treated AND control firms?\n\n\nCode\n# Plot word counts over event time\n\nwebsite_cohorts %&gt;%\n  group_by(treated, time) %&gt;%\n  mutate(treated = ifelse(treated == 1, \"Treated\", \"Control\")) %&gt;%\n  summarize(avg_injury_word_ratio = mean(injury_word_ratio, na.rm = TRUE)) %&gt;%\n  # sd_injury_word_ratio = sd(injury_word_ratio, na.rm = TRUE),\n  # n = n(),\n  # se_injury_word_ratio = sd_injury_word_ratio / sqrt(n),\n  # ci_lower = avg_injury_word_ratio - qt(0.975, n - 1) * se_injury_word_ratio,\n  # ci_upper = avg_injury_word_ratio + qt(0.975, n - 1) * se_injury_word_ratio)  %&gt;%\n  ggplot(aes(x = time, y = avg_injury_word_ratio, color = treated)) +\n  geom_line() +\n  geom_point() +\n  # geom_ribbon(aes(ymin = ci_lower, ymax = ci_upper), alpha = 0.2) +\n  scale_y_continuous(limits = c(-0.025, 0.025)) +\n  scale_x_continuous(breaks = seq(-3, 3, by = 1)) +\n  labs(\n    title = \"Average Injury-Related Word Ratio Over Event Time\",\n    x = \"Event Time (Years Since Investigation)\",\n    y = \"Average Injury-Related Word Ratio\"\n  ) +\n  ggthemes::theme_hc()\n\n\n\n\n\n\n\n\n\n\n\nDiD Estimation of Jones Residuals Around Import Relief Investigations",
+    "crumbs": [
+      "Slides",
+      "Playground",
+      "Website Data"
+    ]
+  },
+  {
+    "objectID": "lecture-materials/handouts/institutional-background.html",
+    "href": "lecture-materials/handouts/institutional-background.html",
+    "title": "Institutional Background",
+    "section": "",
+    "text": "Type of Injury\nU.S. Legal Basis\nInternational Legal Basis\nNature of Imports\nInjury Standard\nKey Determining Agency\nTypical Remedy\nPurpose / Policy Intent\nExample Case\n\n\n\n\nDumping (Unfair Pricing)\nTariff Act of 1930, Sections 731–739\nGATT Article VI / WTO Antidumping Agreement\nUnfair trade (imports sold below fair value)\nMaterial injury or threat thereof by reason of dumped imports\nUSITC (injury) + USDOC (dumping margin)\nAntidumping duties (permanent)\nCounteract unfair pricing that injures U.S. industries\nCertain Steel Nails from China\n\n\nSubsidization (Unfair Government Support)\nTariff Act of 1930, Sections 701–709\nGATT Article VI / WTO SCM Agreement\nUnfair trade (foreign subsidies)\nMaterial injury or threat thereof by reason of subsidized imports\nUSITC (injury) + USDOC (subsidy finding)\nCountervailing duties (permanent)\nOffset injurious foreign subsidies\nSoftwood Lumber from Canada\n\n\nSafeguards / General Escape Clause\nSection 201, Trade Act of 1974\nGATT Article XIX / WTO Safeguards Agreement\nFair trade, but increased imports cause harm\nSerious injury or threat thereof caused by increased imports\nUSITC\nTemporary relief: tariffs, quotas, TRQs, adjustment aid\nAllow industries time to adjust to import competition (even if fair)\nFootwear, Inv. TA-201-7\n\n\nMarket Disruption (China-specific Safeguard)\nSection 421, Trade Act of 1974 (expired)\nChina WTO Accession Protocol (Art. 16)\nFair trade, but rapid import surges from China\nMarket disruption or threat thereof\nUSITC\nTemporary import restrictions (China-only)\nTransitional protection during China’s WTO integration\nCircular Welded Pipe from China\n\n\nNational Security (Section 232)\nSection 232, Trade Expansion Act of 1962\nGATT Article XXI (Security Exception)\nAny — imports threatening national security\nNo formal “injury” test; based on security threat\nDepartment of Commerce\nTariffs or quotas\nProtect essential industries (defense, critical supply chains)\nSteel and Aluminum 232 Investigations\n\n\nUnfair Trade in Services / IP (Section 337)\nSection 337, Tariff Act of 1930\nTRIPS Agreement / GATT obligations\nImports violating IP or fair competition\nInjury to a domestic industry (or threat thereof)\nUSITC\nExclusion orders, cease & desist\nProtect U.S. firms from unfair practices involving IP or trade secrets\nCertain Mobile Devices (Apple v. Samsung)"
+  }
+]

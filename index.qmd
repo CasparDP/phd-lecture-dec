@@ -17,11 +17,13 @@ This lecture explores how modern data sources can breathe new life into classic 
 The lecture is structured in two parts:
 
 **Part 1: Three Papers** introduces the methodological toolkit and theoretical foundation:
+
 - Modern web scraping techniques for longitudinal data collection
 - Website-based disclosure measures and their validation
 - The classic Jones (1991) earnings management study
 
 **Part 2: Research in Action** demonstrates the research process:
+
 - A full replication of Jones (1991) with modern methods
 - Preliminary exploration of website disclosure patterns during investigations
 - Structured critique and discussion of research design choices
@@ -36,6 +38,17 @@ Beyond understanding specific methods and findings, this lecture aims to **stimu
 
 Click above to view the complete presentation with examples from recent research papers.
 
+### 📁 [GitHub Repository](
+
+Check out the repository for all code and data used in this lecture.
+
+### 🤖 Paper Summaries
+
+Summaries of key papers generated using a local LLMs
+
+- Is this better than any of the free LLMs out there? Probably not.
+- BUT: It's YOURS to adapt, extend, and improve as you see fit.
+- For another way to utilize LLMs in research, see @peterweinrich2025aaer.
 ---
 
 ## Learning Goals

@@ -1,0 +1,340 @@
+---
+title: "The Jones (1991) Model Setting Revisited"
+subtitle: "What would Jennifer J. Jones do, today?"
+format: html
+---
+
+```{r}
+# source(here::here("data-prep", "Scripts", "phd-lecture-analyses.R"))
+source(here::here("data-prep", "Scripts", "load_libraries.R"))
+source(here::here("data-prep", "Scripts", "etable-setup.R"))
+
+# Connect to duckDB
+duckdb_conn <- dbConnect(duckdb::duckdb(),
+  dbdir = here::here("data-prep", "DB", "jones_duckdb"),
+  read_only = FALSE
+)
+# DBI::dbListTables(duckdb_conn)
+
+```
+
+
+::: {.callout-warning}
+# Disclaimer
+
+I am not Jennifer J. Jones and (unfortunately) have never talked to her either. The following analysis is my own interpretation and adaptation of her seminal 1991 paper on earnings management using discretionary accruals. Any errors or misinterpretations are solely my responsibility. The sole purpose of this exercise is to illustrate how one might revisit and extend classic empirical accounting research using modern econometric techniques and data availability. Also, it is meant to be a fun exercise in applied econometrics. Last but not least, this is my way of learning and generating ideas for my own research. Please do not cite or circulate this work without my permission.
+
+:::
+
+## Empirical Strategy
+
+## Sample Selection
+
+### Matching Import Relief Investigations to Industries and Compustat Firms
+
+I identify import relief investigations from the U.S. International Trade Commission (USITC) by scraping their Commission Publications Library. My scraping process employs robust retry logic and Cloudflare bypass mechanisms, with raw HTML cached for reproducibility and efficiency. I match investigation titles to standardized industry classifications using a SIC-NAICS crosswalk (1987/1997 versions) enhanced by semantic matching via a local language model. This procedure links (almost) each USITC investigation ID to corresponding SIC and NAICS codes, enabling systematic identification of treatment industries (those under investigation) and control industries (structurally similar but not investigated). For implementation details, see the companion Python scripts. The table below summarizes the matched import relief investigations and their corresponding industries.
+
+```{r}
+# Summary of matched import relief investigations - show only top 5 rows
+tbl(duckdb_conn, "safeguard_matches") %>%
+  collect() %>%
+  mutate(
+    best_match_SIC = as.integer(best_match_SIC),
+    best_match_NAICS = as.integer(best_match_NAICS)
+  ) %>%
+  # read_csv(here::here("data-prep", "safeguard_matches.csv")) %>%
+  # Add Industry Names from crosswalk csv
+  inner_join(
+    read_csv(here::here("data-prep", "cleaned_sic_naics_crosswalk.csv")) %>%
+      select(SIC, `SIC Titles and Part Descriptions`, `1997 NAICS`) %>%
+      distinct(),
+    by = c("best_match_SIC" = "SIC", "best_match_NAICS" = "1997 NAICS")
+  ) %>%
+  select(case_title, `SIC Titles and Part Descriptions`, best_match_SIC, reasoning) %>%
+  mutate(
+    best_match_SIC = as.integer(best_match_SIC),
+    `SIC Titles and Part Descriptions` = str_squish(str_replace(`SIC Titles and Part Descriptions`, "^\\.", ""))
+  ) %>%
+  # Nicer column names
+  rename(
+    `Investigation Title` = case_title,
+    `SIC Title` = `SIC Titles and Part Descriptions`,
+    `SIC Code` = best_match_SIC,
+    `LLM Reasoning` = reasoning
+  ) %>%
+  kableExtra::kable(
+    format = "html",
+    caption = "Matched Import Relief Investigations and Corresponding Industries"
+  ) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+    full_width = F, position = "left"
+  )
+```
+
+::: {.callout-important}
+# Some important caveats about the matching process:
+- I only use **safeguard investigations** (not other types of import relief)
+- Some investigations could not be matched to a specific SIC code (9999)
+- The matching relies on LLM reasoning which may introduce errors
+:::
+
+
+### Accounting Data
+
+I obtain financial statement data from Compustat North America for U.S. incorporated firms beginning in 1975. I exclude financial institutions (SIC codes 6000-6999) and require non-missing total assets for all firm-years. To ensure robust industry-specific estimation of the Jones model, I retain only industry-years (three-digit SIC level) with at least 10 observations. I exclude observations with missing values for total accruals, revenue changes, property-plant-equipment, or lagged total assets. All continuous variables are winsorized at the 1st and 99th percentiles to reduce the influence of extreme outliers. For additional implementation details, see the companion R script.
+
+### Treatment Sample Selection and Event Window Definition
+
+To construct my treatment sample, I apply several critical filters to the matched investigations. First, I identify the investigation date and extract both the calendar year and month. To ensure that `year_zero` captures the last complete fiscal year *before* the investigation announcement, I adjust for each firm's fiscal year-end month. Specifically, for firms with fiscal year-end months *before* the investigation month, their fiscal year statement would have already been reported before the investigation, making that fiscal year "year 0." For firms with fiscal year-end months *after* the investigation month, their reported year 0 encompasses the investigation announcement, and I adjust their timing accordingly. Second, I address the issue of multiple investigations in the same industry. Some SIC-3 industries (314, 332, 514) experience multiple import relief investigations within short time windows. To avoid contamination and confounded treatment effects, I retain only the first investigation per SIC-3 industry, excluding subsequent treatments within the same year or immediately following year (`diff_year_zero > 1`). This design choice prioritizes clean identification of the initial shock at the cost of sample size—a conservative approach that trades statistical power for causal credibility.
+
+```{r}
+# Histogram of treatment cohorts
+tbl(duckdb_conn, "em_cohorts") %>%
+  collect() %>%
+  select(event_year, cohort) %>%
+  distinct() %>%
+  group_by(event_year) %>%
+  count() %>%
+  ggplot(aes(x = event_year, y = n)) +
+  geom_col(fill = "darkgreen") +
+  scale_x_continuous(breaks = seq(1975, 2020, by = 5)) +
+  labs(
+    title = "Distribution of Treatment Cohorts by Year Zero",
+    x = "Year Zero (Investigation Year)",
+    y = "Number of Treated Industries"
+  ) +
+  ggthemes::theme_hc()
+
+```
+
+### The OG... Jones Model
+
+#### @jones1991earnings: Time-Series Firm-Specific Approach
+$$ Total accruals_{it} = \frac{1}{AT_{i,t-1}} + \beta_1 \frac{\Delta REV_{it}}{AT_{i,t-1}} + \beta_2 \frac{PPE_{it}}{AT_{i,t-1}} + \epsilon_{it}$$
+
+Where:
+
+- $Total accruals_{it}$ = total accruals for firm i at time t
+- $AT_{i,t-1}$ = total assets for firm i at time t-1
+- $\Delta REV_{it}$ = change in revenues for firm i at time t
+- $PPE_{it}$ = property, plant, and equipment for firm i at time t
+
+@jones1991earnings estimates a *separate regression* for each firm using several years of historical data. The estimation period stops in year t-2. Firm-specific coefficients capture each firm's unique accrual patterns. Compares actual accruals to the firm's own historical norm.
+
+::: {.callout-important}
+# Time-Series Firm-Specific Jones Model
+Discretionary accruals: $DA_{it}$ = residual from firm i's time-series regression
+:::
+
+#### My Approach: Cross-Sectional Industry-Specific Approach
+
+Estimates yearly regressions by SIC-3 industry using all firms in that industry. Industry-year-specific coefficients capture industry norms in each period. Compares firm accruals to industry peers in the same year.
+
+::: {.callout-important}
+# Cross-Sectional Industry-Specific Jones Model
+$DA_{it}$ = residual from industry-year cross-sectional regression
+
+**Implication:** I measure abnormal accruals relative to contemporaneous industry peers, not firm's historical pattern
+:::
+
+:::{.callout-note}
+# Deep Dive: Earnings Management Measurement
+
+@dechow2010understanding reviews the literature surrounding "earnings quality," including earnings management. They discuss trade-offs between time-series and cross-sectional approaches to measuring abnormal accruals. See @gow2024empirical for an in-depth overview of implementing accrual-based earnings management measures—or for practical guidance on many aspects of empirical research in accounting.
+:::
+
+### Stacked Difference-in-Differences with First-Differenced Specification
+
+I implement a stacked difference-in-differences (DiD) design to estimate the impact of import relief investigations on discretionary accruals. The treatment group consists of firms in industries subject to import relief investigations, while the control group includes firms in industries without such investigations (different SIC-1 codes). I define event time relative to the investigation year, with t=0 as the investigation year. For each event window (t-2 to t+2), I create a separate dataset stacking observations from treated and control industries; see, e.g., @baker2022much; @baker2025difference for more details on stacked DiD designs.
+
+#### First-Difference DiD Model
+$$\Delta DA_{it} = \beta_1Treated_i + \alpha_{fyear}+ \gamma_{cohort}+ \epsilon_{it}$$
+
+Where:
+
+-  $\Delta(DA_{it}) = DA_{it} - DA_{i,t-1}$ is the change in discretionary accruals for firm i at time t
+- $Treated_i$ is a binary indicator for whether firm i is in the treatment group
+- $\alpha_{fyear}$ are fixed effects for the fiscal year
+- $\gamma_{cohort}$ are fixed effects for the cohort
+- $\epsilon_{it}$ is the error term
+
+#### Why?
+
+The idea is to present results in a way that is more directly comparable to @jones1991earnings. She also compares changes in discretionary accruals around the investigation period, specifically in years t-1 to t+1. I want to make my results more directly comparable to hers.
+
+:::{.callout-note}
+# Okay, so where's the DiD?
+
+**Difference #1**:
+Change in discretionary accruals within firms over time. First differencing removes firm fixed effects.
+
+**Difference #2**:
+Difference in changes between treated and control industries over time. The coefficient on $Treated_i$ captures the average difference in changes in discretionary accruals between treated and control industries.
+:::
+
+## Results
+
+### Summary Statistics
+
+```{r}
+
+# Summary statistics
+
+summary_stats <- function(data) {
+  data %>%
+    filter(if_any(everything(), ~ !is.na(.))) %>%
+    skimr::skim_without_charts() %>%
+    skimr::yank("numeric") %>%
+    tibble() %>%
+    filter(!is.na(mean)) %>%
+    mutate(n = as.integer(NROW(data) - n_missing)) %>%
+    select(skim_variable, n, mean, sd, p0, p25, p50, p75, p100) %>%
+    mutate(across(3:length(.), ~ round(., 2))) %>%
+    rename(variable = skim_variable)
+}
+
+```
+
+```{r results = 'asis'}
+# Summary statistics for relevant variables
+relevant_vars <- c("tacc_jones", "jones", "at", "inverse_lagta", "drev", "ppe", "treated", "time", "fyear")
+
+tbl(duckdb_conn, "em_cohorts") %>%
+  collect() %>%
+  select(all_of(relevant_vars)) %>%
+  summary_stats() %>%
+  # Make nice names for variables
+  mutate(
+    variable = case_when(
+      variable == "tacc_jones" ~ "Total Accruals",
+      variable == "jones" ~ "Discretionary Accruals",
+      variable == "at" ~ "Total Assets",
+      variable == "inverse_lagta" ~ "Inverse Lagged Total Assets",
+      variable == "drev" ~ "Change in Revenues",
+      variable == "ppe" ~ "Property, Plant, and Equipment",
+      variable == "treated" ~ "Treated Indicator",
+      variable == "time" ~ "Time Relative to Investigation",
+      variable == "fyear" ~ "Fiscal Year",
+      TRUE ~ variable
+    )
+  ) %>%
+  kableExtra::kable(
+    format = "html",
+    caption = "Summary Statistics for Key Variables",
+    col.names = c("Variable", "N", "Mean", "SD", "Min", "25th Pct", "Median", "75th Pct", "Max")
+  ) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = F, position = "left")
+
+```
+
+
+![](../../data-prep/Figures/avg_jones_residuals_import_relief_simple.png){width=800px}
+
+### First-Difference DiD Estimates
+
+The table and figure below present the results of the first-difference DiD estimation. The table shows the estimated treatment effects for each time window around the import relief investigations, while the figure plots the coefficients for each estimation window to visualize the dynamics of changes in discretionary accruals between treated and control industries for each time window.
+
+##### First-Difference DiD Estimates of Changes in Jones Residuals Around Import Relief Investigations
+
+```{r results_first_diff, echo=FALSE, results='asis'}
+# Table
+
+## Read em_did from DuckDB
+em_did <- tbl(duckdb_conn, "em_did") %>%
+  collect()
+
+results_first_diff <-
+  map(-2:1, ~ feols(jones_diff ~ treated | fyear + cohort, data = em_did %>% filter(time == .x), cluster = ~ cohort^gvkey))
+
+etable(results_first_diff,
+  digits = 3,
+  digits.stats = 3,
+  fitstat = ~ ar2 + n,
+  replace = TRUE,
+  view = TRUE,
+  style.tex = style.tex("aer")
+)
+```
+
+
+#####
+![](../../data-prep/Figures/avg_jones_residuals_import_relief_first_diff.png){width=800px}
+
+
+### Event-study: Difference-in-Differences Estimates of Jones Residuals Around Import Relief Investigations
+```{r}
+
+feols(jones ~ i(time, treated, ref = -1) | fyear + cohort^gvkey + cohort^time,
+  data = em_did %>% filter(between(time, -2, 2)),
+  cluster = ~ cohort^gvkey
+) %>% ggfixest::ggiplot(
+  col = "darkgreen",
+  ref.line = -1
+) + labs(
+  title = "",
+  # title = "Difference-in-Differences Estimates of Jones Residuals Around Import Relief Investigations",
+  x = "Time Relative to Investigation Year",
+  y = "DiD Estimate of Jones Residual (95% CI)"
+) +
+  # Add grey rectangle for event year
+  annotate("rect",
+    xmin = -0.5, xmax = 0.5, ymin = -Inf, ymax = Inf,
+    alpha = 0.2, fill = "lightgray"
+  ) +
+  ggthemes::theme_hc()
+
+```
+
+## Limitations
+
+### What about other (real) earnings management measures?
+ Typically, one would like to see results using multiple measures of earnings management; see, e.g., @dechow2010understanding for an overview
+- Typically, one would like to see results using multiple measures of earnings management, see e.g. @dechow2010understanding fot an overview
+- @breuer2023accounting provides a Bayesian framework to combine multiple earnings management measures into a single latent construct
+- To go even further, one could consider real earnings management measures as in @roychowdhury2006earnings (better leave that up to *Reviewer 2* to decide for you...)
+  - While you are at it, also check and apply @srivastava2019improving for improved measurement of real earnings management (I see you, *Reviewer 2*...)
+
+### Residuals as Dependent Variable
+
+- Discretionary accruals are estimated residuals from the Jones model (two-step approach)
+- @chen2018incorrect and @chen2023measuring highlight potential bias and inefficiency in two-step approaches
+  - Solution: Use control function or joint estimation methods
+- I am not giving this a separate headline, but make sure your standard errors game is on par with the latest literature (e.g., @chen2023standard or @abadie2023should), in case *Reviewer 2* asks you about it...
+
+### Statistical Power
+
+- Effect is statistically significant (p < 0.05) in one period—where we would expect it ($t=0$) to be strongest
+- Not statistically significant in other periods
+- Standard errors are clustered at the cohort-gvkey level—may be conservative but necessary to account for within-firm and within-cohort correlation (I see you, *Reviewer 2*...)
+
+### Economic Magnitude
+
+- Effect size (2.0 pp) is approximately 1/3 of Jones's finding
+- Could reflect: (1) fiscal year dilution, (2) industry aggregation, (3) control group contamination, (4) measurement error in cross-sectional DA models
+
+### Control Group Validity
+
+- Control industries (different SIC-1) may still face import competition
+- Could attenuate treatment effect if controls also manipulate
+- Parallel trends are validated in the pre-period, but the assumption may not hold throughout
+
+## Conclusion
+
+The findings provide evidence **consistent with Jones (1991)** using a complementary identification strategy. The stacked DiD with cross-sectional discretionary accruals and contemporaneous industry controls offers:
+
+- Stronger causal identification through parallel trends validation
+- Robustness to systematic time-period effects
+- Industry-level confirmation of firm-level manipulation documented by Jones
+
+
+## References
+
+::: {#refs}
+:::
+
+
+```{r}
+# Disconnect from duckDB
+dbDisconnect(duckdb_conn, shutdown = TRUE)
+```

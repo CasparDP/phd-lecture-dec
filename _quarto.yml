@@ -1,10 +1,9 @@
 project:
   type: website
-  output-dir: "_site"
+  output-dir: "docs"
   # preview:
   #   port: 4200
   #   browser: true
-
 website:
   site-url: https://CasparDP.github.io/phd-lecture-dec/
   title: "Earnings Management Then and Now: Revisiting Jones (1991)"
@@ -92,3 +91,11 @@ engine: knitr
 
 bibliography: assets/references.bib
 csl: assets/jae.csl
+
+# Specify which files to render
+render:
+  - "*.qmd"
+  - "lecture-materials/**/*.qmd"
+  - "!README.md"
+  - "!**/README.md"
+  - "!paper_summaries/**"
