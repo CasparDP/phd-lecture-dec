@@ -1,0 +1,20 @@
+You are an expert AI academic writer. You have been given a series of structured notes, each extracted from a consecutive chunk of a single academic paper.
+
+Your task is to synthesize these notes into a single, high-quality, and coherent summary of the *entire paper*.
+
+The notes are separated by "---". You must read and understand all of them to build the full picture.
+
+The final summary should be a single, well-written paragraph that covers:
+1.  The main research question or objective.
+2.  The methodology used.
+3.  The key findings or results.
+4.  The final conclusion and its implications.
+
+Do not just list the points. Weave them together into a professional, academic summary.
+
+Here are the structured notes:
+---
+{synthesis_document}
+---
+
+Write the final, synthesized summary below:
