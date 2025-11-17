@@ -1,223 +1,136 @@
-# PhD Lecture: Earnings Management Then and Now: Revisiting Jones (1991)
+# Earnings Management Then and Now: Revisiting Jones (1991)
 
-**Subtitle:** Website Data, Replication, and Research Design
-
-## Overview
-
-- **Duration**: 2 hours
-- **Structure**: Part 1 (40-50 min) + Part 2 (60-70 min)
-- **Objective**: Introduce website data methodology, replicate Jones (1991) with modern methods, demonstrate the research process from replication to extension, and stimulate student creativity through structured critique
+Website Data, Replication, and Research Design
 
 ---
 
-## Part 1: Three Papers (40-50 minutes)
+## What this lecture is about
 
-### 1. Haans & Mertens (2024) - "The Internet Never Forgets" (10-15 min)
+This lecture explores how modern data sources can revisit a classic study on earnings management during import relief investigations.
 
-**Focus**: Method + Data Quality
+- **Part 1 – Three papers**: Internet/Wayback data and CompuCrawl (`@haans2024internet`), website-based disclosure measures (`@boulland2025company`), and the original earnings management setting (`@jones1991earnings`).
+- **Part 2 – Research in action**: A transparent walk-through of a Jones (1991) replication, a quick website text exploration, and a structured critique/brainstorming session.
 
-- Wayback Machine + web scraping methodology
-- CompuCrawl database (11,277 firms, 1996-2020)
-- **Critical issues**: ~20% missing data per year, survivorship bias, coverage improves over time
-- **Key resources**: Open source code, tutorial for longitudinal data collection
-- **Takeaway #1**: _Website data offers unprecedented longitudinal access, BUT requires careful attention to coverage gaps and data quality_
-
-### 2. Boulland et al. (2025) - "Company Websites: A New Measure of Disclosure" (10-15 min)
-
-**Focus**: Disclosure Measurement + Validation
-
-- Website-based disclosure measure (size + content categories)
-- Validation: 0.12-0.30 correlations with traditional measures (10-K filings, management forecasts)
-- Applications: information asymmetry, private equity deals, ESG compliance
-- **Devil's advocate moment**: Low correlations = capturing new dimensions OR measurement noise?
-- **Takeaway #2**: _Website-based measures complement traditional disclosure metrics BUT validity questions remain—interpret with caution_
-
-### 3. Jones (1991) - "Earnings Management During Import Relief Investigations" (15-20 min)
-
-**Focus**: Clean Research Setting + Identification Strategy
-
-- ITC import relief process: profitability is explicit injury factor
-- Unique incentive alignment: all parties benefit from appearing injured
-- Jones model for discretionary accruals (foundation of earnings management literature)
-- Firms manage earnings DOWN in investigation year (income-decreasing accruals)
-- **What makes this exceptional**: Clear incentives, no sophisticated monitoring, powerful research design
-- **Bridge to Part 2**: "In 1991, one financial statement served all audiences. Today, firms have rich web presence during investigations. What would Jennifer Jones do with website data?"
+Themes: replication, extending classic designs with new data, and practicing research design thinking.
 
 ---
 
-## Part 2: Research in Action (60-70 minutes)
+## Quick links
 
-**Approach**: Transparent expert modeling—showing the actual research process, including code, data challenges, and unresolved concerns
-
-### Phase 1: The Replication Journey (20 minutes)
-
-**What I Set Out to Replicate**
-
-- Jones (1991) main finding using modern methods
-- Cross-sectional vs time-series approach (and why it matters)
-
-**Problem I Had to Solve Along the Way**
-
-- Fiscal years ≠ calendar years ≠ investigation dates
-- Mapping investigations to industries
-- Instutional details of ITC process
-
-**Live Demo: Replication Results** (via GitHub page)
-
-- Sample construction and coverage
-- Key results comparing to Jones Table 5
-- Code walkthrough - if time permits
-
-**Takeaways**: Replication validates methods, but what NEW insight can we add?
-
-### Phase 2: Website Data Exploration (25 minutes)
-
-**Hypothesis Development**
-
-- Multi-channel disclosure strategy during investigations
-- Possible mechanisms: injury narrative, audience-specific messaging
-
-**What I Actually Did (Quick & Dirty)**
-
-- Wayback Machine snapshots + keyword frequency analysis
-- Event study around investigation dates
-- Preliminary correlation with discretionary accruals
-
-**Live Demo: Website Analysis** (via GitHub page)
-
-- Keyword frequency trends
-- Specific firm examples (TBD)
-- Preliminary results
-- Code walkthrough - if time permits
-
-**What Keeps Me Up at Night: Serious Concerns**
-
-### Phase 3: Structured Critique (20 minutes)
-
-**Group Discussion (10 minutes)**
-
-Students choose one of four prompts:
-
-- **Prompt A: Concerns Triage** - Assess severity of concerns, identify if fixable
-- **Prompt B: Design Improvements** - Propose one specific enhancement with 3 more months
-- **Prompt C: Alternative Outcomes** - What else could you measure on websites beyond keywords?
-- **Prompt D: The Pivot** - If website approach fails, what alternative data source?
-
-**Class Discussion (10 minutes)**
-
-- Groups share critiques
-
-- **Takeaway**: Research is about evaluating trade-offs, not seeking perfection
-
-### Phase 4: Wrap-Up (5 minutes)
-
-**If I Were to Continue**
-
-**Key Lessons**
-
-- Replication builds foundation for extensions
-- "Quick checks" before major investments
-- All research has concerns—manage them, don't eliminate them
-- Make your thinking process visible
+- Slides: [lecture-slides](https://caspardp.github.io/phd-lecture-dec/lecture-materials/slides/lecture-slides.html)
+- Lecture website/index: [index page](https://caspardp.github.io/phd-lecture-dec/)
+- Jones replication: [Jones replication](https://caspardp.github.io/phd-lecture-dec/docs/jones-replication.html)
+- Website analysis: [Website analysis](https://caspardp.github.io/phd-lecture-dec/docs/website-analysis.html)
+- Paper summaries: [Paper summaries](https://caspardp.github.io/phd-lecture-dec/paper_summaries/)
 
 ---
 
-## Materials Available
+## Part 1 – Three papers (high level)
 
-### Pre-Class Access
+- **`@haans2024internet` – The Internet Never Forgets**
+  Wayback Machine + web scraping methodology; CompuCrawl database; focus on longitudinal website data and coverage/quality issues.
+  _Takeaway_: Website data offers rich history, but coverage gaps and bias matter.
 
-**Required:**
+- **`@boulland2025company` – Company Websites: A New Measure of Disclosure**
+  Website-based disclosure measures (size/content) and validation against traditional metrics; applications to information asymmetry and private firms.
+  _Takeaway_: Website measures complement classic disclosure metrics.
 
-- All three papers (provided with reading guide)
-- GitHub repository with code and documentation
-- Jones replication page (complete analysis walkthrough)
-- Website analysis page (preliminary exploration)
+- **`@jones1991earnings` – Earnings Management During Import Relief Investigations**
+  Clean incentive setting at the ITC, the Jones model for discretionary accruals, and income-decreasing earnings management in the investigation year.
+  _Bridge to Part 2_: What happens if we revisit this setting with modern data and tools?
 
-**Optional:**
+---
 
-- Students review code examples and prepare questions
-- Students identify one recent import relief case to discuss
+## Part 2 – Research in action
 
-### In-Class Materials
+- **Phase 1 – Replication**
+  Revisit Jones (1991) with a modern sample and cross-sectional specification; handle timing (fiscal year vs. investigation dates) and sample construction; compare core results to the original.
 
-**Part 1:**
+- **Phase 2 – Website exploration**
+  Quick-and-dirty keyword analysis on website text around investigations using archival data; check whether there is a signal; list major measurement and design concerns.
 
-- Slide deck with key exhibits, validation tables, devil's advocate discussions
+- **Phase 3 – Structured critique**
+  Small-group prompts to triage concerns, propose design improvements, think of alternative website outcomes, or pivot to other data sources.
 
-**Part 2:**
+- **Wrap-up**
+  Emphasis on replication as a starting point, quick checks before big investments, and making research decisions (go/no-go) explicit.
 
-- Live GitHub page demos (replication + website analysis)
-- Actual R scripts (Jones model implementation)
-- Actual Python scripts (Wayback Machine scraping)
-- Structured critique prompts (handouts or shared doc)
+Details for each phase (timing, prompts, extra exhibits) live in the slides and HTML pages, not here.
 
-### Repository Structure
+---
 
-```
-/
-├── README.md (this file)
-├── code/
-│   ├── jones_model.R (discretionary accruals estimation)
-│   ├── scrape_wayback.py (website data collection)
-│   └── ...
-├── data/
-│   ├── README.md (data dictionary)
-│   ├── itc_cases.csv
-│   └── ...
-├── docs/
-│   ├── jones-replication.html (full replication walkthrough)
-│   ├── website-analysis.html (preliminary text analysis)
-│   └── lecture_slides.html
-└── assets/ (figures, images)
+## Using this repo
+
+- **During the lecture**: Open the slides and the HTML pages (replication, website analysis, paper summaries) when prompted.
+- **After the lecture**: Use the lecture website and HTML reports for full details on data sources, variable construction, and empirical results.
+- **As a template**: Reuse the structure for your own projects (separate data prep, scripts, and rendered reports).
+
+### Repository structure (high level)
+
+- `index.qmd` – Landing page for the lecture website.
+- `lecture-materials/` – Slides and handouts.
+- `data-prep/` – Data cleaning, construction, and supporting scripts.
+- `docs/` – Rendered HTML outputs (e.g. replication, website analysis, site pages).
+- `assets/` – Figures, images, bibliographic files, styles.
+
+More fine-grained documentation is available on the website/index page and inside the HTML reports.
+
+---
+
+## Reproducing the analysis
+
+1. Clone this repository.
+2. Follow the setup instructions on the lecture website/index page (packages, environment).
+3. Use the Quarto/R/Python scripts referenced in the HTML reports to rerun the data prep and analyses.
+
+The goal is that you can reproduce the results you see in class and adapt the code to your own questions.
+
+---
+
+## Learning goals
+
+By the end of this lecture, you should be able to:
+
+- Understand the potential and limitations of archival website data.
+- Evaluate new disclosure measures critically.
+- See how a classic setting (Jones 1991) can be revisited with modern data.
+- Practice structured critique and research design thinking.
+- Use this repo structure as a starting point for your own research projects.
+
+---
+
+## Contact
+
+**Caspar David Peter**
+Rotterdam School of Management
+[peter@rsm.nl](mailto:peter@rsm.nl)
+
+For questions, ideas, or potential extensions, feel free to reach out.
+
+---
+
+## License
+
+This repository is made available under the MIT License. You are free to use, adapt, and extend the code and materials, provided that you include appropriate attribution.
+
+---
+
+## How to cite
+
+If you use this repository or lecture materials in your own work or teaching, you can cite it as:
+
+```bibtex
+@misc{peter2025phdlecture,
+  author       = {Caspar David Peter},
+  title        = {Earnings Management Then and Now: Revisiting Jones (1991) -- Website Data, Replication, and Research Design},
+  year         = {2025},
+  howpublished = {GitHub repository},
+  url          = {https://github.com/CasparDP/phd-lecture-dec}
+}
 ```
 
 ---
 
-## Learning Objectives
+## AI/LLM disclosure
 
-By engaging with this lecture and materials, students should be able to:
-
-1. **Understand archival website data methodology** (collection, coverage, quality issues)
-2. **Evaluate disclosure measures critically** (validity, correlation interpretation, measurement trade-offs)
-3. **Recognize clean research settings** (incentive alignment, institutional details matter)
-4. **Apply replication thinking** (when and how to revisit classics with new data)
-5. **Practice research design** (identify concerns, evaluate trade-offs, not perfection)
-6. **Navigate iterative research** (quick checks → refinement → investment decisions)
-7. **Generate own research ideas** by observing expert thinking patterns and adapting methods to new questions
-8. **Engage creatively** with provided materials to stimulate curiosity and develop novel research directions
-
----
-
-## Pedagogical Approach
-
-This lecture uses **cognitive apprenticeship**—making expert thinking visible:
-
-- **Transparency**: Show actual code, messy analyses, unresolved concerns
-- **Process over product**: Research is iterative exploration, not linear perfection
-- **Honest assessment**: "Here's what worries me" / "I don't know how to fix this yet"
-- **Structured critique**: Students evaluate the work rather than generating from scratch
-- **Decision-making**: Explicit narration of choices, trade-offs, and stopping points
-
-**Goal**: Students learn by observing how an economist thinks through research problems, then practice those thinking patterns through structured engagement.
-
----
-
-## Contact & Collaboration
-
-**Instructor**: Caspar David Peter
-**Email**: [peter@rsm.nl](mailto:peter@rsm.nl)
-**Institution**: Rotterdam School of Management
-
-Students interested in extending this research or exploring related questions are encouraged to reach out. The repository materials are designed to be adapted for your own research ideas.
-
----
-
-## Acknowledgments
-
-This lecture builds on the foundational work of:
-
-- Jennifer J. Jones (1991) - for the original research design
-- Haans & Mertens (2024) - for the web scraping methodology
-- Boulland et al. (2025) - for website disclosure measures
-
-All errors, half-baked ideas, and unresolved concerns in Part 2 are entirely my own.
+AI tools (local and hosted LLMs) helped with brainstorming, structuring the lecture, and polishing some wording. The research ideas, empirical designs, and code are mine—any remaining errors are proudly human.

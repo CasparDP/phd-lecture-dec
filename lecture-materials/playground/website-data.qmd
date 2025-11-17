@@ -106,9 +106,9 @@ website_cohorts <- tbl(duckdb_conn, "em_cohorts") %>%
 ::: {.callout-warning}
 # Warning
 
-#1: The analysis only covers the following event-years: `r unique(website_cohorts$event_year)`
+**#1:**The analysis only covers the following event-years: `r unique(website_cohorts$event_year)`
 
-#2: This is a quick-and-dirty analysis. Results should be interpreted with caution and not taken as definitive evidence of any trends or patterns.
+**#2:** This is a quick-and-dirty analysis. Results should be interpreted with caution and not taken as definitive evidence of any trends or patterns.
 :::
 
 #### Moment of Truth: Is there any action in the data—for treated firms?
@@ -130,7 +130,7 @@ website_cohorts %>%
   geom_line() +
   geom_point() +
   geom_ribbon(aes(ymin = ci_lower, ymax = ci_upper), alpha = 0.2) +
-  scale_y_continuous(limits = c(-0.025, 0.025)) +
+  scale_y_continuous(limits = c(-0.035, 0.035)) +
   scale_x_continuous(breaks = seq(-3, 3, by = 1)) +
   labs(
     title = "Average Injury-Related Word Ratio Over Event Time",
