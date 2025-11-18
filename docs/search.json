@@ -645,7 +645,7 @@
     "href": "index.html",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "",
-    "text": "WORK IN PROGESS\n[1] \"Last updated: 2025-11-18 15:25:02\""
+    "text": "WORK IN PROGESS\n[1] \"Last updated: 2025-11-18 15:52:21\""
   },
   {
     "objectID": "index.html#about-this-lecture",
@@ -673,7 +673,28 @@
     "href": "index.html#contact",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "Contact",
-    "text": "Contact\n\n\n👨‍🏫 Caspar David Peter\n\n\n✉️ peter@rsm.nl\n\n\n🏫 Rotterdam School of Management"
+    "text": "Contact\n\n\n👨‍🏫 Caspar David Peter\n\n\n✉️ peter@rsm.nl\n\n\n🏫 Rotterdam School of Management\n\n\nFor questions, ideas, or potential extensions, feel free to reach out."
+  },
+  {
+    "objectID": "index.html#license",
+    "href": "index.html#license",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "License",
+    "text": "License\nThis repository is made available under the MIT License. You are free to use, adapt, and extend the code and materials, provided that you include appropriate attribution."
+  },
+  {
+    "objectID": "index.html#how-to-cite",
+    "href": "index.html#how-to-cite",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "How to cite",
+    "text": "How to cite\nIf you use this repository or lecture materials in your own work or teaching, you can cite it as:\n@misc{peter2025phdlecture,\n  author       = {Caspar David Peter},\n  title        = {Earnings Management Then and Now: Revisiting Jones (1991) -- Website Data, Replication, and Research Design},\n  year         = {2025},\n  howpublished = {GitHub repository},\n  url          = {https://github.com/CasparDP/phd-lecture-dec}\n}"
+  },
+  {
+    "objectID": "index.html#aillm-disclosure",
+    "href": "index.html#aillm-disclosure",
+    "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
+    "section": "AI/LLM disclosure",
+    "text": "AI/LLM disclosure\nAI tools (local and hosted LLMs) helped with brainstorming, structuring the lecture, and polishing some wording. The research ideas, empirical designs, and code are mine—any errors are proudly human."
   },
   {
     "objectID": "index.html#references",

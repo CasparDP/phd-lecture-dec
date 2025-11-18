@@ -79,6 +79,37 @@ The best outcome isn't just understanding *this* project—it's developing your 
   <div><span>🏫</span>&emsp;Rotterdam School of Management</div>
 </div>
 
+For questions, ideas, or potential extensions, feel free to reach out.
+
+---
+
+## License
+
+This repository is made available under the MIT License. You are free to use, adapt, and extend the code and materials, provided that you include appropriate attribution.
+
+---
+
+## How to cite
+
+If you use this repository or lecture materials in your own work or teaching, you can cite it as:
+
+```bibtex
+@misc{peter2025phdlecture,
+  author       = {Caspar David Peter},
+  title        = {Earnings Management Then and Now: Revisiting Jones (1991) -- Website Data, Replication, and Research Design},
+  year         = {2025},
+  howpublished = {GitHub repository},
+  url          = {https://github.com/CasparDP/phd-lecture-dec}
+}
+```
+
+---
+
+## AI/LLM disclosure
+
+AI tools (local and hosted LLMs) helped with brainstorming, structuring the lecture, and polishing some wording. The research ideas, empirical designs, and code are mine—any errors are proudly human.
+
+
 ## References
 
 :::{#refs}
