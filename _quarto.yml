@@ -53,10 +53,12 @@ format:
     toc-location: left
     # Code highlighting
     code-tools: true
-    highlight-style: github
+    highlight-style: ayu
     code-fold: true
-    code-overflow: wrap
-    code-copy: true
+    code-overflow: scroll
+    code-copy: hover
+    # Footer and logo
+    logo: "assets/Erasmus.png"
     # Ensure all resources are embedded for sharing
     embed-resources: true
     # MathJax via CDN for reliable font loading
@@ -87,7 +89,7 @@ format:
     code-fold: false
     code-overflow: wrap
     # Footer and logo
-    logo: ""
+    logo: "assets/Erasmus.png"
     footer: "Earnings Management Then and Now: Revisiting Jones (1991)"
     # Make completely portable
     self-contained: true

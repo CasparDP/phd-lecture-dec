@@ -45,7 +45,7 @@ Click above to view the complete presentation with examples from recent research
 
 Check out the repository for all code and data used in this lecture.
 
-### 🤖 [Paper Summaries]()
+### 🤖 [Paper Summaries](https://caspardp.github.io/phd-lecture-dec/paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html)
 
 Summaries of key papers generated using a local LLM:
 
