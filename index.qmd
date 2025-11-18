@@ -19,7 +19,7 @@ The lecture is structured in two parts:
 **Part 1: Three Papers** introduces the methodological toolkit and theoretical foundation:
 
 - Overview: Modern web scraping techniques for longitudinal data collection based on @haans2024internet
-- Website-based disclosure measures and their validation based on @boulland2025web
+- Website-based disclosure measures and their validation based on @boulland2025company
 - The classic @jones1991earnings earnings management study
 
 **Part 2: Research in Action** demonstrates the research process:
