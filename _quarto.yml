@@ -36,9 +36,9 @@ website:
     - title: "Earnings Management Then and Now: Revisiting Jones (1991)"
       contents:
         - section: "Slides"
-          contents: "slides/*.qmd"
+          contents: "lecture-materials/slides/*.qmd"
         - section: "Institutional Background"
-          contents: "lecture-materials/handouts/institutional_background.qmd"
+          contents: "lecture-materials/handouts/*.qmd"
         - section: "Playground"
           contents: "lecture-materials/playground/*.qmd"
         - section: "AI Paper Summaries"

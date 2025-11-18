@@ -127,6 +127,12 @@ em_cohorts <- em_cohorts %>%
   )) %>%
   filter(between(time, -3, 3))
 
+# Drop cohorts with no treated firms after adjusting for timing
+em_cohorts <- em_cohorts %>%
+  group_by(cohort) %>%
+  filter(max(treated) == 1) %>%
+  ungroup()
+
 
 # Save dataset
 write_csv(em_cohorts, here::here("data-prep", "em_cohorts.csv"))

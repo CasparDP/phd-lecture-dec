@@ -92,6 +92,9 @@ To construct my treatment sample, I apply several critical filters to the matche
 # Histogram of treatment cohorts
 tbl(duckdb_conn, "em_cohorts") %>%
   collect() %>%
+  group_by(cohort) %>%
+  filter(max(treated) == 1) %>%
+  ungroup() %>%
   select(event_year, cohort) %>%
   distinct() %>%
   group_by(event_year) %>%
@@ -122,7 +125,7 @@ $$ \frac{\text{Total accruals}_{it}}{AT_{i,t-1}} = \frac{1}{AT_{i,t-1}} + \beta_
 
 Where:
 
-- $\frac{\text{Total accruals}_{it}}{AT_{i,t-1$ = total accruals for firm i at time t
+- $\frac{\text{Total accruals}_{it}}{AT_{i,t-1}}$ = total accruals for firm i at time t
 - $AT_{i,t-1}$ = total assets for firm i at time t-1
 - $\Delta REV_{it}$ = change in revenues for firm i at time t
 - $PPE_{it}$ = property, plant, and equipment for firm i at time t
@@ -209,6 +212,9 @@ relevant_vars <- c("tacc_jones", "jones", "at", "inverse_lagta", "drev", "ppe", 
 
 tbl(duckdb_conn, "em_cohorts") %>%
   collect() %>%
+  group_by(cohort) %>%
+  filter(max(treated) == 1) %>%
+  ungroup() %>%
   select(all_of(relevant_vars)) %>%
   summary_stats() %>%
   # Make nice names for variables
@@ -249,7 +255,11 @@ The table and figure below present the results of the first-difference DiD estim
 
 ## Read em_did from DuckDB
 em_did <- tbl(duckdb_conn, "em_did") %>%
-  collect()
+  collect() %>%
+  filter(between(time, -2, 1)) %>%
+  group_by(cohort) %>%
+  filter(max(treated) == 1) %>%
+  ungroup()
 
 results_first_diff <-
   map(-2:1, ~ feols(jones_diff ~ treated | fyear + cohort, data = em_did %>% filter(time == .x), cluster = ~ cohort^gvkey))
@@ -262,8 +272,14 @@ etable(results_first_diff,
   view = TRUE,
   style.tex = style.tex("aer")
 )
+
+# unique(em_did$cohort)
 ```
 
+```{r eval=FALSE}
+results_first_diff <-
+  map(unique(em_did$cohort), ~ feols(jones_diff ~ treated | 0, data = em_did %>% filter(time == 0, cohort == .x), cluster = ~gvkey))
+```
 
 #####
 ![](../../data-prep/Figures/avg_jones_residuals_import_relief_first_diff.png){width=800px}
