@@ -4,9 +4,11 @@ subtitle: "Website Data, Replication, and Research Design"
 format: html
 ---
 
+**WORK IN PROGESS**
 
-##### WORK IN PROGESS - LAST UPDATED:
-`r Sys.Date()`
+```{r}
+print(paste0("Last updated: ", format(file.info("index.qmd")$mtime, "%Y-%m-%d %H:%M:%S")))
+```
 
 ![Lecture Overview](assets/phd-lecture-excalidraw.png)
 
