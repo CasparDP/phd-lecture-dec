@@ -51,9 +51,9 @@ except ImportError:
 # ============================================================================
 
 # Default model configuration
-DEFAULT_MODEL = "granite4:latest"
-DEFAULT_CHUNK_SIZE = 2000  # tokens
-DEFAULT_CHUNK_OVERLAP = 200  # tokens
+DEFAULT_MODEL = "gpt-oss:20b"
+DEFAULT_CHUNK_SIZE = 3000  # tokens
+DEFAULT_CHUNK_OVERLAP = 300  # tokens
 TEMPERATURE = 0  # Deterministic behavior
 
 # Cache directory

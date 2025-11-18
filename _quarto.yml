@@ -23,7 +23,13 @@ website:
           - text: "Website Data"
             href: lecture-materials/playground/website-data.qmd
       - text: "AI Paper Summaries"
-        href: lecture-materials/ai-summaries/Jones-EarningsManagementImport-1991_summary.qmd
+        menu:
+          - text: "Jones (1991) Summary"
+            href: paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.qmd
+          - text: "Boulland et al. (2025) Summary"
+            href: paper_summaries/Company Websites A New Measure of Disclosure/Company Websites A New Measure of Disclosure_summary.qmd
+          - text: "Haans and Mertens (2024) Summary"
+          - href: paper_summaries/The_Internet_Never_Forgets/The_Internet_Never_Forgets_summary.qmd
       - text: "Additional Resources"
         href: lecture-materials/handouts/institutional-background.qmd
   sidebar:

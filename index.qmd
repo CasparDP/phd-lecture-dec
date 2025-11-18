@@ -45,7 +45,7 @@ Click above to view the complete presentation with examples from recent research
 
 Check out the repository for all code and data used in this lecture.
 
-### 🤖 [Paper Summaries](https://caspardp.github.io/phd-lecture-dec/lecture-materials/slides/lecture-slides.html)
+### 🤖 [Paper Summaries]()
 
 Summaries of key papers generated using a local LLM:
 
@@ -77,6 +77,7 @@ The best outcome isn't just understanding *this* project—it's developing your 
   <div><span>👨‍🏫</span>&emsp;Caspar David Peter</div>
   <div><span>✉️</span>&emsp;<a href="mailto:peter@rsm.nl">peter@rsm.nl</a></div>
   <div><span>🏫</span>&emsp;Rotterdam School of Management</div>
+  <div><span>🐙</span>&emsp;<a href="https://github.com/CasparDP">GitHub</a></div>
 </div>
 
 For questions, ideas, or potential extensions, feel free to reach out.

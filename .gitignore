@@ -74,11 +74,7 @@ cache/
 # For development purposes keep the following files local for now
 utility/
 .github/
-/paper_summaries/
-paper_summaries/Jones-EarningsManagementImport-1991/
-paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.qmd
 papers/
-docs/paper_summaries/
 data-prep/raw_html_cache_old
 data-prep/Archive.zip
 data-prep/DB/*duckdb
