@@ -210,6 +210,7 @@ Managers of domestic producers **significantly decrease reported earnings** duri
 
 - Unique incentive structure: First study examining *income-decreasing* earnings management
 - Demonstrates accounting numbers have economic consequences in regulatory settings (wealth transfers)
+  - More on wealth transfers later &#8674; **Accounting and Wealth Tranfer** session by *Patricia Breuer* in **February**
 
 :::
 
@@ -310,22 +311,22 @@ Managers systematically manipulate accruals downward **specifically during** inv
 ::: {.column width="50%"}
 #### Clear Incentive Alignment
 
-✅ Regulatory rule explicitly uses accounting profitability
+- Regulatory rule explicitly uses accounting profitability
 
-✅ All contracting parties benefit from appearing injured
+- All contracting parties benefit from appearing injured
 
-✅ Regulator doesn't adjust for earnings management
+- Regulator doesn't adjust for earnings management
 :::
 ::: {.column width="50%"}
 #### Powerful Research Design
 
-✅ Time-series control for firm-specific "normal" accruals
+- Time-series control for firm-specific "normal" accruals
 
-✅ Clear prediction: decrease in investigation year only
+- Clear prediction: decrease in investigation year only
 
-✅ Multiple industries, multiple years
+- Multiple industries, multiple years
 
-✅ Addresses free-rider problem with petitioner subsample
+- Addresses free-rider problem with petitioner subsample
 :::
 :::
 
@@ -459,8 +460,10 @@ time = case_when(
 
 
 #### Investigations
-
-![](/data-prep/Figures/usitc_top5_subjects.png){fig-align="center" width="45%"}
+<div style="display: flex; justify-content: center; gap: 40px; align-items: center;">
+   <img src="/data-prep/Figures/usitc_top5_subjects.png" alt="USITC Top 5 Subjects" style="width: 45%;">
+   <img src="/data-prep/Figures/treatment_cohorts_histogram.png" alt="Treatment Cohorts Histogram" style="width: 45%;">
+</div>
 
 :::
 
@@ -510,7 +513,9 @@ Knowledge of investigation types is crucial for sample selection and interpretat
 
 :::
 :::
-<!-- **Navigate to:** `[your-github-repo]/jones-replication.html` -->
+
+[&#9874; Jones-esque analysis page](https://caspardp.github.io/phd-lecture-dec/lecture-materials/playground/revisiting-jones.html)
+
 
 
 
@@ -521,10 +526,10 @@ Knowledge of investigation types is crucial for sample selection and interpretat
 ::: {.column width="50%"}
 #### What Worked
 
-- Jones findings are **robust** to modern methods ✅
-- Cross-sectional approach provides adequate power ✅
-- Timing issue resolved with fiscal year alignment ✅
-- Effects are economically and statistically significant ✅
+- Jones findings are **robust** to modern methods &#10004;
+- Cross-sectional approach provides adequate power &#10004;
+- Timing issue resolved with fiscal year alignment &#10004;
+- Effects are economically and statistically significant &#10004;
 :::
 
 ::: {.column width="50%"}
@@ -532,12 +537,12 @@ Knowledge of investigation types is crucial for sample selection and interpretat
 
 ⚠️ Would time-series give identical results?
 
-   - Enough observations per firm to test ✅
+   - Enough observations per firm to test &#10004;
    - Need to identify firms from reports ⏳ (outsource to 🤖?)
 
 ⚠️ The Earnings Management Literature has advanced
 
-   - Alternative models, see e.g. @dechow2010understanding or @breuer2023accounting
+   - E.g. @dechow2010understanding or @breuer2023accounting
    - Issues with two-step estimations, see e.g. @chen2018incorrect or @chen2023measuring
 
 🤔 Why do effects appear in Year -1 to Year 0?
@@ -616,13 +621,13 @@ Do firms strategically manage **website disclosures** during import relief inves
 ::: {.column width="40%"}
 #### Red Flags 🚩
 
-⚠️ Wayback coverage varies wildly
+- Wayback coverage varies wildly
 
-⚠️ Keywords might be too crude/noisy
+- Keywords might be too crude/noisy
 
-⚠️ Don't know who controls website content
+- Don't know who controls website content
 
-⚠️ Website timing issues remain
+- Website timing issues remain
 
 :::
 ::::
@@ -644,7 +649,7 @@ Do firms strategically manage **website disclosures** during import relief inves
 3. Apply same design as for revisiting @jones1991earnings
 4. Preliminary correlation with discretionary accruals
 
-<!-- **Navigate to:** `[your-github-repo]/website-analysis.html` -->
+[&#9874; Website analysis page](https://caspardp.github.io/phd-lecture-dec/lecture-materials/playground/website-data.html)
 
 ## PHASE 2: WEBSITE DATA EXPLORATION
 ### Website Analysis Takeaways
@@ -694,8 +699,8 @@ Do firms strategically manage **website disclosures** during import relief inves
 - May need sophisticated NLP (sentiment analysis, topic modeling)
 - Risk of false positives: mentioning "competition" ≠ claiming injury -->
 
-#### Concern #2: Wayback Coverage
-**Only later firm-years & events have snapshots available**
+#### Concern #2: Wayback Coverage & Timiming
+**Only later firm-years & events have snapshots available & when do websites get updated? Quarterly? Ad hoc?**
 
 <!-- - Non-random missingness? (Successful firms more likely archived?)
 - Coverage especially poor for 1980s-1990s cases
@@ -710,19 +715,19 @@ Do firms strategically manage **website disclosures** during import relief inves
 - Can't observe decision-making process
 - Need to establish CFO involvement for EM interpretation -->
 
-#### Concern #4: Timing (Again)
+<!-- #### Concern #4: Timing (Again)
 **When do websites get updated? Quarterly? Ad hoc?**
 <!--
 - Wayback snapshots: irregular frequency
 - May capture site at "wrong" time relative to investigation
 - Fiscal year alignment problem persists
 - Unlike 10-Ks (predictable timing), websites update unpredictably
- -->
+ --> -->
 
-#### Concern #5: Spurious Correlation
+#### Concern #4: Spurious Correlation
 **Is any website-(accruals-)investigation correlation real or just noise?**
 
-#### Concern #6: Using different EM measures & addressing 2-stage critique?
+#### Concern #5: Using different EM measures & addressing 2-stage critique?
 **Which other EM measures exist and fit the purpose?**
 <!-- #### Concern #5: Coordination vs Independence
 **Are website and accruals strategies coordinated?** -->
@@ -796,9 +801,9 @@ Possibilities:
 - **Sentiment by section:** Different tone in IR vs Products vs Careers?
 - **Changes in emphasis:** Which topics get more prominent placement?
 - **Visual content:** Images, infographics, charts—do they change?
-- **Network structure:** Which pages link where? Information architecture changes?
+<!-- - **Network structure:** Which pages link where? Information architecture changes?
 - **Metadata:** Page titles, descriptions, SEO keywords?
-- **Temporal patterns:** Update frequency changes during investigation?
+- **Temporal patterns:** Update frequency changes during investigation? -->
 
 Pick one and explain:
 
@@ -818,9 +823,10 @@ Consider:
 
 - **Press releases:** More structured, official, time-stamped
 - **Conference calls:** Q&A reveals management framing
-- **Social media:** Twitter, LinkedIn—who's the audience?
+- **10-Ks/10-Qs:** Traditional disclosures, but more frequent
+<!-- - **Social media:** Twitter, LinkedIn—who's the audience?
 - **Local news coverage:** How do firms shape media narrative?
-- **Employee reviews (Glassdoor):** Does employee-facing messaging change?
+- **Employee reviews (Glassdoor):** Does employee-facing messaging change? -->
 - **Something else?**
 
 Evaluate: Would your alternative be **better** or **worse** than websites? Why?
@@ -831,7 +837,7 @@ Evaluate: Would your alternative be **better** or **worse** than websites? Why?
 ## PHASE 3: YOUR TURN
 ### Discussion
 
-**[10 minutes: Groups share their critiques]**
+##### 10 minutes: Share your critiques/designs with the class
 
 <!-- *Facilitator notes:*
 - Call on 3-4 groups (2-3 min each)
@@ -949,13 +955,13 @@ Evaluate: Would your alternative be **better** or **worse** than websites? Why?
 ::: {.column width="50%"}
 #### GitHub Repository
 
-**Main repo:** LINK
+[**Main repo:**](https://github.com/CasparDP/phd-lecture-dec/tree/main)
 
-**Replication page:** LINK
+[**Jones-esque analyses:** ](https://caspardp.github.io/phd-lecture-dec/lecture-materials/playground/revisiting-jones.html)
 
-**Website analysis:** LINK
+[**Website analysis:**](https://caspardp.github.io/phd-lecture-dec/lecture-materials/playground/website-data.html)
 
-**Scripts:** `data-prep/Scripts`
+[**Scripts:**](https://github.com/CasparDP/phd-lecture-dec/tree/main/data-prep/Scripts)
 
 :::
 
@@ -996,38 +1002,87 @@ Evaluate: Would your alternative be **better** or **worse** than websites? Why?
 
 ## @haans2024internet
 ### Web Scraping Steps
+:::{.columns}
+::: {.column width="90%"}
 ![Sampling steps](/assets/sampling-steps.png)
+:::
+::: {.column width="10%"}
+
 [[Back]{.button}](#the-internet-never-forgets-1)
+:::
+:::
 
 ## @haans2024internet
 ### Coverage
+:::{.columns}
+::: {.column width="90%"}
 ![Coverage](/assets/coverage.png)
+:::
+::: {.column width="10%"}
+
 [[Back]{.button}](#the-internet-never-forgets-1)
+:::
+:::
 
 ## @haans2024internet
 ### Coverage Over Time
+:::{.columns}
+::: {.column width="90%"}
 ![Coverage Over Time](/assets/comparision-over-time.png)
+:::
+::: {.column width="10%"}
+
 [[Back]{.button}](#the-internet-never-forgets-1)
+:::
+:::
 
 ## @boulland2025company
 ### Validation of Website Disclosure Measure
+:::{.columns}
+::: {.column width="90%"}
 ![Validation of Website Disclosure Measure](/assets/website-size-disclosure-measures.png)
+:::
+::: {.column width="10%"}
+
 [[Back]{.button}](#company-websites-a-new-measure-of-disclosure-1)
+:::
+:::
 
 ## @boulland2025company
 ### Information Asymmetry and Website Disclosure
+:::{.columns}
+::: {.column width="90%"}
 ![Information Asymmetry and Website Disclosure](/assets/websites-bidaskspreads.png)
+:::
+::: {.column width="10%"}
+
 [[Back]{.button}](#company-websites-a-new-measure-of-disclosure-1)
+:::
+:::
 
 ## @boulland2025company
 ### Application: Private Equity Deals
+:::{.columns}
+::: {.column width="90%"}
 ![Application: Private Equity Deals](/assets/websites-PE.png)
+:::
+::: {.column width="10%"}
+
 [[Back]{.button}](#company-websites-a-new-measure-of-disclosure-1)
+:::
+:::
 
 ## @boulland2025company
 ### Application: Nonfinancial Disclosures in France
+:::{.columns}
+::: {.column width="90%"}
 ![Application: Nonfinancial Disclosures in France](/assets/websites-compliance.png)
+:::
+::: {.column width="10%"}
+
 [[Back]{.button}](#company-websites-a-new-measure-of-disclosure-1)
+:::
+:::
 
 ## @boulland2025company
 ### Are these correlations validating or concerning?
@@ -1061,93 +1116,3 @@ Evaluate: Would your alternative be **better** or **worse** than websites? Why?
 ::::
 
 Which is it? [[Back]{.button}](#company-websites-a-new-measure-of-disclosure-1)
-
-
-<!-- # Bridging the Gap
-
-## Bridging the Gap
-### Brainstorming Ideas for Website Data
-
-:::{.columns}
-::: {.column width="50%"}
-#### When Ms Jones wrote this paper in 1991...
-- One financial statement for all audiences
-- Limited tools for strategic communication
-- No firm websites existed
-:::
-::: {.column width="50%"}
-#### Today...
-- Rich web presence during investigations
-- Multi-channel disclosure
-- Opportunity for audience-specific messaging
-:::
-:::
-
-:::::: {.callout}
-# Question
-Would firms strategically manage website disclosures during import relief investigations?
-::::::
-
-# We have a plan, right?
-
-![](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdTZ1M2w0Ymplbmw3NG45YjFwNm0wc3V2aWE0NTV3ZjFlaDBncTBrcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l3vR6aasfs0Ae3qdG/giphy.gif)
-
-# PART 2: BRAINSTORMING
-
-## PART 2: BRAINSTORMING
-### Managing expectations
-
-## PART 2: BRAINSTORMING
-### Phase 1: The Idea
-::::: {.callout-important}
-# Research Question
-Do firms strategically manage website disclosures during import relief investigations?
-:::::
-
-
-#### Why interesting?
-
-- Combines classic EM setting with new data source
-- Tests multi-audience signaling theory
-- Distinguishes real injury from accounting manipulation
-- Resurrects high-impact study with modern methods
-
-
-## PART 2: BRAINSTORMING
-### Phase 1: The Idea
-
-#### Research Design
-
-*Event study around investigation announcement*
-
-#### What we'd love as outcome variables...
-
-- Jones discretionary accruals (replicate original)
-- Website sentiment (forward-looking statements)
-- "Injury" language frequency (job losses, foreign competition, expansion, investment)
-- Content changes (products emphasized, news released)
-- Section-specific tone (IR vs Products vs Careers)
-
-
-## PART 2: BRAINSTORMING
-### Phase 2: Let's Get Specific
-
-:::: {.columns}
-::: {.column width="50%"}
-#### Shopping List
-- ITC investigation dates & outcomes ✅
-- Compustat financials (for Jones model) ✅
-- Wayback Machine website snapshots/website data (as text) ✅
-- Text analysis tools (sentiment, topic modeling)
-- ...?
-:::
-::: {.column width="50%"}
-#### What I would do...
-- Collect data (ITC, Compustat, Wayback Machine)
-- Replicate Jones (1991) discretionary accruals
-- Check if there is "action" in using website data
-
-:::
-::::
-
-# PLAYTIME -->

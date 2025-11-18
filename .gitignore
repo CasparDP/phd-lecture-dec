@@ -86,3 +86,8 @@ data-prep/*.csv
 Rplots.pdf
 _freeze/
 assets/website_caspar_old.css
+
+# Ignore .md files in Scripts folder
+data-prep/Scripts/IMPLEMENTATION_SUMMARY.md
+data-prep/Scripts/INFO_SUMMARIZER.md
+data-prep/Scripts/example_usage.sh

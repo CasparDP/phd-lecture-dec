@@ -100,11 +100,17 @@ tbl(duckdb_conn, "em_cohorts") %>%
   geom_col(fill = "darkgreen") +
   scale_x_continuous(breaks = seq(1975, 2020, by = 5)) +
   labs(
-    title = "Distribution of Treatment Cohorts by Year Zero",
+    # title = "Distribution of Treatment Cohorts by Year Zero",
+    title = "",
     x = "Year Zero (Investigation Year)",
     y = "Number of Treated Industries"
   ) +
   ggthemes::theme_hc()
+
+ggsave(
+  here::here("data-prep", "Figures", "treatment_cohorts_histogram.png"),
+  width = 8, height = 5
+)
 
 ```
 

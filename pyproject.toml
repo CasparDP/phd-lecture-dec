@@ -19,7 +19,8 @@ dependencies = [
     "ollama (>=0.6.0,<0.7.0)",
     "scikit-learn (>=1.5.0,<2.0.0)",
     "duckdb (>=1.4.2,<2.0.0)",
-    "tiktoken (>=0.12.0,<0.13.0)"
+    "tiktoken (>=0.12.0,<0.13.0)",
+    "pymupdf (>=1.24.0,<2.0.0)"
 ]
 
 [tool.poetry]

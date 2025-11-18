@@ -95,6 +95,8 @@ csl: assets/jae.csl
 # Specify which files to render
 render:
   - "*.qmd"
+  - "!data-prep/Scripts/IMPLEMENTATION_SUMMARY.md"
+  - "!data-prep/Scripts/INFO_SUMMARIZER.md"
   - "lecture-materials/**/*.qmd"
   - "!README.md"
   - "!**/README.md"

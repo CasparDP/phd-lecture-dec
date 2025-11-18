@@ -1,33 +1,92 @@
-# This script converts PDF research papers into Quarto summaries using local Ollama.
-# Workflow: PDF → Markdown (Docling) → LLM Summary (Ollama) → Quarto .qmd file
-# Extracts: research idea, contribution, theory, hypothesis, design, results
-# Enhanced with agentic Map-Reduce approach for large documents
+#!/usr/bin/env python3
+"""
+Academic PDF Summarizer using Granite4 + Ollama
+
+Robust pipeline for PDF → text extraction → chunking → map-reduce summarization.
+
+Features:
+- Modular pipeline with clear separation of concerns
+- Robust PDF extraction with fallback methods (docling → PyMuPDF)
+- Token-aware overlapping chunking
+- Multi-level caching (text, chunks, map outputs)
+- Deterministic behavior (temperature=0)
+- Progress logging
+- CLI interface with argparse
+"""
 
 import os
 import sys
 import json
 import hashlib
-import ollama
+import logging
+import argparse
+import re
 from pathlib import Path
-from docling.document_converter import DocumentConverter
-from docling.chunking import HybridChunker
-from typing import List, Optional, Dict, Tuple
+from typing import List, Optional, Dict, Any
 from datetime import datetime
-import tiktoken  # For token counting
+import time
 
-# ============================================================================
-# CONFIGURATION & PROMPTS FOR MAP-REDUCE AGENTS
-# ============================================================================
+# Third-party imports
+import ollama
+import tiktoken
 
-OLLAMA_MODEL = "granite4:latest"
-
-# Load prompt templates with fallback defaults
+# Docling imports (primary extraction)
 try:
-    script_dir = Path(__file__).parent
-    with open(script_dir / "map_prompt.txt", "r") as f:
-        MAP_PROMPT_TEMPLATE = f.read()
-except FileNotFoundError:
-    MAP_PROMPT_TEMPLATE = """You are an expert AI research assistant. Your task is to process a single chunk of an academic paper.
+    from docling.document_converter import DocumentConverter
+    DOCLING_AVAILABLE = True
+except ImportError:
+    DOCLING_AVAILABLE = False
+    logging.warning("Docling not available. Using fallback extraction only.")
+
+# PyMuPDF imports (fallback extraction)
+try:
+    import fitz  # PyMuPDF
+    PYMUPDF_AVAILABLE = True
+except ImportError:
+    PYMUPDF_AVAILABLE = False
+    logging.warning("PyMuPDF not available. Install with: pip install pymupdf")
+
+# ============================================================================
+# CONFIGURATION
+# ============================================================================
+
+# Default model configuration
+DEFAULT_MODEL = "granite4:latest"
+DEFAULT_CHUNK_SIZE = 2000  # tokens
+DEFAULT_CHUNK_OVERLAP = 200  # tokens
+TEMPERATURE = 0  # Deterministic behavior
+
+# Cache directory
+CACHE_DIR_NAME = ".docling_cache"
+
+# Logging configuration
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(message)s'
+)
+logger = logging.getLogger(__name__)
+
+
+# ============================================================================
+# PROMPT TEMPLATES
+# ============================================================================
+
+def load_prompt_template(filename: str, default: str) -> str:
+    """Load prompt template from file with fallback to default."""
+    try:
+        script_dir = Path(__file__).parent
+        prompt_path = script_dir / filename
+        if prompt_path.exists():
+            with open(prompt_path, "r") as f:
+                return f.read()
+    except Exception as e:
+        logger.warning(f"Could not load {filename}: {e}")
+    return default
+
+
+MAP_PROMPT_TEMPLATE = load_prompt_template(
+    "map_prompt.txt",
+    """You are an expert AI research assistant. Your task is to process a single chunk of an academic paper.
 
 Read the text chunk provided below and extract ONLY the following key information. Present your output in this exact format, with headings. If a section is not present in the chunk, write "N/A".
 
@@ -42,13 +101,11 @@ Here is the text chunk:
 ---
 {text_chunk}
 ---"""
+)
 
-try:
-    script_dir = Path(__file__).parent
-    with open(script_dir / "reduce_prompt.txt", "r") as f:
-        REDUCE_PROMPT_TEMPLATE = f.read()
-except FileNotFoundError:
-    REDUCE_PROMPT_TEMPLATE = """You are an expert AI academic writer. You have been given a series of structured notes, each extracted from a consecutive chunk of a single academic paper.
+REDUCE_PROMPT_TEMPLATE = load_prompt_template(
+    "reduce_prompt.txt",
+    """You are an expert AI academic writer. You have been given a series of structured notes, each extracted from a consecutive chunk of a single academic paper.
 
 Your task is to synthesize these notes into a single, high-quality, and coherent summary of the *entire paper*.
 
@@ -68,224 +125,524 @@ Here are the structured notes:
 ---
 
 Write the final, synthesized summary below:"""
+)
 
 
 # ============================================================================
-# AGENTIC MAP-REDUCE CLASSES
+# HELPER FUNCTIONS: Caching, Token Counting
 # ============================================================================
-
-class TextSplitterAgent:
-    """Intelligently splits text using a paragraph-based approach."""
-
-    def run(self, full_text: str, chunk_size_target: int = 4000) -> List[str]:
-        """
-        Split text into chunks based on paragraph boundaries.
-
-        Args:
-            full_text: The complete text to split.
-            chunk_size_target: Target size for each chunk in characters.
-
-        Returns:
-            List of text chunks.
-        """
-        print("   → TextSplitterAgent: Splitting document into chunks...")
-
-        paragraphs = full_text.split("\n\n")
-        chunks = []
-        current_chunk = ""
-
-        for paragraph in paragraphs:
-            test_chunk = current_chunk + paragraph + "\n\n"
-            if len(test_chunk) > chunk_size_target and current_chunk:
-                chunks.append(current_chunk.strip())
-                current_chunk = paragraph + "\n\n"
-            else:
-                current_chunk = test_chunk
-
-        if current_chunk:
-            chunks.append(current_chunk.strip())
-
-        print(f"   ✓ TextSplitterAgent: Created {len(chunks)} chunks")
-        return chunks
-
-
-class MapAgent:
-    """Summarizes a single chunk of text."""
-
-    def run(self, text_chunk: str) -> str:
-        """
-        Process a single chunk with the LLM.
-
-        Args:
-            text_chunk: The text chunk to process.
-
-        Returns:
-            LLM response for the chunk.
-        """
-        print(f"   → MapAgent: Processing chunk (first 50 chars: {text_chunk[:50]}...)")
-
-        formatted_prompt = MAP_PROMPT_TEMPLATE.format(text_chunk=text_chunk)
-        response = self._call_ollama(formatted_prompt)
-
-        print(f"   ✓ MapAgent: Finished processing chunk")
-        return response
-
-    def _call_ollama(self, prompt: str) -> str:
-        """
-        Call Ollama locally using the ollama Python library.
-
-        Args:
-            prompt: The prompt to send.
-
-        Returns:
-            Response from Ollama or error message.
-        """
-        try:
-            response = ollama.generate(model=OLLAMA_MODEL, prompt=prompt, stream=False)
-            return response.get("response", "").strip()
-        except ollama.ResponseError as e:
-            print(f"   ❌ MapAgent._call_ollama error: {e.error}")
-            return f"Error: {str(e)}"
-        except Exception as e:
-            print(f"   ❌ MapAgent._call_ollama error: {e}")
-            return f"Error: {str(e)}"
-
-
-class ReduceAgent:
-    """Synthesizes all chunk summaries into a final summary."""
-
-    def run(self, synthesis_document: str) -> str:
-        """
-        Synthesize chunk summaries into final summary.
-
-        Args:
-            synthesis_document: Combined chunk summaries.
-
-        Returns:
-            Final synthesized summary.
-        """
-        print("   → ReduceAgent: Synthesizing chunk summaries...")
-
-        formatted_prompt = REDUCE_PROMPT_TEMPLATE.format(
-            synthesis_document=synthesis_document
-        )
-        response = self._call_ollama(formatted_prompt)
-
-        print("   ✓ ReduceAgent: Finished synthesizing")
-        return response
-
-    def _call_ollama(self, prompt: str) -> str:
-        """
-        Call Ollama locally using the ollama Python library.
-
-        Args:
-            prompt: The prompt to send.
-
-        Returns:
-            Response from Ollama or error message.
-        """
-        try:
-            response = ollama.generate(model=OLLAMA_MODEL, prompt=prompt, stream=False)
-            return response.get("response", "").strip()
-        except ollama.ResponseError as e:
-            print(f"   ❌ ReduceAgent._call_ollama error: {e.error}")
-            return f"Error: {str(e)}"
-        except Exception as e:
-            print(f"   ❌ ReduceAgent._call_ollama error: {e}")
-            return f"Error: {str(e)}"
-
-
-class OrchestratorAgent:
-    """Manages the full Map-Reduce workflow."""
-
-    def __init__(self):
-        """Initialize orchestrator with agent instances."""
-        self.splitter = TextSplitterAgent()
-        self.mapper = MapAgent()
-        self.reducer = ReduceAgent()
-
-    def run(self, full_text: str) -> str:
-        """
-        Execute the complete Map-Reduce pipeline.
-
-        Args:
-            full_text: The complete document text.
-
-        Returns:
-            Final synthesized summary.
-        """
-        print("   🚀 OrchestratorAgent: Starting Map-Reduce workflow...")
-
-        # Step 1: Split
-        chunks = self.splitter.run(full_text)
-
-        # Step 2: Map (sequential processing)
-        print(f"   → OrchestratorAgent: Mapping {len(chunks)} chunks sequentially...")
-        mapped_outputs = []
-        for chunk in chunks:
-            result = self.mapper.run(chunk)
-            mapped_outputs.append(result)
-
-        # Step 3: Reduce
-        print("   → OrchestratorAgent: Reducing summaries to final output...")
-        synthesis_document = "\n\n---\n\n".join(mapped_outputs)
-        final_summary = self.reducer.run(synthesis_document)
-
-        print("   ✓ OrchestratorAgent: Map-Reduce job complete")
-        return final_summary
-
 
 def get_cache_dir() -> Path:
-    """Get or create cache directory for extracted markdown."""
+    """Get or create cache directory for intermediate outputs."""
     repo_root = Path(__file__).parent.parent.parent
-    cache_dir = repo_root / ".docling_cache"
+    cache_dir = repo_root / CACHE_DIR_NAME
     cache_dir.mkdir(exist_ok=True)
     return cache_dir
 
 
-def get_cache_key(pdf_path: Path) -> str:
-    """Generate a cache key based on PDF filename and modification time."""
-    stat_info = pdf_path.stat()
-    cache_input = f"{pdf_path.name}:{stat_info.st_mtime}:{stat_info.st_size}"
-    return hashlib.md5(cache_input.encode()).hexdigest()
+def get_cache_path(pdf_path: Path, suffix: str) -> Path:
+    """
+    Generate cache file path for a PDF and cache type.
 
+    Args:
+        pdf_path: Path to the PDF file
+        suffix: Cache type suffix (e.g., 'text', 'chunks', 'map')
 
-def get_cached_markdown(pdf_path: Path) -> Optional[str]:
-    """Load cached markdown if available and valid."""
+    Returns:
+        Path to cache file
+    """
     cache_dir = get_cache_dir()
-    cache_key = get_cache_key(pdf_path)
-    cache_file = cache_dir / f"{cache_key}.md"
+    # Use PDF stem + suffix for cache filename
+    cache_filename = f"{pdf_path.stem}.{suffix}.json"
+    return cache_dir / cache_filename
 
-    if cache_file.exists():
-        try:
-            with open(cache_file, "r") as f:
-                return f.read()
-        except Exception as e:
-            print(f"   ⚠️  Warning: Could not read cache: {e}")
+
+def save_cache(obj: Any, filename: str) -> None:
+    """
+    Write JSON cache to disk.
+
+    Args:
+        obj: Object to cache (must be JSON serializable)
+        filename: Cache filename (full path)
+    """
+    try:
+        cache_path = Path(filename) if not isinstance(filename, Path) else filename
+        with open(cache_path, 'w', encoding='utf-8') as f:
+            json.dump(obj, f, indent=2, ensure_ascii=False)
+        logger.debug(f"Cache saved: {cache_path.name}")
+    except Exception as e:
+        logger.warning(f"Could not save cache to {filename}: {e}")
+
+
+def load_cache(filename: str) -> Optional[Any]:
+    """
+    Load cache if available.
+
+    Args:
+        filename: Cache filename (full path)
+
+    Returns:
+        Cached object or None if not available
+    """
+    try:
+        cache_path = Path(filename) if not isinstance(filename, Path) else filename
+        if cache_path.exists():
+            with open(cache_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            logger.debug(f"Cache loaded: {cache_path.name}")
+            return data
+    except Exception as e:
+        logger.warning(f"Could not load cache from {filename}: {e}")
     return None
 
 
-def save_cached_markdown(pdf_path: Path, markdown: str) -> None:
-    """Save markdown to cache."""
-    cache_dir = get_cache_dir()
-    cache_key = get_cache_key(pdf_path)
-    cache_file = cache_dir / f"{cache_key}.md"
-
-    try:
-        with open(cache_file, "w") as f:
-            f.write(markdown)
-    except Exception as e:
-        print(f"   ⚠️  Warning: Could not save cache: {e}")
-
-
 def count_tokens(text: str) -> int:
-    """Estimate token count using tiktoken for GPT models (cl100k_base encoding)."""
+    """
+    Estimate token count using tiktoken (cl100k_base encoding).
+
+    Args:
+        text: Input text
+
+    Returns:
+        Estimated token count
+    """
     try:
         encoding = tiktoken.get_encoding("cl100k_base")
         return len(encoding.encode(text))
     except Exception:
         # Fallback: rough approximation (1 token ≈ 4 characters)
         return len(text) // 4
+
+
+# ============================================================================
+# CORE PIPELINE FUNCTIONS
+# ============================================================================
+
+def extract_text_from_pdf(path: str) -> str:
+    """
+    Extract clean text from PDF using docling, fallback to PyMuPDF.
+
+    Primary method: Docling (preserves structure, better for academic papers)
+    Fallback method: PyMuPDF (more robust for difficult PDFs)
+
+    Args:
+        path: Path to PDF file
+
+    Returns:
+        Extracted text content
+
+    Raises:
+        Exception: If both extraction methods fail
+    """
+    logger.info("Extracting text from PDF...")
+
+    pdf_path = Path(path)
+
+    # Try docling first (primary method)
+    if DOCLING_AVAILABLE:
+        try:
+            logger.debug("Attempting extraction with Docling...")
+            converter = DocumentConverter()
+            result = converter.convert(str(pdf_path))
+            text = result.document.export_to_markdown()
+
+            if text and len(text.strip()) > 100:  # Sanity check
+                logger.info("✓ Text extracted successfully (Docling)")
+                return text
+            else:
+                logger.warning("Docling extraction returned insufficient text")
+        except Exception as e:
+            logger.warning(f"Docling extraction failed: {e}")
+
+    # Fallback to PyMuPDF
+    if PYMUPDF_AVAILABLE:
+        try:
+            logger.debug("Attempting extraction with PyMuPDF...")
+            doc = fitz.open(pdf_path)
+            text_parts = []
+
+            for page_num in range(len(doc)):
+                page = doc[page_num]
+                text_parts.append(page.get_text())
+
+            doc.close()
+            text = "\n\n".join(text_parts)
+
+            if text and len(text.strip()) > 100:  # Sanity check
+                logger.info("✓ Text extracted successfully (PyMuPDF fallback)")
+                return text
+            else:
+                logger.warning("PyMuPDF extraction returned insufficient text")
+        except Exception as e:
+            logger.warning(f"PyMuPDF extraction failed: {e}")
+
+    # Both methods failed
+    raise Exception(
+        "PDF extraction failed with all methods. "
+        "Please ensure docling or PyMuPDF is installed."
+    )
+
+
+def clean_extracted_text(text: str) -> str:
+    """
+    Remove headers, footers, references, page numbers, and empty lines.
+
+    This function cleans common artifacts from academic PDFs:
+    - Page numbers
+    - Headers and footers
+    - Reference sections
+    - Excessive whitespace
+    - LaTeX equation artifacts
+
+    Args:
+        text: Raw extracted text
+
+    Returns:
+        Cleaned text
+    """
+    logger.debug("Cleaning extracted text...")
+
+    # Remove page numbers (common patterns)
+    text = re.sub(r'\n\s*\d+\s*\n', '\n', text)
+    text = re.sub(r'\n\s*Page \d+\s*\n', '\n', text, flags=re.IGNORECASE)
+
+    # Remove common header/footer patterns
+    text = re.sub(r'\n\s*\d+\s+[A-Z][a-z]+\s+et\s+al\.\s*\n', '\n', text)
+
+    # Remove LaTeX artifacts
+    text = re.sub(r'\\[a-zA-Z]+\{[^}]*\}', '', text)
+    text = re.sub(r'\$[^$]+\$', '[equation]', text)
+
+    # Try to remove references section (heuristic)
+    # Look for common reference section headers
+    ref_patterns = [
+        r'\n\s*(References|REFERENCES|Bibliography|BIBLIOGRAPHY)\s*\n',
+        r'\n\s*\d+\.\s+References\s*\n'
+    ]
+
+    for pattern in ref_patterns:
+        match = re.search(pattern, text)
+        if match:
+            # Keep everything before the references section
+            text = text[:match.start()]
+            logger.debug("Removed references section")
+            break
+
+    # Normalize whitespace
+    text = re.sub(r'\n{3,}', '\n\n', text)  # Max 2 consecutive newlines
+    text = re.sub(r' {2,}', ' ', text)  # Max 1 space
+    text = text.strip()
+
+    logger.debug("✓ Text cleaned")
+    return text
+
+
+def chunk_text(text: str, max_tokens: int = 2000, overlap: int = 200) -> List[str]:
+    """
+    Token-aware overlapping chunking suitable for Granite4.
+
+    Strategy:
+    - Split on paragraph boundaries when possible
+    - Ensure chunks stay within token limits
+    - Add overlap for context continuity
+    - Never cut mid-sentence unless unavoidable
+
+    Args:
+        text: Input text to chunk
+        max_tokens: Maximum tokens per chunk
+        overlap: Overlap size in tokens (for continuity)
+
+    Returns:
+        List of text chunks
+    """
+    logger.info(f"Creating chunks (max: {max_tokens} tokens, overlap: {overlap} tokens)...")
+
+    # Split into sentences (basic approach)
+    # More sophisticated: use paragraph boundaries
+    paragraphs = text.split('\n\n')
+
+    chunks = []
+    current_chunk = ""
+    current_tokens = 0
+
+    for para in paragraphs:
+        para = para.strip()
+        if not para:
+            continue
+
+        para_tokens = count_tokens(para)
+
+        # If single paragraph exceeds max, split it further
+        if para_tokens > max_tokens:
+            # Split by sentences
+            sentences = re.split(r'(?<=[.!?])\s+', para)
+            for sent in sentences:
+                sent_tokens = count_tokens(sent)
+
+                if current_tokens + sent_tokens > max_tokens and current_chunk:
+                    # Save current chunk
+                    chunks.append(current_chunk.strip())
+
+                    # Start new chunk with overlap
+                    # Take last part of previous chunk as overlap
+                    overlap_text = get_overlap_text(current_chunk, overlap)
+                    current_chunk = overlap_text + " " + sent
+                    current_tokens = count_tokens(current_chunk)
+                else:
+                    current_chunk += " " + sent
+                    current_tokens += sent_tokens
+        else:
+            # Normal paragraph processing
+            if current_tokens + para_tokens > max_tokens and current_chunk:
+                # Save current chunk
+                chunks.append(current_chunk.strip())
+
+                # Start new chunk with overlap
+                overlap_text = get_overlap_text(current_chunk, overlap)
+                current_chunk = overlap_text + "\n\n" + para
+                current_tokens = count_tokens(current_chunk)
+            else:
+                current_chunk += "\n\n" + para if current_chunk else para
+                current_tokens += para_tokens
+
+    # Add final chunk
+    if current_chunk:
+        chunks.append(current_chunk.strip())
+
+    logger.info(f"✓ Created {len(chunks)} chunks")
+
+    # Log chunk details
+    for i, chunk in enumerate(chunks, 1):
+        tokens = count_tokens(chunk)
+        logger.debug(f"  Chunk {i}: {tokens} tokens, {len(chunk)} chars")
+
+    return chunks
+
+
+def get_overlap_text(text: str, overlap_tokens: int) -> str:
+    """
+    Extract the last N tokens worth of text for overlap.
+
+    Args:
+        text: Source text
+        overlap_tokens: Number of tokens to extract
+
+    Returns:
+        Overlap text (approximately overlap_tokens in length)
+    """
+    # Simple approximation: take last N*4 characters (1 token ≈ 4 chars)
+    approx_chars = overlap_tokens * 4
+
+    if len(text) <= approx_chars:
+        return text
+
+    # Try to break at sentence boundary
+    overlap_text = text[-approx_chars:]
+
+    # Find first sentence start
+    match = re.search(r'[.!?]\s+', overlap_text)
+    if match:
+        overlap_text = overlap_text[match.end():]
+
+    return overlap_text
+
+
+def run_map_step(chunk: str, model: str = "granite4:latest") -> Dict[str, Any]:
+    """
+    Call Ollama with the map prompt and return structured output.
+
+    Processes a single chunk and extracts key information.
+    Uses temperature=0 for deterministic output.
+
+    Args:
+        chunk: Text chunk to process
+        model: Ollama model name
+
+    Returns:
+        Dictionary with extracted information
+    """
+    prompt = MAP_PROMPT_TEMPLATE.format(text_chunk=chunk)
+
+    max_retries = 3
+    retry_delay = 2
+
+    for attempt in range(max_retries):
+        try:
+            response = ollama.chat(
+                model=model,
+                messages=[{"role": "user", "content": prompt}],
+                options={"temperature": TEMPERATURE},
+                stream=False
+            )
+
+            content = response["message"]["content"].strip()
+
+            # Return structured output
+            return {
+                "content": content,
+                "model": model,
+                "tokens": count_tokens(content)
+            }
+
+        except Exception as e:
+            logger.warning(f"Map step attempt {attempt + 1} failed: {e}")
+            if attempt < max_retries - 1:
+                time.sleep(retry_delay)
+            else:
+                logger.error(f"Map step failed after {max_retries} attempts")
+                return {
+                    "content": f"[ERROR: Failed to process chunk: {e}]",
+                    "model": model,
+                    "tokens": 0,
+                    "error": str(e)
+                }
+
+
+def run_reduce_step(mapped_chunks: List[Dict[str, Any]], model: str = "granite4:latest") -> str:
+    """
+    Combine mapped outputs into final summary via reduce prompt.
+
+    Synthesizes information from all chunk summaries into a coherent whole.
+    Uses temperature=0 for deterministic output.
+
+    Args:
+        mapped_chunks: List of map step outputs
+        model: Ollama model name
+
+    Returns:
+        Final synthesized summary
+    """
+    logger.info("Running reduce step...")
+
+    # Combine all mapped content
+    synthesis_parts = []
+    for i, chunk_data in enumerate(mapped_chunks, 1):
+        content = chunk_data.get("content", "")
+        synthesis_parts.append(f"[Chunk {i}]\n{content}")
+
+    synthesis_document = "\n\n---\n\n".join(synthesis_parts)
+
+    prompt = REDUCE_PROMPT_TEMPLATE.format(synthesis_document=synthesis_document)
+
+    max_retries = 3
+    retry_delay = 2
+
+    for attempt in range(max_retries):
+        try:
+            response = ollama.chat(
+                model=model,
+                messages=[{"role": "user", "content": prompt}],
+                options={"temperature": TEMPERATURE},
+                stream=False
+            )
+
+            summary = response["message"]["content"].strip()
+            logger.info("✓ Reduce step complete")
+            return summary
+
+        except Exception as e:
+            logger.warning(f"Reduce step attempt {attempt + 1} failed: {e}")
+            if attempt < max_retries - 1:
+                time.sleep(retry_delay)
+            else:
+                logger.error(f"Reduce step failed after {max_retries} attempts")
+                return f"[ERROR: Failed to synthesize summary: {e}]"
+
+
+def summarize_pdf(path: str, model: str = "granite4:latest", force: bool = False) -> str:
+    """
+    High-level function calling extract → chunk → map → reduce.
+
+    Complete pipeline with caching at each stage:
+    1. Extract text from PDF (cached)
+    2. Clean text (cached)
+    3. Chunk text (cached)
+    4. Map step - process each chunk (cached)
+    5. Reduce step - synthesize final summary
+
+    Args:
+        path: Path to PDF file
+        model: Ollama model name
+        force: If True, ignore cache and reprocess
+
+    Returns:
+        Final summary text
+    """
+    pdf_path = Path(path)
+
+    if not pdf_path.exists():
+        raise FileNotFoundError(f"PDF not found: {path}")
+
+    logger.info(f"\n{'='*70}")
+    logger.info(f"Processing: {pdf_path.name}")
+    logger.info(f"{'='*70}")
+
+    # Step 1: Extract text (with cache)
+    text_cache_path = get_cache_path(pdf_path, "text")
+
+    if not force and (cached_text := load_cache(text_cache_path)):
+        logger.info("✓ Using cached extracted text")
+        extracted_text = cached_text["text"]
+    else:
+        extracted_text = extract_text_from_pdf(str(pdf_path))
+        save_cache({"text": extracted_text, "timestamp": datetime.now().isoformat()}, text_cache_path)
+
+    # Step 2: Clean text (with cache)
+    cleaned_cache_path = get_cache_path(pdf_path, "cleaned")
+
+    if not force and (cached_cleaned := load_cache(cleaned_cache_path)):
+        logger.info("✓ Using cached cleaned text")
+        cleaned_text = cached_cleaned["text"]
+    else:
+        cleaned_text = clean_extracted_text(extracted_text)
+        save_cache({"text": cleaned_text, "timestamp": datetime.now().isoformat()}, cleaned_cache_path)
+
+    # Step 3: Chunk text (with cache)
+    chunks_cache_path = get_cache_path(pdf_path, "chunks")
+
+    if not force and (cached_chunks := load_cache(chunks_cache_path)):
+        logger.info("✓ Using cached chunks")
+        chunks = cached_chunks["chunks"]
+        logger.info(f"Loaded {len(chunks)} chunks from cache")
+    else:
+        chunks = chunk_text(cleaned_text, max_tokens=DEFAULT_CHUNK_SIZE, overlap=DEFAULT_CHUNK_OVERLAP)
+        save_cache({
+            "chunks": chunks,
+            "count": len(chunks),
+            "timestamp": datetime.now().isoformat()
+        }, chunks_cache_path)
+
+    # Step 4: Map step - process each chunk (with cache)
+    map_cache_path = get_cache_path(pdf_path, "map")
+
+    if not force and (cached_map := load_cache(map_cache_path)):
+        logger.info("✓ Using cached map outputs")
+        mapped_outputs = cached_map["mapped_outputs"]
+    else:
+        logger.info(f"Running map step on {len(chunks)} chunks...")
+        mapped_outputs = []
+
+        for i, chunk in enumerate(chunks, 1):
+            logger.info(f"  Processing chunk {i}/{len(chunks)}...")
+            result = run_map_step(chunk, model=model)
+            mapped_outputs.append(result)
+
+        save_cache({
+            "mapped_outputs": mapped_outputs,
+            "model": model,
+            "timestamp": datetime.now().isoformat()
+        }, map_cache_path)
+
+        logger.info("✓ Map step complete")
+
+    # Step 5: Reduce step - synthesize final summary (always fresh)
+    logger.info("Generating final summary...")
+    final_summary = run_reduce_step(mapped_outputs, model=model)
+
+    logger.info("✓ Summary complete")
+    logger.info(f"{'='*70}\n")
+
+    return final_summary
 
 
 def chunk_markdown(doc_object: object, chunk_size: int = 1000) -> List[Dict]:
@@ -710,78 +1067,185 @@ def process_paper(pdf_path: Path, output_base_dir: Path, model: str = "granite4:
     return True
 
 
+# ============================================================================
+# CLI AND MAIN FUNCTION
+# ============================================================================
+
+def create_output_file(summary: str, pdf_path: Path, output_path: Optional[Path] = None, format: str = "md") -> Path:
+    """
+    Write summary to output file.
+
+    Args:
+        summary: Summary text
+        pdf_path: Original PDF path
+        output_path: Optional output path (default: same dir as PDF)
+        format: Output format ('md' or 'txt')
+
+    Returns:
+        Path to created output file
+    """
+    if output_path is None:
+        output_path = pdf_path.parent / f"{pdf_path.stem}_summary.{format}"
+
+    if format == "md":
+        content = f"""# Summary: {pdf_path.stem}
+
+**Generated:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+**Source:** {pdf_path.name}
+
+---
+
+{summary}
+
+---
+
+*Generated by Academic PDF Summarizer using Granite4 + Ollama*
+"""
+    else:
+        content = f"""Summary: {pdf_path.stem}
+Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+Source: {pdf_path.name}
+
+{'='*70}
+
+{summary}
+
+{'='*70}
+
+Generated by Academic PDF Summarizer using Granite4 + Ollama
+"""
+
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write(content)
+
+    logger.info(f"✓ Summary saved to: {output_path}")
+    return output_path
+
+
+def parse_arguments() -> argparse.Namespace:
+    """Parse command-line arguments."""
+    parser = argparse.ArgumentParser(
+        description="Academic PDF Summarizer using Granite4 + Ollama",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  %(prog)s --file paper.pdf
+  %(prog)s --file paper.pdf --model granite4:latest
+  %(prog)s --file paper.pdf --force --export summary.md
+  %(prog)s --file paper.pdf --export --format txt
+        """
+    )
+
+    parser.add_argument(
+        '--file',
+        type=str,
+        required=True,
+        help='Path to PDF file to summarize (required)'
+    )
+
+    parser.add_argument(
+        '--model',
+        type=str,
+        default=DEFAULT_MODEL,
+        help=f'Ollama model to use (default: {DEFAULT_MODEL})'
+    )
+
+    parser.add_argument(
+        '--force',
+        action='store_true',
+        help='Ignore cache and reprocess from scratch'
+    )
+
+    parser.add_argument(
+        '--export',
+        type=str,
+        nargs='?',
+        const='auto',
+        help='Export summary to file (optional path, default: <pdf_name>_summary.md)'
+    )
+
+    parser.add_argument(
+        '--format',
+        type=str,
+        choices=['md', 'txt'],
+        default='md',
+        help='Output format for exported file (default: md)'
+    )
+
+    parser.add_argument(
+        '--verbose',
+        action='store_true',
+        help='Enable verbose logging'
+    )
+
+    parser.add_argument(
+        '--version',
+        action='version',
+        version='Academic PDF Summarizer v2.0'
+    )
+
+    return parser.parse_args()
+
+
 def main():
     """
-    Main function to process research papers.
+    Main CLI entry point.
 
     Usage:
-        python report_to_docling.py                            # Process all PDFs
-        python report_to_docling.py file1.pdf file2.pdf        # Process specific files
-        python report_to_docling.py --model llama2             # Use specific model
-        python report_to_docling.py --map-reduce               # Use Map-Reduce approach
-        python report_to_docling.py --map-reduce --model llama2  # Combine options
+        python report_to_docling.py --file paper.pdf
+        python report_to_docling.py --file paper.pdf --model granite4:latest --force
+        python report_to_docling.py --file paper.pdf --export summary.md
     """
-    # Parse command line arguments
-    model = "granite4:latest"  # default model
-    pdf_names = []
-    use_map_reduce = False
+    args = parse_arguments()
 
-    args = sys.argv[1:]
-    i = 0
-    while i < len(args):
-        arg = args[i]
-        if arg == "--model" and i + 1 < len(args):
-            model = args[i + 1]
-            i += 2
-        elif arg == "--map-reduce":
-            use_map_reduce = True
-            i += 1
-        elif not arg.startswith("--"):
-            pdf_names.append(arg)
-            i += 1
-        else:
-            i += 1
+    # Configure logging level
+    if args.verbose:
+        logger.setLevel(logging.DEBUG)
 
-    # Get PDF files to process
-    pdf_files = get_pdf_files(pdf_names if pdf_names else None)
+    # Print header
+    logger.info("\n" + "="*70)
+    logger.info("Academic PDF Summarizer - Granite4 + Ollama")
+    logger.info("="*70)
+    logger.info(f"Model: {args.model}")
+    logger.info(f"Cache: {'Disabled (--force)' if args.force else 'Enabled'}")
+    logger.info("="*70 + "\n")
 
-    if not pdf_files:
-        print("❌ No PDF files found to process.")
-        return
+    try:
+        # Run summarization pipeline
+        summary = summarize_pdf(args.file, model=args.model, force=args.force)
 
-    print("=" * 70)
-    print(f"📚 Paper Summarizer with Ollama")
-    print("=" * 70)
-    print(f"Model: {model}")
-    approach = "Map-Reduce (Agentic)" if use_map_reduce else "Traditional (Chunking)"
-    print(f"Approach: {approach}")
-    print(f"Found {len(pdf_files)} paper(s) to process:")
-    for i, pdf in enumerate(pdf_files, 1):
-        print(f"  {i}. {pdf.name}")
+        # Print summary to terminal
+        logger.info("\n" + "="*70)
+        logger.info("SUMMARY")
+        logger.info("="*70 + "\n")
+        print(summary)
+        logger.info("\n" + "="*70 + "\n")
 
-    # Create output directory
-    output_base_dir = Path("./paper_summaries")
-    output_base_dir.mkdir(exist_ok=True)
+        # Export if requested
+        if args.export:
+            pdf_path = Path(args.file)
 
-    # Process each paper
-    successful = 0
-    failed = 0
+            if args.export == 'auto':
+                output_path = None  # Use default
+            else:
+                output_path = Path(args.export)
 
-    for pdf_path in pdf_files:
-        if process_paper(pdf_path, output_base_dir, model, use_map_reduce=use_map_reduce):
-            successful += 1
-        else:
-            failed += 1
+            create_output_file(summary, pdf_path, output_path, format=args.format)
 
-    # Print summary
-    print("\n" + "=" * 70)
-    print("✅ Processing Complete")
-    print("=" * 70)
-    print(f"✓ Successful: {successful}")
-    print(f"❌ Failed: {failed}")
-    print(f"📁 Output directory: {output_base_dir.resolve()}")
-    print("=" * 70)
+        logger.info("✓ Processing complete!\n")
+        return 0
+
+    except FileNotFoundError as e:
+        logger.error(f"\n❌ Error: {e}\n")
+        return 1
+    except Exception as e:
+        logger.error(f"\n❌ Unexpected error: {e}")
+        if args.verbose:
+            import traceback
+            traceback.print_exc()
+        logger.error("")
+        return 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

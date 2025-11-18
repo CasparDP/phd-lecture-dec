@@ -95,7 +95,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#jones1991earnings",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "Jones (1991)",
-    "text": "Jones (1991)\nResearch Question & Main Finding & Contributions\n\n\nResearch Question\nDo firms that would benefit from import relief attempt to decrease earnings through earnings management during ITC investigations?\nMain Finding\nManagers of domestic producers significantly decrease reported earnings during import relief investigations\n\nDiscretionary accruals are income-decreasing in investigation year (year 0)\nNo significant effect in surrounding years (-1, +1)\n\n\nContributions\nMethodological Innovation\n\nDevelops firm-specific time-series models to estimate “normal” accruals\nFoundation for the famous “Jones Model”\n\nTheoretical Contributions\n\nUnique incentive structure: First study examining income-decreasing earnings management\nDemonstrates accounting numbers have economic consequences in regulatory settings (wealth transfers)",
+    "text": "Jones (1991)\nResearch Question & Main Finding & Contributions\n\n\nResearch Question\nDo firms that would benefit from import relief attempt to decrease earnings through earnings management during ITC investigations?\nMain Finding\nManagers of domestic producers significantly decrease reported earnings during import relief investigations\n\nDiscretionary accruals are income-decreasing in investigation year (year 0)\nNo significant effect in surrounding years (-1, +1)\n\n\nContributions\nMethodological Innovation\n\nDevelops firm-specific time-series models to estimate “normal” accruals\nFoundation for the famous “Jones Model”\n\nTheoretical Contributions\n\nUnique incentive structure: First study examining income-decreasing earnings management\nDemonstrates accounting numbers have economic consequences in regulatory settings (wealth transfers)\n\nMore on wealth transfers later ⇢ Accounting and Wealth Tranfer session by Patricia Breuer in February",
     "crumbs": [
       "Slides",
       "Lecture Materials",
@@ -160,7 +160,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#jones1991earnings-5",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "Jones (1991)",
-    "text": "Jones (1991)\nWhy This Design Is Pretty Darn Good\n\n\nClear Incentive Alignment\n✅ Regulatory rule explicitly uses accounting profitability\n✅ All contracting parties benefit from appearing injured\n✅ Regulator doesn’t adjust for earnings management\n\nPowerful Research Design\n✅ Time-series control for firm-specific “normal” accruals\n✅ Clear prediction: decrease in investigation year only\n✅ Multiple industries, multiple years\n✅ Addresses free-rider problem with petitioner subsample\n\n\n\n\n\n\n\nKey Implication\n\n\nThis setting provides a specific motive for earnings management that is not typically present in other contracting situations where all parties have incentives to monitor and adjust for manipulation",
+    "text": "Jones (1991)\nWhy This Design Is Pretty Darn Good\n\n\nClear Incentive Alignment\n\nRegulatory rule explicitly uses accounting profitability\nAll contracting parties benefit from appearing injured\nRegulator doesn’t adjust for earnings management\n\n\nPowerful Research Design\n\nTime-series control for firm-specific “normal” accruals\nClear prediction: decrease in investigation year only\nMultiple industries, multiple years\nAddresses free-rider problem with petitioner subsample\n\n\n\n\n\n\n\n\nKey Implication\n\n\nThis setting provides a specific motive for earnings management that is not typically present in other contracting situations where all parties have incentives to monitor and adjust for manipulation",
     "crumbs": [
       "Slides",
       "Lecture Materials",
@@ -212,7 +212,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#phase-1-the-replication-journey-3",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "PHASE 1: THE REPLICATION JOURNEY",
-    "text": "PHASE 1: THE REPLICATION JOURNEY\nFinding and Linking the Investigations\n\n\nThe Problem\n\nSeveral types/subjects of investigations - which to choose?\nJones uses domestic producers of broad product lines\n\nInvestigations\n\n\n\n\n\n\nMy Solution\n\nI focused on “Safeguard” investigations Why?\nJones picks only “Escape Clause” cases - subset of Safeguards\n“[…] only investigations pertaining to a broad product line […]”\n\nWhy This Matters\n\nInvestigation type affects incentives & sample\nIf the industry is small (part of consolidated sales)\n\nless incentive to manage\n\n\n\n\n\n\n\n\n\nKey Insight\n\n\nInstitutional knowledge is key here - not yet fully utilized! Knowledge of investigation types is crucial for sample selection and interpretation of results. There is very much room for improvement here.",
+    "text": "PHASE 1: THE REPLICATION JOURNEY\nFinding and Linking the Investigations\n\n\nThe Problem\n\nSeveral types/subjects of investigations - which to choose?\nJones uses domestic producers of broad product lines\n\nInvestigations\n\n \n\n\nMy Solution\n\nI focused on “Safeguard” investigations Why?\nJones picks only “Escape Clause” cases - subset of Safeguards\n“[…] only investigations pertaining to a broad product line […]”\n\nWhy This Matters\n\nInvestigation type affects incentives & sample\nIf the industry is small (part of consolidated sales)\n\nless incentive to manage\n\n\n\n\n\n\n\n\n\nKey Insight\n\n\nInstitutional knowledge is key here - not yet fully utilized! Knowledge of investigation types is crucial for sample selection and interpretation of results. There is very much room for improvement here.",
     "crumbs": [
       "Slides",
       "Lecture Materials",
@@ -225,7 +225,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#phase-1-the-replication-journey-4",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "PHASE 1: THE REPLICATION JOURNEY",
-    "text": "PHASE 1: THE REPLICATION JOURNEY\nLive Demo: Replication Results\n\n\n\nWhat we’ll look at:\n\nSample construction & coverage\nKey results table (compare to Jones Table 5)\nDiscretionary accruals\n\nFirst-difference approach\nEvent-study (DiD-style plot)\n\nWhat we could add to align with contemporary EM literature",
+    "text": "PHASE 1: THE REPLICATION JOURNEY\nLive Demo: Replication Results\n\n\n\nWhat we’ll look at:\n\nSample construction & coverage\nKey results table (compare to Jones Table 5)\nDiscretionary accruals\n\nFirst-difference approach\nEvent-study (DiD-style plot)\n\nWhat we could add to align with contemporary EM literature\n\n\n\n\n⚒ Jones-esque analysis page",
     "crumbs": [
       "Slides",
       "Lecture Materials",
@@ -238,7 +238,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#phase-1-the-replication-journey-5",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "PHASE 1: THE REPLICATION JOURNEY",
-    "text": "PHASE 1: THE REPLICATION JOURNEY\nReplication Takeaways\n\n\nWhat Worked\n\nJones findings are robust to modern methods ✅\nCross-sectional approach provides adequate power ✅\nTiming issue resolved with fiscal year alignment ✅\nEffects are economically and statistically significant ✅\n\n\nOpen Questions\n⚠️ Would time-series give identical results?\n\nEnough observations per firm to test ✅\nNeed to identify firms from reports ⏳ (outsource to 🤖?)\n\n⚠️ The Earnings Management Literature has advanced\n\nAlternative models, see e.g. Dechow et al. (2010) or Breuer and Schütt (2023)\nIssues with two-step estimations, see e.g. Chen et al. (2018) or Chen et al. (2023)\n\n🤔 Why do effects appear in Year -1 to Year 0?\n\nAccrual reversal in Year +1? Can we test that?\n\n\n\n\n\n\n\n\nThe Bigger Question\n\n\nReplication is validating, but not publishable. What NEW insight can we add 35 years later?",
+    "text": "PHASE 1: THE REPLICATION JOURNEY\nReplication Takeaways\n\n\nWhat Worked\n\nJones findings are robust to modern methods ✔\nCross-sectional approach provides adequate power ✔\nTiming issue resolved with fiscal year alignment ✔\nEffects are economically and statistically significant ✔\n\n\nOpen Questions\n⚠️ Would time-series give identical results?\n\nEnough observations per firm to test ✔\nNeed to identify firms from reports ⏳ (outsource to 🤖?)\n\n⚠️ The Earnings Management Literature has advanced\n\nE.g. Dechow et al. (2010) or Breuer and Schütt (2023)\nIssues with two-step estimations, see e.g. Chen et al. (2018) or Chen et al. (2023)\n\n🤔 Why do effects appear in Year -1 to Year 0?\n\nAccrual reversal in Year +1? Can we test that?\n\n\n\n\n\n\n\n\nThe Bigger Question\n\n\nReplication is validating, but not publishable. What NEW insight can we add 35 years later?",
     "crumbs": [
       "Slides",
       "Lecture Materials",
@@ -264,7 +264,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#phase-2-website-data-exploration-2",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "PHASE 2: WEBSITE DATA EXPLORATION",
-    "text": "PHASE 2: WEBSITE DATA EXPLORATION\nWhat I Actually Did (Quick & Dirty Version)\n\n\nData & Method\nData source: Cleaned website text from Haans and Mertens (2024)\n\nMethod: Keyword frequency analysis\n\nAnalysis: Event study around investigation dates\n\n\nSpoiler: There’s something there, but it’s messy\n\nRed Flags 🚩\n⚠️ Wayback coverage varies wildly\n⚠️ Keywords might be too crude/noisy\n⚠️ Don’t know who controls website content\n⚠️ Website timing issues remain\n\n\n\n\n\n\n\nImportant Context\n\n\nThis is NOT a finished analysis. This is a “should I keep going?” check.",
+    "text": "PHASE 2: WEBSITE DATA EXPLORATION\nWhat I Actually Did (Quick & Dirty Version)\n\n\nData & Method\nData source: Cleaned website text from Haans and Mertens (2024)\n\nMethod: Keyword frequency analysis\n\nAnalysis: Event study around investigation dates\n\n\nSpoiler: There’s something there, but it’s messy\n\nRed Flags 🚩\n\nWayback coverage varies wildly\nKeywords might be too crude/noisy\nDon’t know who controls website content\nWebsite timing issues remain\n\n\n\n\n\n\n\n\nImportant Context\n\n\nThis is NOT a finished analysis. This is a “should I keep going?” check.",
     "crumbs": [
       "Slides",
       "Lecture Materials",
@@ -277,7 +277,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#phase-2-website-data-exploration-3",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "PHASE 2: WEBSITE DATA EXPLORATION",
-    "text": "PHASE 2: WEBSITE DATA EXPLORATION\nLive Demo: Website Analysis\n\nWhat we’ll look at:\n\nData collection approach - already done by Haans and Mertens (2024)\nKeyword frequency trends around investigations\nApply same design as for revisiting Jones (1991)\nPreliminary correlation with discretionary accruals",
+    "text": "PHASE 2: WEBSITE DATA EXPLORATION\nLive Demo: Website Analysis\n\nWhat we’ll look at:\n\nData collection approach - already done by Haans and Mertens (2024)\nKeyword frequency trends around investigations\nApply same design as for revisiting Jones (1991)\nPreliminary correlation with discretionary accruals\n\n⚒ Website analysis page",
     "crumbs": [
       "Slides",
       "Lecture Materials",
@@ -303,7 +303,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#phase-2-website-data-exploration-5",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "PHASE 2: WEBSITE DATA EXPLORATION",
-    "text": "PHASE 2: WEBSITE DATA EXPLORATION\nWhat Keeps Me Up at Night\nConcern #1: Measurement Validity\nAre keywords capturing “strategic injury narrative” or just “we’re in an investigation”?\n\nConcern #2: Wayback Coverage\nOnly later firm-years & events have snapshots available\n\nConcern #3: Attribution Problem\nWebsites controlled by whom? CFO? Marketing? Compliance?\n\nConcern #4: Timing (Again)\nWhen do websites get updated? Quarterly? Ad hoc? \nConcern #5: Spurious Correlation\nIs any website-(accruals-)investigation correlation real or just noise?\nConcern #6: Using different EM measures & addressing 2-stage critique?\nWhich other EM measures exist and fit the purpose? \n\n\n\n\n\n\n\nReality Check\n\n\nAny ONE of these could sink the project. Are they fixable, or fatal?",
+    "text": "PHASE 2: WEBSITE DATA EXPLORATION\nWhat Keeps Me Up at Night\nConcern #1: Measurement Validity\nAre keywords capturing “strategic injury narrative” or just “we’re in an investigation”?\n\nConcern #2: Wayback Coverage & Timiming\nOnly later firm-years & events have snapshots available & when do websites get updated? Quarterly? Ad hoc?\n\nConcern #3: Attribution Problem\nWebsites controlled by whom? CFO? Marketing? Compliance?\n\n\n–&gt;\nConcern #4: Spurious Correlation\nIs any website-(accruals-)investigation correlation real or just noise?\nConcern #5: Using different EM measures & addressing 2-stage critique?\nWhich other EM measures exist and fit the purpose? \n\n\n\n\n\n\n\nReality Check\n\n\nAny ONE of these could sink the project. Are they fixable, or fatal?",
     "crumbs": [
       "Slides",
       "Lecture Materials",
@@ -329,7 +329,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#phase-3-your-turn-2",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "PHASE 3: YOUR TURN",
-    "text": "PHASE 3: YOUR TURN\nStructured Critique (continued)\n\n\nPROMPT C: Alternative Outcomes\nInstead of keyword frequency, what ELSE could you measure on websites?\nPossibilities:\n\nSentiment by section: Different tone in IR vs Products vs Careers?\nChanges in emphasis: Which topics get more prominent placement?\nVisual content: Images, infographics, charts—do they change?\nNetwork structure: Which pages link where? Information architecture changes?\nMetadata: Page titles, descriptions, SEO keywords?\nTemporal patterns: Update frequency changes during investigation?\n\nPick one and explain:\n\nWhy it might be better than keyword counts\nWhat it would reveal that keywords miss\nWhat new problems it would create\n\n\nPROMPT D: The Pivot\nAssume one of the concerns kills the website idea.\nWhat OTHER data source could you use to test “multi-channel disclosure strategy during investigations”?\nConsider:\n\nPress releases: More structured, official, time-stamped\nConference calls: Q&A reveals management framing\nSocial media: Twitter, LinkedIn—who’s the audience?\nLocal news coverage: How do firms shape media narrative?\nEmployee reviews (Glassdoor): Does employee-facing messaging change?\nSomething else?\n\nEvaluate: Would your alternative be better or worse than websites? Why?",
+    "text": "PHASE 3: YOUR TURN\nStructured Critique (continued)\n\n\nPROMPT C: Alternative Outcomes\nInstead of keyword frequency, what ELSE could you measure on websites?\nPossibilities:\n\nSentiment by section: Different tone in IR vs Products vs Careers?\nChanges in emphasis: Which topics get more prominent placement?\nVisual content: Images, infographics, charts—do they change? \n\nPick one and explain:\n\nWhy it might be better than keyword counts\nWhat it would reveal that keywords miss\nWhat new problems it would create\n\n\nPROMPT D: The Pivot\nAssume one of the concerns kills the website idea.\nWhat OTHER data source could you use to test “multi-channel disclosure strategy during investigations”?\nConsider:\n\nPress releases: More structured, official, time-stamped\nConference calls: Q&A reveals management framing\n10-Ks/10-Qs: Traditional disclosures, but more frequent \nSomething else?\n\nEvaluate: Would your alternative be better or worse than websites? Why?",
     "crumbs": [
       "Slides",
       "Lecture Materials",
@@ -342,7 +342,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#phase-3-your-turn-3",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "PHASE 3: YOUR TURN",
-    "text": "PHASE 3: YOUR TURN\nDiscussion\n[10 minutes: Groups share their critiques]",
+    "text": "PHASE 3: YOUR TURN\nDiscussion\n10 minutes: Share your critiques/designs with the class",
     "crumbs": [
       "Slides",
       "Lecture Materials",
@@ -368,7 +368,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#wrapping-up-2",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "WRAPPING UP",
-    "text": "WRAPPING UP\nAccess Everything\n\n\nGitHub Repository\nMain repo: LINK\nReplication page: LINK\nWebsite analysis: LINK\nScripts: data-prep/Scripts\n\nWhat You’ll Find\n\nComplete replication code\nSample construction details\nDiagnostic plots and tables\nWebsite scraping scripts\nPreliminary text analysis\n\n\nEverything is documented—you can reproduce or extend this work\n\n\n\n\n\n\nFor Your Own Research\n\n\nThink of this repo structure as a template. Clear organization, documented decisions, reproducible code—these habits will save you (and your coauthors) countless hours.",
+    "text": "WRAPPING UP\nAccess Everything\n\n\nGitHub Repository\nMain repo:\nJones-esque analyses:\nWebsite analysis:\nScripts:\n\nWhat You’ll Find\n\nComplete replication code\nSample construction details\nDiagnostic plots and tables\nWebsite scraping scripts\nPreliminary text analysis\n\n\nEverything is documented—you can reproduce or extend this work\n\n\n\n\n\n\nFor Your Own Research\n\n\nThink of this repo structure as a template. Clear organization, documented decisions, reproducible code—these habits will save you (and your coauthors) countless hours.",
     "crumbs": [
       "Slides",
       "Lecture Materials",
@@ -394,7 +394,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#haans2024internet-2",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "Haans and Mertens (2024)",
-    "text": "Haans and Mertens (2024)\nWeb Scraping Steps\n Back",
+    "text": "Haans and Mertens (2024)\nWeb Scraping Steps\n\n\n\n\n\nSampling steps\n\n\n\nBack",
     "crumbs": [
       "Slides",
       "Lecture Materials",
@@ -407,7 +407,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#haans2024internet-3",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "Haans and Mertens (2024)",
-    "text": "Haans and Mertens (2024)\nCoverage\n Back",
+    "text": "Haans and Mertens (2024)\nCoverage\n\n\n\n\n\nCoverage\n\n\n\nBack",
     "crumbs": [
       "Slides",
       "Lecture Materials",
@@ -420,7 +420,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#haans2024internet-4",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "Haans and Mertens (2024)",
-    "text": "Haans and Mertens (2024)\nCoverage Over Time\n Back",
+    "text": "Haans and Mertens (2024)\nCoverage Over Time\n\n\n\n\n\nCoverage Over Time\n\n\n\nBack",
     "crumbs": [
       "Slides",
       "Lecture Materials",
@@ -433,7 +433,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#boulland2025company-2",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "Boulland et al. (2025)",
-    "text": "Boulland et al. (2025)\nValidation of Website Disclosure Measure\n Back",
+    "text": "Boulland et al. (2025)\nValidation of Website Disclosure Measure\n\n\n\n\n\nValidation of Website Disclosure Measure\n\n\n\nBack",
     "crumbs": [
       "Slides",
       "Lecture Materials",
@@ -446,7 +446,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#boulland2025company-3",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "Boulland et al. (2025)",
-    "text": "Boulland et al. (2025)\nInformation Asymmetry and Website Disclosure\n Back",
+    "text": "Boulland et al. (2025)\nInformation Asymmetry and Website Disclosure\n\n\n\n\n\nInformation Asymmetry and Website Disclosure\n\n\n\nBack",
     "crumbs": [
       "Slides",
       "Lecture Materials",
@@ -459,7 +459,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#boulland2025company-4",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "Boulland et al. (2025)",
-    "text": "Boulland et al. (2025)\nApplication: Private Equity Deals\n Back",
+    "text": "Boulland et al. (2025)\nApplication: Private Equity Deals\n\n\n\n\n\nApplication: Private Equity Deals\n\n\n\nBack",
     "crumbs": [
       "Slides",
       "Lecture Materials",
@@ -472,7 +472,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#boulland2025company-5",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "Boulland et al. (2025)",
-    "text": "Boulland et al. (2025)\nApplication: Nonfinancial Disclosures in France\n Back",
+    "text": "Boulland et al. (2025)\nApplication: Nonfinancial Disclosures in France\n\n\n\n\n\nApplication: Nonfinancial Disclosures in France\n\n\n\nBack",
     "crumbs": [
       "Slides",
       "Lecture Materials",
@@ -618,55 +618,6 @@
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "References",
     "text": "References\n\n\nHaans, R.F., Mertens, M.J., 2024. The internet never forgets: A four-step scraping tutorial, codebase, and database for longitudinal organizational website data. Organizational Research Methods 10944281241284941.\n\n\nJones, J.J., 1991. Earnings management during import relief investigations. Journal of accounting research 29, 193–228.\n\n\nPeter, D., Caspar, Weinrich, A., 2025. Distinguishing Error from Intent in Accounting Enforcement Using LLMs. Working Paper."
-  },
-  {
-    "objectID": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html",
-    "href": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html",
-    "title": "Jones-Earningsmanagementimport-1991 - Research Summary",
-    "section": "",
-    "text": "Investigates whether firms that could benefit from import relief attempt to decrease earnings through earnings management during investigations by the U.S. International Trade Commission (ITC).\n\n\n\nProvides empirical evidence on how firms manage their earnings in response to potential import relief, highlighting a specific motive for earnings manipulation during regulatory proceedings.\n\n\n\nThe study is grounded in agency theory and principal-agent problems, where managers have incentives to manipulate earnings to secure benefits from import relief granted by the ITC. The ITC’s use of accounting numbers in its decision-making process creates an opportunity for managers to influence outcomes through earnings management.\n\n\n\nHypothesis: Managers of firms that could benefit from import relief decrease their reported earnings during investigation periods compared to non-investigation periods, as measured by discretionary accruals.\n\n\n\n\nSample: Firms involved in import relief investigations (antidumping, countervailing duty, and general escape clause cases).\nVariables: Discretionary accruals calculated from total accruals minus normal accruals.\nMethodology: Empirical tests using firm-specific expectations models to estimate discretionary accruals.\n\n\n\n\n\nFindings: Significant negative discretionary accruals during the year of investigation (year 0), supporting the hypothesis that managers decrease earnings through earnings management.\nStatistical Tests: Z-statistics for discretionary accruals in year 0 are significant, indicating a strong link between earnings manipulation and import relief investigations.\n\n\n\n\n\n\n\n\nNoteAI Generated Summary\n\n\n\nGenerated by Paper Summarizer using Ollama (Model: granite4:latest)"
-  },
-  {
-    "objectID": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#research-idea",
-    "href": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#research-idea",
-    "title": "Jones-Earningsmanagementimport-1991 - Research Summary",
-    "section": "",
-    "text": "Investigates whether firms that could benefit from import relief attempt to decrease earnings through earnings management during investigations by the U.S. International Trade Commission (ITC)."
-  },
-  {
-    "objectID": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#contribution",
-    "href": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#contribution",
-    "title": "Jones-Earningsmanagementimport-1991 - Research Summary",
-    "section": "",
-    "text": "Provides empirical evidence on how firms manage their earnings in response to potential import relief, highlighting a specific motive for earnings manipulation during regulatory proceedings."
-  },
-  {
-    "objectID": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#theory",
-    "href": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#theory",
-    "title": "Jones-Earningsmanagementimport-1991 - Research Summary",
-    "section": "",
-    "text": "The study is grounded in agency theory and principal-agent problems, where managers have incentives to manipulate earnings to secure benefits from import relief granted by the ITC. The ITC’s use of accounting numbers in its decision-making process creates an opportunity for managers to influence outcomes through earnings management."
-  },
-  {
-    "objectID": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#hypothesis-development",
-    "href": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#hypothesis-development",
-    "title": "Jones-Earningsmanagementimport-1991 - Research Summary",
-    "section": "",
-    "text": "Hypothesis: Managers of firms that could benefit from import relief decrease their reported earnings during investigation periods compared to non-investigation periods, as measured by discretionary accruals."
-  },
-  {
-    "objectID": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#research-design",
-    "href": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#research-design",
-    "title": "Jones-Earningsmanagementimport-1991 - Research Summary",
-    "section": "",
-    "text": "Sample: Firms involved in import relief investigations (antidumping, countervailing duty, and general escape clause cases).\nVariables: Discretionary accruals calculated from total accruals minus normal accruals.\nMethodology: Empirical tests using firm-specific expectations models to estimate discretionary accruals."
-  },
-  {
-    "objectID": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#results",
-    "href": "paper_summaries/Jones-EarningsManagementImport-1991/Jones-EarningsManagementImport-1991_summary.html#results",
-    "title": "Jones-Earningsmanagementimport-1991 - Research Summary",
-    "section": "",
-    "text": "Findings: Significant negative discretionary accruals during the year of investigation (year 0), supporting the hypothesis that managers decrease earnings through earnings management.\nStatistical Tests: Z-statistics for discretionary accruals in year 0 are significant, indicating a strong link between earnings manipulation and import relief investigations.\n\n\n\n\n\n\n\n\nNoteAI Generated Summary\n\n\n\nGenerated by Paper Summarizer using Ollama (Model: granite4:latest)"
   },
   {
     "objectID": "lecture-materials/playground/website-data.html",
