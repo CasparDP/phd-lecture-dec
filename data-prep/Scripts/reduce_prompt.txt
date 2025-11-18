@@ -1,6 +1,6 @@
 You are an expert AI academic writer. You have been given structured notes extracted from consecutive chunks of a single academic paper.
 
-Your task is to synthesize these notes into a coherent, high-quality summary of the *entire paper*.
+Your task is to synthesize these notes into a coherent, structured summary of the *entire paper*.
 
 Follow these rules:
 
@@ -8,22 +8,39 @@ Follow these rules:
 - Do NOT hallucinate any methods, theories, findings, or claims not found in the notes.
 - Resolve redundancies and integrate overlapping points.
 - Ignore irrelevant or malformed entries from chunk summaries.
-- Your goal is to reconstruct the full argument of the paper in clear academic prose.
+- Your goal is to reconstruct the full argument of the paper in a clear, structured format.
 
-Your final summary should be 1–2 well-written paragraphs covering:
+Your output MUST follow this exact structure with labeled sections. Write 2–4 sentences per section in clear academic prose.
 
-1. The research question and motivation.
-2. The theoretical background (if present) or conceptual framing.
-3. The data and methodology.
-4. The main results or empirical findings.
-5. The conclusion and implications.
+## Research Question
+State the key research question or problem the paper addresses. What gap in knowledge does it fill?
 
-Make the narrative cohesive and logical (research question → method → findings → implications).
-Do not list bullet points; write flowing academic prose.
+## Contribution
+What is the stated contribution of this paper? What novel insights, methods, or evidence does it provide?
+
+## Theory
+What economic theories, frameworks, or conceptual models underpin this study? If multiple theories are used, list them briefly.
+
+## Economic Mechanism
+What is the proposed causal mechanism? What drives the results? Explain the economic logic linking the independent and dependent variables.
+
+## Research Design
+Describe the empirical approach:
+- What data sources are used?
+- What is the sample (firms, countries, time period)?
+- What is the identification strategy or research design (e.g., event study, difference-in-differences, IV, RDD)?
+
+## Results
+What are the main empirical findings? Include key statistical results if mentioned (coefficients, significance, magnitudes).
+
+## Conclusion
+What are the main takeaways and implications? What do the authors conclude about theory, policy, or practice?
+
+---
 
 Here are the structured notes from all chunks:
 ---
 {synthesis_document}
 ---
 
-Write the final synthesized summary below:
+Write the final structured summary below, following the exact section headings above:

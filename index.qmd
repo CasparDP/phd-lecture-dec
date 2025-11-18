@@ -42,13 +42,15 @@ Click above to view the complete presentation with examples from recent research
 
 Check out the repository for all code and data used in this lecture.
 
-### 🤖 Paper Summaries
+### 🤖 [Paper Summaries](https://caspardp.github.io/phd-lecture-dec/lecture-materials/slides/lecture-slides.html)
 
-Summaries of key papers generated using a local LLMs
+Summaries of key papers generated using a local LLM:
 
-- Is this better than any of the free LLMs out there? Probably not
+- Is this better than any of the free LLMs out there? **Probably not**!
 
 - BUT: It's YOURS to adapt, extend, and improve as you see fit
+
+- As always: Check for accuracy and completeness! Compare to your own reading of the papers. We can tweak the prompts together if you want to generate your own summaries.
 
 - For another way to utilize LLMs in research, see @peterweinrich2025aaer
 

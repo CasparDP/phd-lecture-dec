@@ -17,10 +17,11 @@ website:
       - text: "Slides"
         href: lecture-materials/slides/lecture-slides.qmd
       - text: "Playground"
-        href: lecture-materials/playground/revisiting-jones.qmd
+        href: lecture-materials/playground
+      - text: "AI Paper Summaries"
+        href: lecture-materials/ai-summaries
       - text: "Additional Resources"
-        href: lecture-materials/handouts/institutional-background.qmd
-
+        href: lecture-materials/handouts
   sidebar:
     - title: "Project Navigation"
       contents:
