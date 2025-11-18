@@ -29,11 +29,11 @@ website:
           - text: "Boulland et al. (2025) Summary"
             href: paper_summaries/Company Websites A New Measure of Disclosure/Company Websites A New Measure of Disclosure_summary.qmd
           - text: "Haans and Mertens (2024) Summary"
-          - href: paper_summaries/The_Internet_Never_Forgets/The_Internet_Never_Forgets_summary.qmd
+            href: paper_summaries/The_Internet_Never_Forgets/The_Internet_Never_Forgets_summary.qmd
       - text: "Additional Resources"
         href: lecture-materials/handouts/institutional-background.qmd
   sidebar:
-    - title: "Project Navigation"
+    - title: "Earnings Management Then and Now: Revisiting Jones (1991)"
       contents:
         - section: "Slides"
           contents: "slides/*.qmd"
@@ -41,6 +41,8 @@ website:
           contents: "lecture-materials/handouts/institutional_background.qmd"
         - section: "Playground"
           contents: "lecture-materials/playground/*.qmd"
+        - section: "AI Paper Summaries"
+          contents: "paper_summaries/**/*.qmd"
 
   page-footer:
     center: "© 2025 - Rotterdam School of Management"
@@ -117,4 +119,3 @@ render:
   - "lecture-materials/**/*.qmd"
   - "!README.md"
   - "!**/README.md"
-  - "!paper_summaries/**"
