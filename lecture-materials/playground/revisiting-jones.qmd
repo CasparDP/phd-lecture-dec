@@ -117,11 +117,12 @@ ggsave(
 ### The OG... Jones Model
 
 #### @jones1991earnings: Time-Series Firm-Specific Approach
-$$ Total accruals_{it} = \frac{1}{AT_{i,t-1}} + \beta_1 \frac{\Delta REV_{it}}{AT_{i,t-1}} + \beta_2 \frac{PPE_{it}}{AT_{i,t-1}} + \epsilon_{it}$$
+
+$$ \frac{\text{Total accruals}_{it}}{AT_{i,t-1}} = \frac{1}{AT_{i,t-1}} + \beta_1 \frac{\Delta REV_{it}}{AT_{i,t-1}} + \beta_2 \frac{PPE_{it}}{AT_{i,t-1}} + \epsilon_{it}$$
 
 Where:
 
-- $Total accruals_{it}$ = total accruals for firm i at time t
+- $\frac{\text{Total accruals}_{it}}{AT_{i,t-1$ = total accruals for firm i at time t
 - $AT_{i,t-1}$ = total assets for firm i at time t-1
 - $\Delta REV_{it}$ = change in revenues for firm i at time t
 - $PPE_{it}$ = property, plant, and equipment for firm i at time t
@@ -130,7 +131,7 @@ Where:
 
 ::: {.callout-important}
 # Time-Series Firm-Specific Jones Model
-Discretionary accruals: $DA_{it}$ = residual from firm i's time-series regression
+Discretionary accruals: $\text{DA}}_{it}$ = residual from firm i's time-series regression
 :::
 
 #### My Approach: Cross-Sectional Industry-Specific Approach
@@ -139,7 +140,7 @@ Estimates yearly regressions by SIC-3 industry using all firms in that industry.
 
 ::: {.callout-important}
 # Cross-Sectional Industry-Specific Jones Model
-$DA_{it}$ = residual from industry-year cross-sectional regression
+$\text{DA}_{it}$ = residual from industry-year cross-sectional regression
 
 **Implication:** I measure abnormal accruals relative to contemporaneous industry peers, not firm's historical pattern
 :::
@@ -155,11 +156,11 @@ $DA_{it}$ = residual from industry-year cross-sectional regression
 I implement a stacked difference-in-differences (DiD) design to estimate the impact of import relief investigations on discretionary accruals. The treatment group consists of firms in industries subject to import relief investigations, while the control group includes firms in industries without such investigations (different SIC-1 codes). I define event time relative to the investigation year, with t=0 as the investigation year. For each event window (t-2 to t+2), I create a separate dataset stacking observations from treated and control industries; see, e.g., @baker2022much; @baker2025difference for more details on stacked DiD designs.
 
 #### First-Difference DiD Model
-$$\Delta DA_{it} = \beta_1Treated_i + \alpha_{fyear}+ \gamma_{cohort}+ \epsilon_{it}$$
+$$\Delta \text{DA}_{it} = \beta_1Treated_i + \alpha_{fyear}+ \gamma_{cohort}+ \epsilon_{it}$$
 
 Where:
 
--  $\Delta(DA_{it}) = DA_{it} - DA_{i,t-1}$ is the change in discretionary accruals for firm i at time t
+-  $\Delta(DA_{it}) = \text{DA}_{it} - \text{DA}_{i,t-1}$ is the change in discretionary accruals for firm i at time t
 - $Treated_i$ is a binary indicator for whether firm i is in the treatment group
 - $\alpha_{fyear}$ are fixed effects for the fiscal year
 - $\gamma_{cohort}$ are fixed effects for the cohort
