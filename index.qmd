@@ -5,7 +5,8 @@ format: html
 ---
 
 
-##### WORK IN PROGESS - LAST UPDATED: 2025-11-12
+##### WORK IN PROGESS - LAST UPDATED:
+`r Sys.Date()`
 
 ![Lecture Overview](assets/phd-lecture-excalidraw.png)
 

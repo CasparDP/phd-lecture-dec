@@ -17,11 +17,15 @@ website:
       - text: "Slides"
         href: lecture-materials/slides/lecture-slides.qmd
       - text: "Playground"
-        href: lecture-materials/playground
+        menu:
+          - text: "Revisiting Jones"
+            href: lecture-materials/playground/revisiting-jones.qmd
+          - text: "Website Data"
+            href: lecture-materials/playground/website-data.qmd
       - text: "AI Paper Summaries"
-        href: lecture-materials/ai-summaries
+        href: lecture-materials/ai-summaries/Jones-EarningsManagementImport-1991_summary.qmd
       - text: "Additional Resources"
-        href: lecture-materials/handouts
+        href: lecture-materials/handouts/institutional-background.qmd
   sidebar:
     - title: "Project Navigation"
       contents:
@@ -41,8 +45,12 @@ format:
     css: assets/website_caspar.css
     toc: true
     toc-location: left
-    code-fold: true
+    # Code highlighting
     code-tools: true
+    highlight-style: github
+    code-fold: true
+    code-overflow: wrap
+    code-copy: true
     # Ensure all resources are embedded for sharing
     embed-resources: true
     # MathJax via CDN for reliable font loading

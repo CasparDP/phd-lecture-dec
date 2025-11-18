@@ -131,7 +131,7 @@ Where:
 
 ::: {.callout-important}
 # Time-Series Firm-Specific Jones Model
-Discretionary accruals: $\text{DA}}_{it}$ = residual from firm i's time-series regression
+Discretionary accruals: $\text{DA}_{it}$ = residual from firm i's time-series regression
 :::
 
 #### My Approach: Cross-Sectional Industry-Specific Approach
