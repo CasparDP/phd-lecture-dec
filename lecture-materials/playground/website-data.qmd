@@ -138,6 +138,7 @@ website_cohorts %>%
     y = "Average Injury-Related Word Ratio"
   ) +
   ggthemes::theme_hc()
+
 ```
 
 
@@ -286,6 +287,7 @@ fixest::etable(results_first_diff,
   fitstat = ~ ar2 + n,
   replace = TRUE,
   view = TRUE,
+  signif.code = c("***" = 0.01, "**" = 0.05, "*" = 0.1, "a" = 0.11),
   style.tex = style.tex("aer")
 )
 ```

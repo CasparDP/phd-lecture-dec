@@ -55,7 +55,9 @@ investigations_naics <- investigations %>%
 # Load Compustat data with Jones residuals
 
 ## Load Jones residuals
-em <- read_csv(here::here("data-prep", "jones_residuals.csv"))
+em <- tbl(duckdb_conn, "jones_residuals") %>%
+  collect()
+# em <- read_csv(here::here("data-prep", "jones_residuals.csv"))
 # view(em)
 ## Build cohort of firms affected by import relief investigations around the event year
 
@@ -74,10 +76,10 @@ pancaka <- function(year, ind, data = em) {
       cohort = paste0(ind, "_", year),
       treated = 1
     )
-  message("Number of treated firms in sector ", ind, " for year ", year, ": ", nrow(treated_cohort))
+  message("Number of treated firm-years in sector ", ind, " for year ", year, ": ", nrow(treated_cohort))
 
   control_cohort <- data %>%
-    mutate(sic = str_sub(sic, 1)) %>%
+    mutate(sic = str_sub(sic, 1, 1)) %>%
     filter(
       between(fyear, year - 6, year + 6),
       # Keep firms in same years but different industries as controls
@@ -92,6 +94,7 @@ pancaka <- function(year, ind, data = em) {
       cohort = paste0(ind, "_", year),
       treated = 0
     )
+  message("Number of control firm-years in sector ", ind, " for year ", year, ": ", nrow(control_cohort))
 
   # combine treated and control cohorts
   combined_cohort <- bind_rows(treated_cohort, control_cohort)
@@ -110,10 +113,25 @@ em_cohorts <- map2(
   filter(min(time) < 0, max(time) > 0) %>%
   ungroup()
 
+# Drop cohorts with no treated firms after adjusting for timing
+em_cohorts <- em_cohorts %>%
+  group_by(cohort) %>%
+  filter(max(treated) == 1) %>%
+  ungroup()
+
 # Delete all ever treated sectors from control group
+
+em_cohorts %>%
+  group_by(treated) %>%
+  count()
+
 em_cohorts <- em_cohorts %>%
   filter(!(treated == 0 & sector_2 %in% unique(em_cohorts$sector_2[em_cohorts$treated == 1])))
 
+em_cohorts %>%
+  filter(treated == 1) %>%
+  group_by(time) %>%
+  count()
 
 em_cohorts <- em_cohorts %>%
   # Adjust for timing differences between investigation and fiscal year ends
@@ -125,13 +143,8 @@ em_cohorts <- em_cohorts %>%
     # Fiscal year ends after investigation decision - shift time by +1
     TRUE ~ time + 1
   )) %>%
-  filter(between(time, -3, 3))
-
-# Drop cohorts with no treated firms after adjusting for timing
-em_cohorts <- em_cohorts %>%
-  group_by(cohort) %>%
-  filter(max(treated) == 1) %>%
-  ungroup()
+  filter(between(time, -3, 3)) %>%
+  distinct()
 
 
 # Save dataset
@@ -223,7 +236,7 @@ em_cohorts %>%
   mutate(cohort_sic1 = str_sub(cohort, 1, 1), sector_1 = str_sub(sic, 1, 1)) %>%
   # select(treated, cohort, cohort_sic1, sector_1, sic) %>%
   # Limit control group to SIC 1 only
-  filter(treated == 1 | (treated == 0 & sector_1 != cohort_sic1)) %>%
+  filter(treated == 1 | (treated == 0 & sector_1 == cohort_sic1)) %>%
   group_by(time, treated) %>%
   summarise(avg_jones = mean(jones, na.rm = TRUE)) %>%
   ggplot(aes(x = time, y = avg_jones, color = as.factor(treated))) +
@@ -300,6 +313,7 @@ em_did <- em_cohorts %>%
 dbWriteTable(duckdb_conn, "em_did", em_did, overwrite = TRUE)
 
 # Estimate first-difference DiD model for each time period, i.e. -2, -1, 0, 1
+
 
 map(-2:1, ~ feols(jones_diff ~ treated | fyear + cohort,
   data = em_did %>% filter(time == .x)
