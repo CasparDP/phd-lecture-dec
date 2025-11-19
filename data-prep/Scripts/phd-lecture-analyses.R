@@ -146,6 +146,13 @@ em_cohorts <- em_cohorts %>%
   filter(between(time, -3, 3)) %>%
   distinct()
 
+# Keep only firms with full data for all 7 years in the event window - Control group
+em_cohorts <-
+  em_cohorts %>%
+  group_by(cohort, gvkey) %>%
+  filter(treated == 1 | treated == 0 & n() == 7)
+
+
 
 # Save dataset
 write_csv(em_cohorts, here::here("data-prep", "em_cohorts.csv"))
@@ -156,6 +163,27 @@ dbWriteTable(duckdb_conn, "em_cohorts", em_cohorts, overwrite = TRUE)
 # summary(em_cohorts$jones)
 # plot(density(em_cohorts$jones, na.rm = TRUE))
 # plot(em_cohorts$fyear, em_cohorts$jones)
+
+
+# Make a bar plot of number of treated and control firms by time relative to event year
+em_cohorts %>%
+  group_by(time, treated) %>%
+  summarise(num_firms = n_distinct(gvkey)) %>%
+  ggplot(aes(x = time, y = num_firms, fill = as.factor(treated))) +
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_x_continuous(breaks = seq(-3, 3, by = 1)) +
+  labs(
+    # title = "Number of Treated and Control Firms by Time Relative to Import Relief Investigation Year",
+    title = "",
+    x = "Years Relative to Investigation Year",
+    y = "Number of Firms",
+    fill = "Treated"
+  ) +
+  ggthemes::theme_hc()
+
+# Save plot
+ggsave(here::here("data-prep", "Figures", "number_of_firms_by_status.png"), width = 8, height = 6, dpi = 300)
+
 
 # Summary statistics of Jones residuals by time relative to event year
 em_cohorts %>%
@@ -301,8 +329,6 @@ ggplot() +
 # Save plot
 ggsave(here::here("data-prep", "Figures", "avg_jones_residuals_import_relief.png"), width = 8, height = 6, dpi = 300)
 
-# Difference-in-Differences Regression Analysis
-
 ## Calculate first difference for Jones residuals around event year
 em_did <- em_cohorts %>%
   group_by(gvkey, cohort) %>%
@@ -351,8 +377,6 @@ map(-2:1, ~ feols(jones_diff ~ treated | fyear + cohort,
   ) +
   ggthemes::theme_hc()
 
-# first difference DiD as latex equation
-# y_it - y_i(t-1) = beta * treated_i + epsilon_it
 
 # Save plot
 ggsave(here::here("data-prep", "Figures", "avg_jones_residuals_import_relief_first_diff.png"), width = 8, height = 6, dpi = 300)

@@ -33,8 +33,8 @@ wrds # checking if connection exists
 
 us_firms <- tbl(wrds, I("comp.company")) %>%
     filter(
-        loc == "USA"
-        # TODO: refine filters to domestic firms
+        loc == "USA",
+        fic == "USA" # Filter to firms incorporated in the USA (excludes ADRs and foreign-incorporated firms)
     ) %>%
     select(conm, gvkey, loc, sic, spcindcd, ipodate, fic, weburl, naics) %>%
     collect() %>%
@@ -51,11 +51,18 @@ us_firms <- tbl(wrds, I("comp.company")) %>%
 message("Number of US firms with non-missing SIC codes in Compustat: ", nrow(us_firms %>% filter(!is.na(sic))))
 message("Number of US firms with non-missing NAICS codes in Compustat: ", nrow(us_firms %>% filter(!is.na(naics))))
 
+# Write to DuckDB for faster access later
+duckdb_conn <- dbConnect(duckdb::duckdb(), dbdir = "data-prep/DB/us_firms_duckdb", read_only = FALSE)
+# Save us_firms to DuckDB
+dbWriteTable(duckdb_conn, "us_firms", us_firms, overwrite = TRUE)
+
+# See Jones (1991) definition of total accruals:
 # Total_Accruals = ((ACT - ACT_lag) - (CHE - CHE_lag)) - (LCT - LCT_lag) - DP
 
 jones_ingredients <- tbl(wrds, I("comp.funda")) %>%
     filter(
         datadate >= as.Date("1975-01-01"),
+        pddur == 12,
         indfmt == "INDL",
         datafmt == "STD",
         popsrc == "D",
@@ -63,8 +70,9 @@ jones_ingredients <- tbl(wrds, I("comp.funda")) %>%
         !is.na(at),
         at > 0
     ) %>%
-    mutate(across(c(che, dlc, sale, rect), \(x) coalesce(x, 0))) %>%
-    select(gvkey, datadate, fyear, at, ibc, oancf, sale, recch, ppegt, che, act, lct, dp) %>%
+    mutate(across(c(che, sale, rect), \(x) coalesce(x, 0))) %>%
+    # Added sich
+    select(gvkey, datadate, fyear, sich, at, ibc, oancf, sale, recch, ppegt, che, act, lct, dp, dlc) %>%
     collect() %>%
     group_by(gvkey) %>%
     # Compute variables needed for Jones (1991) model
@@ -82,6 +90,10 @@ jones_ingredients <- tbl(wrds, I("comp.funda")) %>%
         inverse_lagta = 1 / lagta, # inverse of lagged total assets
         ppe = ppegt / lagta
     ) # property, plant and equipment scaled by lagged total assets
+
+# Save us_firms to DuckDB
+dbWriteTable(duckdb_conn, "jones_ingredients", jones_ingredients, overwrite = TRUE)
+
 
 # Inner join with US firms to limit to US firms only
 jones_sample <- jones_ingredients %>%
@@ -135,7 +147,12 @@ jonez <- function(ind, year) {
 }
 
 # Example usage
-# jonez("33", 2020)  %>% mutate(residual = tacc - .fitted)  %>% select(residual, tacc, .fitted)
+# jones_sample$sector_3 %>%
+#     unique() %>%
+#     sort()
+# jonez("010", 2000) %>%
+#     mutate(residual = tacc_jones - .fitted) %>%
+#     select(residual, tacc_jones, .fitted)
 
 # Apply jonez function to each sector and year combination
 sector_years <- jones_sample %>%
@@ -156,9 +173,6 @@ write_csv(jones_residuals, "data-prep/jones_residuals.csv")
 message("Disconnected from WRDS")
 # Disconnect from WRDS
 dbDisconnect(wrds)
-
-# Save to DuckDB
-duckdb_conn <- dbConnect(duckdb::duckdb(), dbdir = "data-prep/DB/jones_duckdb", read_only = FALSE)
 
 # Save jones_residuals to DuckDB
 dbWriteTable(duckdb_conn, "jones_residuals", jones_residuals, overwrite = TRUE)
