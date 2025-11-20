@@ -356,10 +356,10 @@ Managers systematically manipulate accruals downward **specifically during** inv
 ::: {.column width="50%"}
 #### Materials Available
 
-- GitHub repo: [LINK](https://github.com/casparm4/phd-lecture-dec)
-- Jones replication page
-- Website analysis page
-- R & Python scripts for data and analysis
+- [🔗 GitHub repo](https://github.com/casparm4/phd-lecture-dec)
+  - Jones replication page
+  - Website analysis page
+  - R & Python scripts for data and analysis
 :::
 ::::
 
@@ -613,7 +613,7 @@ Do firms strategically manage **website disclosures** during import relief inves
 <!-- - Compare keyword frequency in Years -2, -1, 0, +1, +2 -->
 <!-- - Check correlation with discretionary accruals -->
 
-**Spoiler:** There's something there, but it's messy
+**Spoiler:** There's sometimes something there, but it's messy[^1]
 
 
 :::
@@ -634,8 +634,10 @@ Do firms strategically manage **website disclosures** during import relief inves
 
 :::::: {.callout-warning}
 # Important Context
-*This is NOT a finished analysis. This is a "should I keep going?" check.*
+*This is NOT a finished analysis. Most likely it will change until the lecture takes place! This is a "should I keep going?" check.*
 ::::::
+
+[^1]: &#9763; Preliminary and unreviewed—treat findings as exploratory only. Results come and go with keyword choices and sample restrictions.
 
 ## PHASE 2: WEBSITE DATA EXPLORATION
 ### Live Demo: Website Analysis
@@ -661,6 +663,8 @@ Do firms strategically manage **website disclosures** during import relief inves
 📊 **There IS variation** in website language around investigations
 
 📈 "Injury" keywords increase in Years -1 to 0
+
+☣️ The signal is **weak and noisy**: Very sensitive to sample restrictions and keyword choices
 
 <!-- 🔗 [Weak/Moderate/Strong] correlation with discretionary accruals -->
 :::
@@ -722,13 +726,14 @@ Do firms strategically manage **website disclosures** during import relief inves
 - May capture site at "wrong" time relative to investigation
 - Fiscal year alignment problem persists
 - Unlike 10-Ks (predictable timing), websites update unpredictably
- --> -->
+ -->
 
 #### Concern #4: Spurious Correlation
 **Is any website-(accruals-)investigation correlation real or just noise?**
 
 #### Concern #5: Using different EM measures & addressing 2-stage critique?
 **Which other EM measures exist and fit the purpose?**
+
 <!-- #### Concern #5: Coordination vs Independence
 **Are website and accruals strategies coordinated?** -->
 
@@ -955,13 +960,13 @@ Evaluate: Would your alternative be **better** or **worse** than websites? Why?
 ::: {.column width="50%"}
 #### GitHub Repository
 
-[**Main repo:**](https://github.com/CasparDP/phd-lecture-dec/tree/main)
+[🔗 **Main repo**](https://github.com/CasparDP/phd-lecture-dec/tree/main)
 
-[**Jones-esque analyses:** ](https://caspardp.github.io/phd-lecture-dec/lecture-materials/playground/revisiting-jones.html)
+[🔗 **Jones-esque analyses** ](https://caspardp.github.io/phd-lecture-dec/lecture-materials/playground/revisiting-jones.html)
 
-[**Website analysis:**](https://caspardp.github.io/phd-lecture-dec/lecture-materials/playground/website-data.html)
+[🔗 **Website analysis**](https://caspardp.github.io/phd-lecture-dec/lecture-materials/playground/website-data.html)
 
-[**Scripts:**](https://github.com/CasparDP/phd-lecture-dec/tree/main/data-prep/Scripts)
+[🔗 **Scripts**](https://github.com/CasparDP/phd-lecture-dec/tree/main/data-prep/Scripts)
 
 :::
 

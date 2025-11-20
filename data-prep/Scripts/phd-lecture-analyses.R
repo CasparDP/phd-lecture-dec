@@ -136,9 +136,10 @@ em_cohorts %>%
 em_cohorts <- em_cohorts %>%
   # Adjust for timing differences between investigation and fiscal year ends
   inner_join(investigations_naics %>% select(cohort, year_zero_month), by = "cohort") %>%
-  # Make sure that year 0 is the year the regulator can observe the fiscal year outcome
+  # Make sure that year 0 is the year the regulator can observe the fiscal year outcome, i.e. teh fiscal year ends before the investigation decision
   mutate(time = case_when(
     # Fiscal year ends before investigation decision - no adjustment needed
+    # year(datadate) == event_year & month(datadate) < year_zero_month ~ time,
     fyear == event_year & month(datadate) < year_zero_month ~ time,
     # Fiscal year ends after investigation decision - shift time by +1
     TRUE ~ time + 1
@@ -146,12 +147,17 @@ em_cohorts <- em_cohorts %>%
   filter(between(time, -3, 3)) %>%
   distinct()
 
-# Keep only firms with full data for all 7 years in the event window - Control group
-em_cohorts <-
-  em_cohorts %>%
-  group_by(cohort, gvkey) %>%
-  filter(treated == 1 | treated == 0 & n() == 7)
+# em_cohorts %>%
+#   select(gvkey, cohort, time, time_adj, datadate, fyear, event_year, year_zero_month) %>%
+#   arrange(gvkey, cohort, time) %>%
+#   view()
 
+# Keep only firms with full data for all 7 years in the event window - Control group
+# em_cohorts <-
+#   em_cohorts %>%
+#   group_by(cohort, gvkey) %>%
+#   filter(treated == 1 | treated == 0 & n() == 7)  %>%
+#   ungroup()
 
 
 # Save dataset

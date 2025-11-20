@@ -147,7 +147,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#part-2-research-in-action-1",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "PART 2: RESEARCH IN ACTION",
-    "text": "PART 2: RESEARCH IN ACTION\nFrom Papers to Practice\n\n\nWhat Well Do Today\n\nMove from theory to execution\nSee my Jones (1991) replication\nExplore rough website analysis\nAll code/data on GitHub (live demos)\nYour job: Critique, spot problems, suggest improvements\n\n\nMaterials Available\n\nGitHub repo: LINK\nJones replication page\nWebsite analysis page\nR & Python scripts for data and analysis\n\n\nYou’ve had access—we’ll walk through key decisions",
+    "text": "PART 2: RESEARCH IN ACTION\nFrom Papers to Practice\n\n\nWhat Well Do Today\n\nMove from theory to execution\nSee my Jones (1991) replication\nExplore rough website analysis\nAll code/data on GitHub (live demos)\nYour job: Critique, spot problems, suggest improvements\n\n\nMaterials Available\n\n🔗 GitHub repo\n\nJones replication page\nWebsite analysis page\nR & Python scripts for data and analysis\n\n\n\nYou’ve had access—we’ll walk through key decisions",
     "crumbs": [
       "Slides",
       "Earnings Management Then and Now: Revisiting Jones (1991)"
@@ -224,7 +224,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#phase-2-website-data-exploration-2",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "PHASE 2: WEBSITE DATA EXPLORATION",
-    "text": "PHASE 2: WEBSITE DATA EXPLORATION\nWhat I Actually Did (Quick & Dirty Version)\n\n\nData & Method\nData source: Cleaned website text from Haans and Mertens (2024)\n\nMethod: Keyword frequency analysis\n\nAnalysis: Event study around investigation dates\n\n\nSpoiler: There’s something there, but it’s messy\n\nRed Flags 🚩\n\nWayback coverage varies wildly\nKeywords might be too crude/noisy\nDon’t know who controls website content\nWebsite timing issues remain\n\n\n\n\n\n\n\n\nImportant Context\n\n\nThis is NOT a finished analysis. This is a “should I keep going?” check.",
+    "text": "PHASE 2: WEBSITE DATA EXPLORATION\nWhat I Actually Did (Quick & Dirty Version)\n\n\nData & Method\nData source: Cleaned website text from Haans and Mertens (2024)\n\nMethod: Keyword frequency analysis\n\nAnalysis: Event study around investigation dates\n\n\nSpoiler: There’s sometimes something there, but it’s messy1\n\nRed Flags 🚩\n\nWayback coverage varies wildly\nKeywords might be too crude/noisy\nDon’t know who controls website content\nWebsite timing issues remain\n\n\n\n\n\n\n\n\nImportant Context\n\n\nThis is NOT a finished analysis. Most likely it will change until the lecture takes place! This is a “should I keep going?” check.\n\n\n\n☣ Preliminary and unreviewed—treat findings as exploratory only. Results come and go with keyword choices and sample restrictions.",
     "crumbs": [
       "Slides",
       "Earnings Management Then and Now: Revisiting Jones (1991)"
@@ -246,7 +246,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#phase-2-website-data-exploration-4",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "PHASE 2: WEBSITE DATA EXPLORATION",
-    "text": "PHASE 2: WEBSITE DATA EXPLORATION\nWebsite Analysis Takeaways\n\n\nWhat I Found\n📊 There IS variation in website language around investigations\n📈 “Injury” keywords increase in Years -1 to 0\n\n\nBut Is It Real?\n🤷 Not clear if it’s strategic or mechanical\n\nAre firms crafting a narrative?\nOr just reporting investigation news?\n\n🎯 Attribution problem\n\nCan’t distinguish CFO strategy from marketing communications\n\n⏰ Timing ambiguity\n\nDon’t know when updates happen\nSnapshots may miss key moments\n\n\n\n\n\n\n\n\nCritical Assessment\n\n\nThere’s a signal. Maybe. But I have five serious concerns that could kill this project.",
+    "text": "PHASE 2: WEBSITE DATA EXPLORATION\nWebsite Analysis Takeaways\n\n\nWhat I Found\n📊 There IS variation in website language around investigations\n📈 “Injury” keywords increase in Years -1 to 0\n☣️ The signal is weak and noisy: Very sensitive to sample restrictions and keyword choices\n\n\nBut Is It Real?\n🤷 Not clear if it’s strategic or mechanical\n\nAre firms crafting a narrative?\nOr just reporting investigation news?\n\n🎯 Attribution problem\n\nCan’t distinguish CFO strategy from marketing communications\n\n⏰ Timing ambiguity\n\nDon’t know when updates happen\nSnapshots may miss key moments\n\n\n\n\n\n\n\n\nCritical Assessment\n\n\nThere’s a signal. Maybe. But I have five serious concerns that could kill this project.",
     "crumbs": [
       "Slides",
       "Earnings Management Then and Now: Revisiting Jones (1991)"
@@ -257,7 +257,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#phase-2-website-data-exploration-5",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "PHASE 2: WEBSITE DATA EXPLORATION",
-    "text": "PHASE 2: WEBSITE DATA EXPLORATION\nWhat Keeps Me Up at Night\nConcern #1: Measurement Validity\nAre keywords capturing “strategic injury narrative” or just “we’re in an investigation”?\n\nConcern #2: Wayback Coverage & Timiming\nOnly later firm-years & events have snapshots available & when do websites get updated? Quarterly? Ad hoc?\n\nConcern #3: Attribution Problem\nWebsites controlled by whom? CFO? Marketing? Compliance?\n\n\n–&gt;\nConcern #4: Spurious Correlation\nIs any website-(accruals-)investigation correlation real or just noise?\nConcern #5: Using different EM measures & addressing 2-stage critique?\nWhich other EM measures exist and fit the purpose? \n\n\n\n\n\n\n\nReality Check\n\n\nAny ONE of these could sink the project. Are they fixable, or fatal?",
+    "text": "PHASE 2: WEBSITE DATA EXPLORATION\nWhat Keeps Me Up at Night\nConcern #1: Measurement Validity\nAre keywords capturing “strategic injury narrative” or just “we’re in an investigation”?\n\nConcern #2: Wayback Coverage & Timiming\nOnly later firm-years & events have snapshots available & when do websites get updated? Quarterly? Ad hoc?\n\nConcern #3: Attribution Problem\nWebsites controlled by whom? CFO? Marketing? Compliance?\n\n\nConcern #4: Spurious Correlation\nIs any website-(accruals-)investigation correlation real or just noise?\nConcern #5: Using different EM measures & addressing 2-stage critique?\nWhich other EM measures exist and fit the purpose?\n\n\n\n\n\n\n\n\nReality Check\n\n\nAny ONE of these could sink the project. Are they fixable, or fatal?",
     "crumbs": [
       "Slides",
       "Earnings Management Then and Now: Revisiting Jones (1991)"
@@ -312,7 +312,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#wrapping-up-2",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "WRAPPING UP",
-    "text": "WRAPPING UP\nAccess Everything\n\n\nGitHub Repository\nMain repo:\nJones-esque analyses:\nWebsite analysis:\nScripts:\n\nWhat You’ll Find\n\nComplete replication code\nSample construction details\nDiagnostic plots and tables\nWebsite scraping scripts\nPreliminary text analysis\n\n\nEverything is documented—you can reproduce or extend this work\n\n\n\n\n\n\nFor Your Own Research\n\n\nThink of this repo structure as a template. Clear organization, documented decisions, reproducible code—these habits will save you (and your coauthors) countless hours.",
+    "text": "WRAPPING UP\nAccess Everything\n\n\nGitHub Repository\n🔗 Main repo\n🔗 Jones-esque analyses\n🔗 Website analysis\n🔗 Scripts\n\nWhat You’ll Find\n\nComplete replication code\nSample construction details\nDiagnostic plots and tables\nWebsite scraping scripts\nPreliminary text analysis\n\n\nEverything is documented—you can reproduce or extend this work\n\n\n\n\n\n\nFor Your Own Research\n\n\nThink of this repo structure as a template. Clear organization, documented decisions, reproducible code—these habits will save you (and your coauthors) countless hours.",
     "crumbs": [
       "Slides",
       "Earnings Management Then and Now: Revisiting Jones (1991)"
