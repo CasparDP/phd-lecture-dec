@@ -1,0 +1,27 @@
+Dear students,
+
+I am very much looking forward to our upcoming PhD lecture at Erasmus University on Wednesday, 3 December 2025, 10:00–12:00, in Room T08-14 (Mandeville Building). The session is titled:
+
+“Earnings Management Then and Now: Revisiting Jones (1991)”
+
+As the title suggests, we will start from the classic paper by Jennifer J. Jones and then connect it to modern data sources and methods. We will discuss how website and archival internet data, as well as updated empirical tools, can be used to revisit and extend her original setting and to generate new research ideas.
+
+To prepare, please read the following three papers, which form the backbone of the first part of the lecture:
+
+- Boulland, R., Bourveau, T., Breuer, M. (2025). Company Websites: A New Measure of Disclosure. Journal of Accounting Research.
+- Haans, R. F., Mertens, M. J. (2024). The Internet Never Forgets: A Four-Step Scraping Tutorial, Codebase, and Database for Longitudinal Organizational Website Data. Organizational Research Methods.
+- Jones, J. J. (1991). Earnings Management During Import Relief Investigations. Journal of Accounting Research, 29, 193–228.
+If your time is very limited, please at least read the introductions of Haans & Mertens (2024) and Boulland et al. (2025), and give Jones (1991) a more careful and complete read.
+
+During the second part of the lecture, we will turn to the applied side: replicating and updating Jones (1991), exploring website data around investigations, and discussing research design choices. You can find the lecture website, slides, and HTML reports (replication, website analysis, AI-generated paper summaries, etc.) here:
+
+Lecture website (landing page): https://caspardp.github.io/phd-lecture-dec/
+
+The website is a living document; I may update details in the second-part materials up to shortly before the lecture. The main structure, readings, and core goals will remain stable.
+
+I am looking forward to seeing you in December in Rotterdam and to having a productive session together.
+
+Best regards,
+Caspar
+
+P.S. This is my first time designing this PhD lecture. Any feedback—positive or critical—is very welcome, either in person or in writing (e.g., by email).

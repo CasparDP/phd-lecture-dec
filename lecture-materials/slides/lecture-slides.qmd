@@ -229,7 +229,7 @@ Managers of domestic producers **significantly decrease reported earnings** duri
 
 #### Perfect Alignment of Incentives
 
-- Managers want to appear injured ➡️ decrease earnings
+- Managers want to appear injured  &#8674; decrease earnings
 - Debtholders tolerate lower earnings (expect relief benefits)
 - No sophisticated monitoring by regulator
 
@@ -347,7 +347,7 @@ Managers systematically manipulate accruals downward **specifically during** inv
 #### What Well Do Today
 
 - Move from theory to execution
-- See my Jones (1991) replication
+- See my Jones (1991) interpretation
 - Explore rough website analysis
 - **All code/data on GitHub** (live demos)
 - Your job: Critique, spot problems, suggest improvements
@@ -364,6 +364,11 @@ Managers systematically manipulate accruals downward **specifically during** inv
 ::::
 
 ##### *You've had access—we'll walk through key decisions*
+
+:::{.callout-important}
+# Disclaimer
+This is a **re-interpretation** of Jones (1991), **not a strict replication**. Analyses are preliminary and unreviewed; treat all findings as exploratory. Results may change as data and methods are refined.
+:::
 
 
 
@@ -507,15 +512,18 @@ Knowledge of investigation types is crucial for sample selection and interpretat
    - First-difference approach
    - Event-study (DiD-style plot)
 4. What we could add to align with contemporary EM literature
+
+<br>
+
+[&#9874; Jones-esque analysis page](https://caspardp.github.io/phd-lecture-dec/lecture-materials/playground/revisiting-jones.html)
+
+
 :::
 ::: {.column}
 ![](/assets/jones-main-t5.png)
 
 :::
 :::
-
-[&#9874; Jones-esque analysis page](https://caspardp.github.io/phd-lecture-dec/lecture-materials/playground/revisiting-jones.html)
-
 
 
 
@@ -974,8 +982,6 @@ Evaluate: Would your alternative be **better** or **worse** than websites? Why?
 #### What You'll Find
 
 - Complete replication code
-- Sample construction details
-- Diagnostic plots and tables
 - Website scraping scripts
 - Preliminary text analysis
 :::

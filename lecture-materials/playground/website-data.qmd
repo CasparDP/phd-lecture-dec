@@ -141,6 +141,14 @@ website_cohorts %>%
 
 ```
 
+Simple correlation test between Jones residuals and injury-related word ratio: `r sprintf("%.2f", cor(website_cohorts$jones, website_cohorts$injury_word_ratio, use = "complete.obs"))`.
+
+<!-- ```{r}
+# Simple correlation for treated firms only
+
+cor_test_treated <- website_cohorts %>%
+  summarize(correlation = cor(jones, injury_word_ratio, use = "complete.obs"))
+``` -->
 
 ## What about treated vs. control firms?
 

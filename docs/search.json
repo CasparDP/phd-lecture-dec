@@ -92,7 +92,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#jones1991earnings-1",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "Jones (1991)",
-    "text": "Jones (1991)\nInstitutional Setting: Why This Is A Clean Setup\nThe ITC Import Relief Process\n\nU.S. International Trade Commission investigates injury to domestic producers\nProfitability is an explicit factor in injury determination\nTariff increases/quota reductions are granted if the industry is deemed injured\n\nPerfect Alignment of Incentives\n\nManagers want to appear injured ➡️ decrease earnings\nDebtholders tolerate lower earnings (expect relief benefits)\nNo sophisticated monitoring by regulator\n\n\n\n\n\n\n\nCritical Feature\n\n\nThe ITC does not verify any information in the audited financial statements or 10-Ks, nor do they make any adjustments to these data… The ITC does not attempt to adjust the financial data for accounting procedures used or for accrual decisions made by the firms’ managers",
+    "text": "Jones (1991)\nInstitutional Setting: Why This Is A Clean Setup\nThe ITC Import Relief Process\n\nU.S. International Trade Commission investigates injury to domestic producers\nProfitability is an explicit factor in injury determination\nTariff increases/quota reductions are granted if the industry is deemed injured\n\nPerfect Alignment of Incentives\n\nManagers want to appear injured ⇢ decrease earnings\nDebtholders tolerate lower earnings (expect relief benefits)\nNo sophisticated monitoring by regulator\n\n\n\n\n\n\n\nCritical Feature\n\n\nThe ITC does not verify any information in the audited financial statements or 10-Ks, nor do they make any adjustments to these data… The ITC does not attempt to adjust the financial data for accounting procedures used or for accrual decisions made by the firms’ managers",
     "crumbs": [
       "Slides",
       "Earnings Management Then and Now: Revisiting Jones (1991)"
@@ -147,7 +147,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#part-2-research-in-action-1",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "PART 2: RESEARCH IN ACTION",
-    "text": "PART 2: RESEARCH IN ACTION\nFrom Papers to Practice\n\n\nWhat Well Do Today\n\nMove from theory to execution\nSee my Jones (1991) replication\nExplore rough website analysis\nAll code/data on GitHub (live demos)\nYour job: Critique, spot problems, suggest improvements\n\n\nMaterials Available\n\n🔗 GitHub repo\n\nJones replication page\nWebsite analysis page\nR & Python scripts for data and analysis\n\n\n\nYou’ve had access—we’ll walk through key decisions",
+    "text": "PART 2: RESEARCH IN ACTION\nFrom Papers to Practice\n\n\nWhat Well Do Today\n\nMove from theory to execution\nSee my Jones (1991) interpretation\nExplore rough website analysis\nAll code/data on GitHub (live demos)\nYour job: Critique, spot problems, suggest improvements\n\n\nMaterials Available\n\n🔗 GitHub repo\n\nJones replication page\nWebsite analysis page\nR & Python scripts for data and analysis\n\n\n\nYou’ve had access—we’ll walk through key decisions\n\n\n\n\n\n\nDisclaimer\n\n\nThis is a re-interpretation of Jones (1991), not a strict replication. Analyses are preliminary and unreviewed; treat all findings as exploratory. Results may change as data and methods are refined.",
     "crumbs": [
       "Slides",
       "Earnings Management Then and Now: Revisiting Jones (1991)"
@@ -191,7 +191,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#phase-1-the-replication-journey-4",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "PHASE 1: THE REPLICATION JOURNEY",
-    "text": "PHASE 1: THE REPLICATION JOURNEY\nLive Demo: Replication Results\n\n\n\nWhat we’ll look at:\n\nSample construction & coverage\nKey results table (compare to Jones Table 5)\nDiscretionary accruals\n\nFirst-difference approach\nEvent-study (DiD-style plot)\n\nWhat we could add to align with contemporary EM literature\n\n\n\n\n⚒ Jones-esque analysis page",
+    "text": "PHASE 1: THE REPLICATION JOURNEY\nLive Demo: Replication Results\n\n\n\nWhat we’ll look at:\n\nSample construction & coverage\nKey results table (compare to Jones Table 5)\nDiscretionary accruals\n\nFirst-difference approach\nEvent-study (DiD-style plot)\n\nWhat we could add to align with contemporary EM literature\n\n\n⚒ Jones-esque analysis page",
     "crumbs": [
       "Slides",
       "Earnings Management Then and Now: Revisiting Jones (1991)"
@@ -312,7 +312,7 @@
     "href": "lecture-materials/slides/lecture-slides.html#wrapping-up-2",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "WRAPPING UP",
-    "text": "WRAPPING UP\nAccess Everything\n\n\nGitHub Repository\n🔗 Main repo\n🔗 Jones-esque analyses\n🔗 Website analysis\n🔗 Scripts\n\nWhat You’ll Find\n\nComplete replication code\nSample construction details\nDiagnostic plots and tables\nWebsite scraping scripts\nPreliminary text analysis\n\n\nEverything is documented—you can reproduce or extend this work\n\n\n\n\n\n\nFor Your Own Research\n\n\nThink of this repo structure as a template. Clear organization, documented decisions, reproducible code—these habits will save you (and your coauthors) countless hours.",
+    "text": "WRAPPING UP\nAccess Everything\n\n\nGitHub Repository\n🔗 Main repo\n🔗 Jones-esque analyses\n🔗 Website analysis\n🔗 Scripts\n\nWhat You’ll Find\n\nComplete replication code\nWebsite scraping scripts\nPreliminary text analysis\n\n\nEverything is documented—you can reproduce or extend this work\n\n\n\n\n\n\nFor Your Own Research\n\n\nThink of this repo structure as a template. Clear organization, documented decisions, reproducible code—these habits will save you (and your coauthors) countless hours.",
     "crumbs": [
       "Slides",
       "Earnings Management Then and Now: Revisiting Jones (1991)"
@@ -506,7 +506,7 @@
     "href": "index.html",
     "title": "Earnings Management Then and Now: Revisiting Jones (1991)",
     "section": "",
-    "text": "WORK IN PROGESS\n[1] \"Last updated: 2025-11-18 21:22:39\""
+    "text": "Lecture Overview"
   },
   {
     "objectID": "index.html#about-this-lecture",
