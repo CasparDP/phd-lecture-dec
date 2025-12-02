@@ -156,7 +156,7 @@ format: revealjs
 
 ##### Applications: [[Private Equity]{.button}](#application-private-equity-deals) [[Nonfinancial Disclosures in France]{.button}](#application-nonfinancial-disclosures-in-france)
 
-[[Devil's Advocate]{.button}](#are-these-correlations-validating-or-concerning?)
+[[Devil's Advocate]{.button}](#devils-advocate)
 
 
 :::
@@ -950,7 +950,7 @@ Evaluate: Would your alternative be **better** or **worse** than websites? Why?
    - Are incentives/institutions still aligned?
 
 2. **Thinking in stages**
-   - Check ➡️ Refine ➡️ Invest
+   - Check &#8674; Refine &#8674; Invest
    - Each stage has decision points
    - Knowing when to stop is a skill
 
@@ -1015,7 +1015,7 @@ Evaluate: Would your alternative be **better** or **worse** than websites? Why?
 ### Web Scraping Steps
 :::{.columns}
 ::: {.column width="90%"}
-![Sampling steps](/assets/sampling-steps.png)
+![Sampling steps](/assets/sampling-steps.png){width="40%"}
 :::
 ::: {.column width="10%"}
 
@@ -1027,7 +1027,7 @@ Evaluate: Would your alternative be **better** or **worse** than websites? Why?
 ### Coverage
 :::{.columns}
 ::: {.column width="90%"}
-![Coverage](/assets/coverage.png)
+![Coverage](/assets/coverage.png){width="80%"}
 :::
 ::: {.column width="10%"}
 
@@ -1039,7 +1039,7 @@ Evaluate: Would your alternative be **better** or **worse** than websites? Why?
 ### Coverage Over Time
 :::{.columns}
 ::: {.column width="90%"}
-![Coverage Over Time](/assets/comparision-over-time.png)
+![Coverage Over Time](/assets/comparision-over-time.png){width="80%"}
 :::
 ::: {.column width="10%"}
 
@@ -1063,7 +1063,7 @@ Evaluate: Would your alternative be **better** or **worse** than websites? Why?
 ### Information Asymmetry and Website Disclosure
 :::{.columns}
 ::: {.column width="90%"}
-![Information Asymmetry and Website Disclosure](/assets/websites-bidaskspreads.png)
+![Information Asymmetry and Website Disclosure](/assets/websites-bidaskspreads.png){width="40%"}
 :::
 ::: {.column width="10%"}
 
@@ -1075,7 +1075,7 @@ Evaluate: Would your alternative be **better** or **worse** than websites? Why?
 ### Application: Private Equity Deals
 :::{.columns}
 ::: {.column width="90%"}
-![Application: Private Equity Deals](/assets/websites-PE.png)
+![Application: Private Equity Deals](/assets/websites-PE.png){width="80%"}
 :::
 ::: {.column width="10%"}
 
@@ -1087,7 +1087,7 @@ Evaluate: Would your alternative be **better** or **worse** than websites? Why?
 ### Application: Nonfinancial Disclosures in France
 :::{.columns}
 ::: {.column width="90%"}
-![Application: Nonfinancial Disclosures in France](/assets/websites-compliance.png)
+![Application: Nonfinancial Disclosures in France](/assets/websites-compliance.png){width="50%"}
 :::
 ::: {.column width="10%"}
 
@@ -1096,11 +1096,10 @@ Evaluate: Would your alternative be **better** or **worse** than websites? Why?
 :::
 
 ## @boulland2025company
-### Are these correlations validating or concerning?
-
+### Devil's Advocate
 ##### Are these correlations validating or concerning?
 
-::::{.columns}
+::: {.columns}
 ::: {.column width="50%"}
 #### Interpretation A (Optimistic):
 
@@ -1124,6 +1123,6 @@ Evaluate: Would your alternative be **better** or **worse** than websites? Why?
 
 😕 Designer decisions, not CFO strategy
 :::
-::::
+:::
 
 Which is it? [[Back]{.button}](#company-websites-a-new-measure-of-disclosure-1)

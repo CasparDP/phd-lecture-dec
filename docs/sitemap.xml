@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://CasparDP.github.io/phd-lecture-dec/lecture-materials/slides/lecture-slides.html</loc>
-    <lastmod>2025-11-21T14:27:46.154Z</lastmod>
+    <lastmod>2025-12-02T12:58:36.600Z</lastmod>
   </url>
   <url>
     <loc>https://CasparDP.github.io/phd-lecture-dec/lecture-materials/playground/revisiting-jones.html</loc>
@@ -35,5 +35,13 @@
   <url>
     <loc>https://CasparDP.github.io/phd-lecture-dec/lecture-materials/handouts/institutional-background.html</loc>
     <lastmod>2025-11-12T08:03:42.194Z</lastmod>
+  </url>
+  <url>
+    <loc>https://CasparDP.github.io/phd-lecture-dec/lecture-materials/lecture-notes/lecture_notes.html</loc>
+    <lastmod>2025-12-02T10:51:27.120Z</lastmod>
+  </url>
+  <url>
+    <loc>https://CasparDP.github.io/phd-lecture-dec/lecture-materials/lecture-notes/lecture-notes-prompt.html</loc>
+    <lastmod>2025-12-02T10:22:47.358Z</lastmod>
   </url>
 </urlset>

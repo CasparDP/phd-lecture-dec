@@ -87,3 +87,8 @@ assets/website_caspar_old.css
 data-prep/Scripts/IMPLEMENTATION_SUMMARY.md
 data-prep/Scripts/INFO_SUMMARIZER.md
 data-prep/Scripts/example_usage.sh
+lecture-materials/lecture-notes/
+lecture-materials/lecture-notes/lecture-notes-prompt.md
+lecture-materials/lecture-notes/lecture_notes.qmd
+# Do not share lecture notes yet
+docs/lecture-materials/lecture-notes/
